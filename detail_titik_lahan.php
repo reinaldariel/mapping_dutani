@@ -1,6 +1,6 @@
 <?php
 //error_reporting(0);
-include "../includes/config2.php";
+include "includes/config2.php";
 session_start();
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
@@ -15,18 +15,18 @@ if(!isset($_SESSION['user'])){
     <meta name="keywords" content="" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../css/morris.css" type="text/css"/>
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/morris.css" type="text/css"/>
     <!-- Graph CSS -->
-    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
-    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
     <!-- tables -->
-    <link rel="stylesheet" type="text/css" href="../css/table-style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/basictable.css" />
-    <script type="text/javascript" src="../js/jquery.basictable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/table-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/basictable.css" />
+    <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
     <script type="text/javascript">
         //open newwindows
         function MM_openBrWindow(theURL,winName,features) { //v2.0
@@ -42,7 +42,7 @@ if(!isset($_SESSION['user'])){
     </script>
     <!-- //tables -->
     <!-- lined-icons -->
-    <link rel="stylesheet" href="../css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
 </head>
 <body>
@@ -175,7 +175,7 @@ if(!isset($_SESSION['user'])){
     </div>
     <!--//content-inner-->
     <!--/sidebar-menu-->
-    <?php include "../sidebar.php"?>
+    <?php include "sidebar.php"?>
     <div class="clearfix"></div>
 </div>
 <script>
@@ -199,10 +199,10 @@ if(!isset($_SESSION['user'])){
     });
 </script>
 <!--js -->
-<script src="../js/jquery.nicescroll.js"></script>
-<script src="../js/scripts.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/scripts.js"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- /Bootstrap Core JavaScript -->
 
 </body>

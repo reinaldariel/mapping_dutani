@@ -12,7 +12,7 @@
                 echo '<li id="menu-academico" ><a href="cari.php"><i class="fa fa-search"></i><span>Pencarian</span><div class="clearfix"></div></a></li>';
             }?>
             <li><a href="daftar_lahan_per_petani.php"><i class="fa fa-map-marker"></i> <span>Lahan</span><div class="clearfix"></div></a></li>
-            <li><a href="service/detail_titik_lahan.php?id_lahan=1"><i class="fa fa-map-marker"></i> <span>Detil Lahan</span><div class="clearfix"></div></a></li>
+            <li><a href="detail_titik_lahan.php?id_lahan=1"><i class="fa fa-map-marker"></i> <span>Detil Lahan</span><div class="clearfix"></div></a></li>
             <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span><div class="clearfix"></div></a></li>
         </ul>
     </div>
