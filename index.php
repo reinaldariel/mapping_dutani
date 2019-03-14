@@ -88,11 +88,11 @@ if(!isset($_SESSION['user'])){
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     <?php }else{
-                        $str = file_get_contents('http://localhost/mapping-dutatani/service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
+                        $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
                         $json = json_decode($str, true);
                         $jml_lahan_tercatat = count($json);
 
-                        $str = file_get_contents('http://localhost/mapping-dutatani/service/read_one_petani.php?id_user='.$_SESSION['user']);
+                        $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$_SESSION['user']);
                         $json = json_decode($str, true);
                         foreach ($json as $head) {
                             $counter = 0;

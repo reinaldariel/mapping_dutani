@@ -2,7 +2,7 @@
 class Database{
     // specify your own database credentials
     private $host = "localhost";
-    private $db_name = "dutaninu";
+    private $db_name = "iais_ukdw";
     private $username = "root";
     private $password = "";
     public $conn;
@@ -21,3 +21,5 @@ class Database{
         return $this->conn;
     }
 }
+
+$BASE_URL="http://localhost/dutatani_mapping/";
