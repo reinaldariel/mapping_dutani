@@ -49,6 +49,7 @@ if(!isset($_SESSION['user'])){
 
                     <!--<div class="toolbar"> -->
                     <?php
+                    if ($_SESSION['kategori'] == "ADP"){
                     if($_POST){
                         $kdes=$_POST['des'];
                         $kklp=$_POST['klp'];
@@ -86,6 +87,27 @@ if(!isset($_SESSION['user'])){
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    <?php }else{
+                        $str = file_get_contents('http://localhost/mapping-dutatani/service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
+                        $json = json_decode($str, true);
+                        $jml_lahan_tercatat = count($json);
+
+                        $str = file_get_contents('http://localhost/mapping-dutatani/service/read_one_petani.php?id_user='.$_SESSION['user']);
+                        $json = json_decode($str, true);
+                        foreach ($json as $head) {
+                            $counter = 0;
+                            foreach ($head as $key => $val) {
+                                if ($counter == 1) {
+                                    echo "<p>Lahan milik : </p>" . $val . "<br><br>";
+                                }
+                                elseif ($counter == 9){
+                                    echo "<p>Jumlah lahan : </p>".$val."<br><br>";
+                                    echo "<p>Jumlah lahan tercatat : </p>".$jml_lahan_tercatat;
+                                }
+                                $counter++;
+                            }
+                        }
+                    } ?>
                 </div>
                 </header>
 
@@ -94,17 +116,21 @@ if(!isset($_SESSION['user'])){
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <?php
 //                    $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.longitude as longitude,l.latitude as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l, master_kel_tani k where p.ID_User = l.id_user_petani AND p.ID_Kelompok_Tani = k.ID_Kelompok_Tani AND l.id_user_petani not in('') AND l.ID_Lahan not in('')";
-                    $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.longitude as longitude,l.latitude as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.id_user_petani AND l.id_user_petani not in('') AND l.ID_Lahan not in('')";
-                    if(!empty($_POST['des'])){
-                        $list="".$list." and l.Desa='$_POST[des]'";
-                    }
+                    if($_SESSION['kategori'] == "ADP") {
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
+//                        if (!empty($_POST['des'])) {
+//                            $list = "" . $list . " and l.Desa='$_POST[des]'";
+//                        }
 //                    if(!empty($_POST['klp'])){
 //                        $list="".$list." and k.Nama_Kelompok_Tani='$_POST[klp]'";
 //                    }
-//                    $list=mysql_query($list);
-                    $stmt = $conn->prepare($list);
-                    $stmt->execute();
-
+                        $stmt = $conn->prepare($list);
+                        $stmt->execute();
+                    }else{
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
+                        $stmt = $conn->prepare($list);
+                        $stmt->execute();
+                    }
 
 
                     ?>
@@ -132,7 +158,7 @@ if(!isset($_SESSION['user'])){
                         ];
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 15, //level zoom
+                            zoom: 20, //level zoom
                             scaleControl: true,
                             center:latLng,
                             mapTypeId: google.maps.MapTypeId.ROADMAP

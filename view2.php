@@ -2,13 +2,12 @@
 //error_reporting(0);
 session_start();
 include "includes/config.php";
-include "includes/fungsi.php";
 $id=$_GET['id'];
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>:: DETAIL WARGA DISABILITAS ::</title>
+<title>Detail Lahan</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
 </head>
@@ -20,11 +19,6 @@ $id=$_GET['id'];
 
 	  
 		echo "<div id=\"$id\" class=\"full\">";
-		echo "<h2 align=\"center\"><img src=images/header.jpg></h2>\n";?>
-		
-				
-		<?php
-		////////////////////////
 		echo "<fieldset>\n";
 		echo "	<table width=\"10%\" border=\"0\" cellspacing=\"0\" cellpadding=\"3\" id=\"Over1\">\n";
 		echo "	  <tr align='left'><td>"; ?>

@@ -14,7 +14,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $myusername = $_POST['id_user'];
     $mypassword = hash('SHA1', $_POST['password']);
 
-    $sql = "SELECT * FROM master_user WHERE id_user = '$myusername' AND password = '$mypassword' LIMIT 1";
+//    $sql = "SELECT * FROM master_user WHERE id_user = '$myusername' AND password = '$mypassword' LIMIT 1";
+    $sql = "SELECT m.ID_User as 'ID_User',m.Password as 'Password',k.ID_Kategori as 'Kategori' FROM master_user m, master_user_kat k WHERE m.ID_User = k.ID_User AND m.ID_User = '$myusername' AND m.password = '$mypassword' LIMIT 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
@@ -22,6 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             session_start();
             $_SESSION["user"] = $row["ID_User"];
+            $_SESSION["kategori"] = $row["Kategori"];
         }
     }
     header("location: ../index.php");

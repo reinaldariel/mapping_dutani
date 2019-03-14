@@ -8,7 +8,10 @@
         <ul id="menu" >
             <li><a href="profil.php"><i class="fa fa-user"></i> <span>Profile</span><div class="clearfix"></div></a></li>
             <li><a href="index.php"><i class="fa fa-tachometer"></i> <span>Pemetaan</span><div class="clearfix"></div></a></li>
-            <li id="menu-academico" ><a href="cari.php"><i class="fa fa-search"></i><span>Pencarian</span><div class="clearfix"></div></a></li>
+            <?php if ($_SESSION['kategori']== "ADP"){
+                echo '<li id="menu-academico" ><a href="cari.php"><i class="fa fa-search"></i><span>Pencarian</span><div class="clearfix"></div></a></li>';
+            }?>
+            <li><a href="daftar_lahan_per_petani.php"><i class="fa fa-map-marker"></i> <span>Lahan</span><div class="clearfix"></div></a></li>
             <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span><div class="clearfix"></div></a></li>
         </ul>
     </div>
