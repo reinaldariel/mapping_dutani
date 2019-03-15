@@ -50,7 +50,7 @@ $str_titik_all = '';
     <!-- //tables -->
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false&libraries=geometry" type="text/javascript"></script>
     <!-- //lined-icons -->
 </head>
 <body>
@@ -139,6 +139,7 @@ $str_titik_all = '';
 
                         var infowindow = new google.maps.InfoWindow();
 
+                        //set polygon area
                         var line_locations = [
                             <?php
                             $json = json_decode($str_titik_all, true);
@@ -152,7 +153,8 @@ $str_titik_all = '';
                                 }
                             }
                             ?>
-                            ];
+                        ];
+
                         var lahanPath = new google.maps.Polygon({
                           path: line_locations,
                           geodesic: true,
@@ -162,6 +164,25 @@ $str_titik_all = '';
                         });
 
                         lahanPath.setMap(map);
+
+                        //calculate distance
+                        //var lengthInMeters = google.maps.geometry.spherical.computeLength(lahanPath.getPath());
+
+                        //calculate area
+                        function roundUp(num, precision) {
+                          precision = Math.pow(10, precision)
+                          return Math.ceil(num * precision) / precision
+                        }
+
+                        var lengthInMeters = google.maps.geometry.spherical.computeArea(lahanPath.getPath());
+
+                        //add listener info
+                        google.maps.event.addListener(lahanPath,'click', function (event) {
+                            infowindow.setContent("Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                            infowindow.setPosition(event.latLng);
+                            infowindow.open(map,lahanPath);
+                        });
+
                     </script>
 
                 </div>
