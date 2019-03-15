@@ -2,11 +2,11 @@
 include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
-$id_user = $_GET['id_user'];
+$id_lahan = $_GET['id_lahan'];
 
 try {
     $stmt = $conn->prepare("SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ?");
-    $stmt->bindParam(1, $id_user);
+    $stmt->bindParam(1, $id_lahan);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();

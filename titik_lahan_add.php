@@ -1,16 +1,38 @@
 <?php
 //error_reporting(0);
 include "includes/config2.php";
+
+$database = new Database();
+$conn = $database->getConnection();
+
 session_start();
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
 
-$database = new Database();
-$conn = $database->getConnection();
+/*if (isset($_POST['lat']))
+{
+  $hasil='';
+  if(!isset($_GET['id_detail'])){
+    $hasil= $tanah->simpan_tanah($_POST['Des_singkat'], $_POST['Des_lengkap'], 
+      $_FILES['Foto_tanah'], $_POST['Alamat_tanah'], $_POST['Kota'], $_POST['Harga']);
+    
+  }
+  else{
+    $hasil= $tanah->update_tanah($_GET['Id_tanah'], $_POST['Des_singkat'], $_POST['Des_lengkap'], 
+      $_FILES['Foto_tanah'], $_POST['Alamat_tanah'], $_POST['Kota'], $_POST['Harga']);    
+  }
+  if ($hasil=="sukses"){
+    echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
+    echo "<meta http-equiv='refresh' content='1;url=kelola_tanah.php'>";
+  }
+  else{
+    echo "<div class='box box-danger row callout callout-info' style='text-align: right'><h4>Gagal!</h4></div>";
+  }
+}*/
 
 //init
-$str_titik_all = '';
+$str_titik_center = '';
 
 ?>
 <!DOCTYPE HTML>
@@ -47,10 +69,10 @@ $str_titik_all = '';
         });
 
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
     <!-- //tables -->
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
     <!-- //lined-icons -->
 </head>
 <body>
@@ -61,31 +83,7 @@ $str_titik_all = '';
                <!--grid-->
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Detil Titik Lahan Pertanian</h2>
-
-                    <!--<div class="toolbar"> -->
-                    <?php
-                    $penambahan_lahan =0;
-                    if ($_SESSION['kategori'] == "PET"){
-                        $str_titik_all = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
-                        $json = json_decode($str_titik_all, true);
-                        $jml_titik_tercatat = count($json);
-
-                        $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$_SESSION['user']);
-                        $json = json_decode($str, true);
-                        foreach ($json as $head) {
-                            $counter = 0;
-                            foreach ($head as $key => $val) {
-                                if ($counter == 1) {
-                                    echo "<p>Lahan milik : </p>" . $val . "<br><br>";
-                                }
-                                elseif ($counter == 9){
-                                    echo "<p>Jumlah lahan : </p>".$val."<br><br>";
-                                }
-                                $counter++;
-                            }
-                        }
-                    } ?>
+                    <h2>Tambah Titik Lahan Pertanian</h2>
                 </div>
 
 
@@ -104,15 +102,23 @@ $str_titik_all = '';
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }else{
-                        $list = "SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ".$_GET['id_lahan'];
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }
+
+                    $str_titik_all = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
+                    $json_titik_all = json_decode($str_titik_all, true);
+                    $jml_titik_tercatat = count($json_titik_all);
+
+                    $str_titik_center = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
+                    $json_titik_center = json_decode($str_titik_center, true);
+
                     ?>
                     <script type="text/javascript">
                         var locations = [
                             <?php
-                            $json = json_decode($str_titik_all, true);
+                            $json = json_decode($str_titik_center, true);
                             if (count($json) > 0) {
                                 foreach ($json as $key => $val) {
                                     $content="'<div id=\"content\">'+
@@ -129,6 +135,7 @@ $str_titik_all = '';
                             }
                             ?>
                         ];
+
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 20, //level zoom
@@ -139,29 +146,51 @@ $str_titik_all = '';
 
                         var infowindow = new google.maps.InfoWindow();
 
-                        var line_locations = [
-                            <?php
-                            $json = json_decode($str_titik_all, true);
-                            if (count($json) > 0) {
-                                foreach ($json as $key => $val) {
-                                    if($key == count($json)-1){
-                                        echo "{lat:".$val['lat'].", lng:".$val['longt']."}";
-                                    }else{
-                                        echo "{lat:".$val['lat'].", lng:".$val['longt']."},";
-                                    }
+                        var marker, i;
+                        /* kode untuk menampilkan banyak marker */
+                        for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                            marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                map: map,
+                                draggable : false,
+                                animation: google.maps.Animation.DROP
+                            });
+                            /* menambahkan event click untuk menampilkan
+                             info windows dengan isi sesuai dengan marker yg di klik */
+                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                return function() {
+                                    infowindow.setContent(locations[i][3]);
+                                    infowindow.open(map, marker);
                                 }
-                            }
-                            ?>
-                            ];
-                        var lahanPath = new google.maps.Polygon({
-                          path: line_locations,
-                          geodesic: true,
-                          strokeColor: '#FF0000',
-                          strokeOpacity: 1.0,
-                          strokeWeight: 2
-                        });
+                            })(marker, i));
+                        }
 
-                        lahanPath.setMap(map);
+                        //Add listener
+                        google.maps.event.addListener(map, "click", function (event) {
+                            var latitude = event.latLng.lat();
+                            var longitude = event.latLng.lng();
+                            //console.log( latitude + ', ' + longitude );
+                            document.getElementById('lat').value = latitude;
+                            document.getElementById('longt').value = longitude;
+
+                            radius = new google.maps.Circle({map: map,
+                                radius: 4,
+                                center: event.latLng,
+                                fillColor: '#777',
+                                fillOpacity: 0.1,
+                                strokeColor: '#AA0000',
+                                strokeOpacity: 0.8,
+                                strokeWeight: 2,
+                                draggable: true,    // Dragable
+                                editable: true      // Resizable
+                            });
+
+                            // Center of map
+                            map.panTo(new google.maps.LatLng(latitude,longitude));
+
+                        }); //end addListener
+
+
                     </script>
 
                 </div>
@@ -170,51 +199,23 @@ $str_titik_all = '';
             </div>
 
             <div class="agile-grids">
-                <!-- tables -->
-
-                <div class="grid-form">
-                    <div class="grid-form1">
-                        <h2>Data Titik Lahan Petani</h2>
-                        <button type="button" class="btn btn-success" name="titik_lahan_add" id="titik_lahan_add" onclick="goAdd(<?php echo $_GET['id_lahan']; ?>)"> + Tambah Titik</button>
-                        <table id="table">
-                            <thead>
-                            <tr>
-                                <th>ID Titik Lahan</th>
-                                <th>Lat</th>
-                                <th>Long</th>
-                                <th>Aksi</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $json = json_decode($str_titik_all, true);
-                            if (count($json) > 0) {
-                                foreach ($json as $key => $val) {?>
-                                    <tr>
-                                        <td><?php echo $val['id_detail']?></td>
-                                        <td><?php echo $val['lat']?></td>
-                                        <td><?php echo $val['longt']?></td>
-                                        <td>
-                                        <center>
-                                          <a href="kelola_tanah_add.php?Id_tanah=<?php echo $value['Id_tanah'];?>" class="btn btn-warning">Ubah</a>
-                                          <a href="kelola_tanah.php?Id_tanah_hapus=<?php echo $value['Id_tanah']; ?>" class="btn btn-danger">Hapus</a>
-                                        </center>
-                                        </td>
-                                    </tr>
-                                <?php 
-                                }
-                            }
-                            else { ?>
-                                <tr>
-                                    <td colspan="8">Belum ada lahan tercatat</td>
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                <form action="service/insert_one_titik_lahan.php" method="post">
+                    <div class="grid-form">
+                        <div class="grid-form1">
+                            <div class="form-group">
+                              <label>Latitude</label>
+                              <input type="text" value="" name="lat" id="lat" class="form-control">
+                            </div>
+                            <div class="form-group">
+                              <label>Longitude</label>
+                              <input type="text" value="" name="longt" id="longt" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="simpan_tanah" onclick="goAdd()">Simpan</button>
+                            <input type="hidden" value="<?php echo isset($_GET['id_lahan'])? $_GET['id_lahan']: 0 ?>" name="id_lahan" id="id_lahan" class="form-control">
+                            <input type="hidden" value="<?php echo isset($_GET['id_detail'])? $_GET['id_detail']: 0 ?>" name="id_detail" id="id_detail" class="form-control">
+                        </div>
                     </div>
-
-                </div>
-                <!-- //tables -->
+                </form>
             </div>
 
             <!-- script-for sticky-nav -->
@@ -245,7 +246,6 @@ $str_titik_all = '';
             <!--COPY rights end here-->
         </div>
     </div>
-    </input>
     <!--//content-inner-->
     <!--/sidebar-menu-->
     <?php include "sidebar.php" ?>
@@ -271,8 +271,8 @@ $str_titik_all = '';
         toggle = !toggle;
     });
 
-    function goAdd(id_lahan){
-        document.location = "titik_lahan_add.php?id_lahan="+id_lahan;
+    function goAdd(){
+        document.location = "titik_lahan_add.php";
     }
 </script>
 <!--js -->
