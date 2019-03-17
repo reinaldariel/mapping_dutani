@@ -96,7 +96,7 @@ if(!isset($_SESSION['user'])){
                     <div class="grid-form1">
                         <h2>Data Lahan Petani</h2>
                         <?php if($penambahan_lahan > 0 ) {
-                            echo '<button type="button" class="btn btn-success"> + Tambah Lahan</button>';
+                            echo '<button type="button" class="btn btn-success"><a href="tambah_lahan.php" style="color: white">+ Tambah Lahan</a></button>';
                         }?>
                         <table id="table">
                             <thead>

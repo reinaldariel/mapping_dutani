@@ -118,9 +118,8 @@ $str_titik_center = '';
                     <script type="text/javascript">
                         var locations = [
                             <?php
-                            $json = json_decode($str_titik_center, true);
-                            if (count($json) > 0) {
-                                foreach ($json as $key => $val) {
+                            if ($jml_titik_tercatat > 0) {
+                                foreach ($json_titik_center as $key => $val) {
                                     $content="'<div id=\"content\">'+
                                         '<div id=\"siteNotice\">'+
                                         '</div>'+
@@ -132,9 +131,14 @@ $str_titik_center = '';
                                         '</ul></div></div>'";
                                     echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt'].",".$content."],";
                                 }
+                            }else{
+                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                                $val = $stmt->fetch();
+                                echo "['".$val['id_lahan']."',".$val['latitude'].",".$val['longitude']."]";
                             }
                             ?>
                         ];
+
 
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
@@ -144,25 +148,31 @@ $str_titik_center = '';
                             mapTypeId: google.maps.MapTypeId.ROADMAP
                         });
 
-                        var infowindow = new google.maps.InfoWindow();
 
-                        var marker, i;
-                        /* kode untuk menampilkan banyak marker */
-                        for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
-                            marker = new google.maps.Marker({
-                                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                                map: map,
-                                draggable : false,
-                                animation: google.maps.Animation.DROP
-                            });
-                            /* menambahkan event click untuk menampilkan
-                             info windows dengan isi sesuai dengan marker yg di klik */
-                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                                return function() {
-                                    infowindow.setContent(locations[i][3]);
-                                    infowindow.open(map, marker);
-                                }
-                            })(marker, i));
+
+                        if (locations.length = 1){
+
+                        }
+                        else if (locations.length > 0) {
+                            var infowindow = new google.maps.InfoWindow();
+                            var marker, i;
+                            /* kode untuk menampilkan banyak marker */
+                            for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                                marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                    map: map,
+                                    draggable: false,
+                                    animation: google.maps.Animation.DROP
+                                });
+                                /* menambahkan event click untuk menampilkan
+                                 info windows dengan isi sesuai dengan marker yg di klik */
+                                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                    return function () {
+                                        infowindow.setContent(locations[i][3]);
+                                        infowindow.open(map, marker);
+                                    }
+                                })(marker, i));
+                            }
                         }
 
                         //Add listener
