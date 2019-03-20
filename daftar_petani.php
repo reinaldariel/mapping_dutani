@@ -5,8 +5,8 @@ session_start();
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
-if($_SESSION['kategori'] == 'ADP'){
-    echo "<script>location.href='daftar_petani.php'</script>";
+if($_SESSION['kategori'] == 'PET'){
+    echo "<script>location.href='daftar_lahan_per_petani.php'</script>";
 }
 ?>
 <!DOCTYPE HTML>
@@ -53,91 +53,54 @@ if($_SESSION['kategori'] == 'ADP'){
     <!--/content-inner-->
     <div class="left-content">
         <div class="mother-grid-inner">
-               <!--grid-->
-            <div class="grid-form">
-                <div class="grid-form1">
-                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
-
-                    <!--<div class="toolbar"> -->
-                    <?php
-                    $penambahan_lahan =0;
-                    if ($_SESSION['kategori'] == "PET"){
-                        $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
-                        $json = json_decode($str, true);
-                        $jml_lahan_tercatat = count($json);
-
-                        $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$_SESSION['user']);
-                        $json = json_decode($str, true);
-                        foreach ($json as $head) {
-                            $counter = 0;
-                            foreach ($head as $key => $val) {
-                                if ($counter == 1) {
-                                    echo "<p>Lahan milik : </p>" . $val . "<br><br>";
-                                }
-                                elseif ($counter == 9){
-                                    echo "<p>Jumlah lahan : </p>".$val."<br><br>";
-                                    echo "<p>Jumlah lahan tercatat : </p>".$jml_lahan_tercatat."<br><br>";
-                                    $penambahan_lahan = $val-$jml_lahan_tercatat;
-                                    echo "<p>Anda dapat menambah ".$penambahan_lahan." lahan</p>";
-                                }
-                                $counter++;
-                            }
-                        }
-                    } ?>
-                </div>
-
-
-            </div>
-            <!--//grid-->
-
             <div class="agile-grids">
-                <!-- tables -->
-
-                <!--	<div class="agile-tables">
-                        <div class="w3l-table-info"> -->
                 <div class="grid-form">
                     <div class="grid-form1">
-                        <h2>Data Lahan Petani</h2>
-                        <?php if($penambahan_lahan > 0 ) {
-                            echo '<button type="button" class="btn btn-success"><a href="lahan_add.php" style="color: white">+ Tambah Lahan</a></button>';
-                        }?>
+                        <h2>Data Petani</h2>
                         <table id="table">
                             <thead>
                             <tr>
-                                <th>ID Lahan</th>
-                                <th>Luas Lahan</th>
-                                <th>Jenis Lahan</th>
-                                <th>Alamat</th>
+                                <th>ID Petani</th>
+                                <th>Nama Petani</th>
+                                <th>Jumlah Lahan</th>
+                                <th>Jumlah Lahan Tercatat</th>
+                                <th>Jumlah lahan yang bisa ditambahkan</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
-                            $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
+                            $bisa = "";
+                            $str = file_get_contents($BASE_URL.'service/read_petani.php');
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
                                 foreach ($json as $head) {
                                     $counter = 0;
+                                    $idp = "";
                                     $tbl_cont = "<tr>";
                                     foreach ($head as $key => $val) {
-                                        if ($counter == 0 or $counter == 4 or $counter == 5) {
+                                        if ($counter == 0) {
+                                            $idp = $val;
                                             $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
-                                        } elseif ($counter == 6) {
-                                            $tbl_cont = $tbl_cont . "<td>" . $val . ", ";
-                                        } elseif ($counter == 7 or $counter == 8) {
-                                            $tbl_cont = $tbl_cont . $val . ", ";
-                                        } elseif ($counter == 9) {
-                                            $tbl_cont = $tbl_cont . $val . "</td>";
+                                        } elseif ($counter == 4) {
+                                            $bisa = $val;
+                                            $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
+                                        } else {
+                                            $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
                                         }
                                         $counter++;
                                     }
-                                    echo "$tbl_cont.<td><button type='button' class='btn btn-info'>Detail</button><button type='button' class='btn btn-warning'>Ubah</button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
+                                    if ($bisa == 0) {
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                    } else {
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                    }
                                 }
                             }
                             else {
                                 ?>
                                 <tr>
-                                    <td colspan="8">Belum ada lahan tercatat</td>
+                                    <td colspan="8">Belum ada petani tercatat</td>
                                 </tr>
                             <?php } ?>
                             </tbody>
