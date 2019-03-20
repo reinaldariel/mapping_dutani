@@ -57,6 +57,7 @@ if($_SESSION['kategori'] == 'PET'){
                 <div class="grid-form">
                     <div class="grid-form1">
                         <h2>Data Petani</h2>
+
                         <table id="table">
                             <thead>
                             <tr>
@@ -73,7 +74,10 @@ if($_SESSION['kategori'] == 'PET'){
                             $bisa = "";
                             $str = file_get_contents($BASE_URL.'service/read_petani.php');
                             $json = json_decode($str, true);
-                            if (count($json) > 0) {
+                            $str = file_get_contents($BASE_URL.'service/read_petani_tanpa_lahan.php');
+                            $json2 = json_decode($str, true);
+                            $cnt = count($json) + count($json2);
+                            if ($cnt > 0) {
                                 foreach ($json as $head) {
                                     $counter = 0;
                                     $idp = "";
@@ -81,12 +85,35 @@ if($_SESSION['kategori'] == 'PET'){
                                     foreach ($head as $key => $val) {
                                         if ($counter == 0) {
                                             $idp = $val;
-                                            $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . $val . "</td>";
                                         } elseif ($counter == 4) {
                                             $bisa = $val;
-                                            $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . $val . "</td>";
                                         } else {
-                                            $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                        }
+                                        $counter++;
+                                    }
+                                    if ($bisa == 0) {
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                    } else {
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                    }
+                                }foreach ($json2 as $head) {
+                                    $counter = 0;
+                                    $idp = "";
+                                    $tbl_cont = "<tr>";
+                                    foreach ($head as $key => $val) {
+                                        if ($counter == 0) {
+                                            $idp = $val;
+                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                        } elseif ($counter == 2) {
+                                            $bisa = $val;
+                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                        } else {
+                                            $tbl_cont .= "<td>" . $val . "</td>";
                                         }
                                         $counter++;
                                     }
