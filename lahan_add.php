@@ -57,7 +57,7 @@ if ($idp == $_SESSION['user']){
                 <div class="grid-form1">
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
 
-                    <form action="service/insert_lahan.php" method="post">
+                    <form action="service/insert_lahan.php" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label>Nama Petani</label>
@@ -141,8 +141,9 @@ if ($idp == $_SESSION['user']){
                             <label>Status Lahan</label>
                             <select class="form-control" id="status_lahan" name="status_lahan" required>
                                 <option value="" disabled selected> Status Lahan </option>
-                                <option value="organik"> Organik </option>
-                                <option value="non_organik"> Non-organik </option>
+                                <option value="milik"> milik </option>
+                                <option value="sewa"> sewa </option>
+                                <option value="garap"> garap </option>
                         </div>
                         <div class="form-group">
                             <label>Status Lahan</label>
@@ -227,7 +228,7 @@ if ($idp == $_SESSION['user']){
 
                         <div class="form-group">
                             <label class="control-label">Foto </label>
-                            <input type="file" name="fileToUpload">
+                            <input type="file" name="filenya">
                         </div>
 
                         <div class="form-group">
@@ -240,7 +241,8 @@ if ($idp == $_SESSION['user']){
                         </div>
                         <div id="map" style="width: auto; height: 450px;"></div>
 
-                        <button type="submit" class="btn btn-primary" id="simpan_tanah">Simpan</button>
+                        <input class="btn btn-primary btn-lg" id="simpan_tanah" type="submit" value="Simpan">
+<!--                        <input type="submit" class="btn btn-primary" id="simpan_tanah" value"Simpan">Simpan</input>-->
                     </form>
                 </div>
 
