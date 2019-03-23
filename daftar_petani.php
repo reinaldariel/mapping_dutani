@@ -95,9 +95,9 @@ if($_SESSION['kategori'] == 'PET'){
                                         $counter++;
                                     }
                                     if ($bisa == 0) {
-                                        echo "$tbl_cont.<td><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-info'><a style='color: white' href='daftar_lahan_per_petani.php?id=" . $idp . "'>Detail</a></button></td></tr>";
                                     } else {
-                                        echo "$tbl_cont.<td><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'><a style='color: white' href='daftar_lahan_per_petani.php?id=" . $idp . "'>Detail</a></button></td></tr>";
                                     }
                                 }foreach ($json2 as $head) {
                                     $counter = 0;
@@ -118,9 +118,9 @@ if($_SESSION['kategori'] == 'PET'){
                                         $counter++;
                                     }
                                     if ($bisa == 0) {
-                                        echo "$tbl_cont.<td><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-info'><a style='color: white' href='daftar_lahan_per_petani.php?id=" . $idp . "'>Detail</a></button></td></tr>";
                                     } else {
-                                        echo "$tbl_cont.<td><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'>Detail</button></td></tr>";
+                                        echo "$tbl_cont.<td><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'><a style='color: white' href='daftar_lahan_per_petani.php?id=" . $idp . "'>Detail</a></button></td></tr>";
                                     }
                                 }
                             }

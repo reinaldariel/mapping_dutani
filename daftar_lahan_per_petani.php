@@ -5,9 +5,7 @@ session_start();
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
-if($_SESSION['kategori'] == 'ADP'){
-    echo "<script>location.href='daftar_petani.php'</script>";
-}
+$id = $_GET['id'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -62,11 +60,11 @@ if($_SESSION['kategori'] == 'ADP'){
                     <?php
                     $penambahan_lahan =0;
                     if ($_SESSION['kategori'] == "PET"){
-                        $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
+                        $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
                         $json = json_decode($str, true);
                         $jml_lahan_tercatat = count($json);
 
-                        $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$_SESSION['user']);
+                        $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$id);
                         $json = json_decode($str, true);
                         foreach ($json as $head) {
                             $counter = 0;
@@ -105,6 +103,7 @@ if($_SESSION['kategori'] == 'ADP'){
                             <thead>
                             <tr>
                                 <th>ID Lahan</th>
+                                <th>Nama Lahan</th>
                                 <th>Luas Lahan</th>
                                 <th>Jenis Lahan</th>
                                 <th>Alamat</th>
@@ -113,20 +112,20 @@ if($_SESSION['kategori'] == 'ADP'){
                             </thead>
                             <tbody>
                             <?php
-                            $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
+                            $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
                                 foreach ($json as $head) {
                                     $counter = 0;
                                     $tbl_cont = "<tr>";
                                     foreach ($head as $key => $val) {
-                                        if ($counter == 0 or $counter == 4 or $counter == 5) {
+                                        if ($counter == 0 or $counter == 2 or $counter == 5 or $counter == 6) {
                                             $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
-                                        } elseif ($counter == 6) {
+                                        } elseif ($counter == 7) {
                                             $tbl_cont = $tbl_cont . "<td>" . $val . ", ";
-                                        } elseif ($counter == 7 or $counter == 8) {
+                                        } elseif ($counter == 8 or $counter == 9) {
                                             $tbl_cont = $tbl_cont . $val . ", ";
-                                        } elseif ($counter == 9) {
+                                        } elseif ($counter == 10) {
                                             $tbl_cont = $tbl_cont . $val . "</td>";
                                         }
                                         $counter++;

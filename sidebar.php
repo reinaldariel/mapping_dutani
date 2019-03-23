@@ -10,8 +10,11 @@
             <li><a href="index.php"><i class="fa fa-tachometer"></i> <span>Pemetaan</span><div class="clearfix"></div></a></li>
             <?php if ($_SESSION['kategori']== "ADP"){
                 echo '<li id="menu-academico" ><a href="cari.php"><i class="fa fa-search"></i><span>Pencarian</span><div class="clearfix"></div></a></li>';
-            }?>
-            <li><a href="daftar_lahan_per_petani.php"><i class="fa fa-map-marker"></i> <span>Lahan</span><div class="clearfix"></div></a></li>
+                echo '<li><a href="daftar_petani.php"><i class="fa fa-map-marker"></i> <span>Daftar Lahan Petani</span><div class="clearfix"></div></a></li>';
+            }else{
+                echo '<li><a href="daftar_lahan_per_petani.php?id='.$_SESSION['user'].'"><i class="fa fa-map-marker"></i> <span>Lahan</span><div class="clearfix"></div></a></li>';
+            }
+            ?>
             <li><a href="detail_titik_lahan.php?id_lahan=1"><i class="fa fa-map-marker"></i> <span>Detil Lahan</span><div class="clearfix"></div></a></li>
             <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span><div class="clearfix"></div></a></li>
         </ul>
