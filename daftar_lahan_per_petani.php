@@ -59,7 +59,7 @@ $id = $_GET['id'];
                     <!--<div class="toolbar"> -->
                     <?php
                     $penambahan_lahan =0;
-                    if ($_SESSION['kategori'] == "PET"){
+
                         $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
                         $json = json_decode($str, true);
                         $jml_lahan_tercatat = count($json);
@@ -81,7 +81,7 @@ $id = $_GET['id'];
                                 $counter++;
                             }
                         }
-                    } ?>
+                     ?>
                 </div>
 
 
@@ -120,17 +120,18 @@ $id = $_GET['id'];
                                     $tbl_cont = "<tr>";
                                     foreach ($head as $key => $val) {
                                         if ($counter == 0 or $counter == 2 or $counter == 5 or $counter == 6) {
-                                            $tbl_cont = $tbl_cont . "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . $val . "</td>";
                                         } elseif ($counter == 7) {
-                                            $tbl_cont = $tbl_cont . "<td>" . $val . ", ";
+                                            $tbl_cont .= "<td>" . $val . ", ";
                                         } elseif ($counter == 8 or $counter == 9) {
-                                            $tbl_cont = $tbl_cont . $val . ", ";
+                                            $tbl_cont .= $val . ", ";
                                         } elseif ($counter == 10) {
-                                            $tbl_cont = $tbl_cont . $val . "</td>";
+                                            $tbl_cont .= $val."</td>";
                                         }
                                         $counter++;
                                     }
-                                    echo "$tbl_cont.<td><button type='button' class='btn btn-info'>Detail</button><button type='button' class='btn btn-warning'>Ubah</button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
+
+                                    echo $tbl_cont."<td><button type='button' class='btn btn-info'>Detail</button><button type='button' class='btn btn-warning'>Ubah</button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
                                 }
                             }
                             else {
