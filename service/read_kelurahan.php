@@ -5,7 +5,7 @@ $database = new Database();
 $conn = $database->getConnection();
 try {
 
-        $stmt = $conn->prepare("SELECT Desa from master_peta_lahan");
+        $stmt = $conn->prepare("SELECT DISTINCT Desa from master_peta_lahan");
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();

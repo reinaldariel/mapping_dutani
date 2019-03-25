@@ -49,45 +49,47 @@ if(!isset($_SESSION['user'])){
 
                     <!--<div class="toolbar"> -->
                     <?php
-                    if ($_SESSION['kategori'] == "ADP"){
-                    if($_POST){
-                        $kdes=$_POST['des'];
-                        $kklp=$_POST['klp'];
-                    }else{
-                        $kdes='';
-                        $kklp='';
-                    }
-                    ?>
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Kelurahan</label>
-                            <select name="des" class="form-control">
-                                <option value="" selected>- Semua Desa Kelurahan -</option>
-                                <?php $str = file_get_contents('http://localhost/mapping-dutatani/service/read_kelurahan.php');
-                                $json = json_decode($str, true);
-                                foreach ($json as $head){
-                                    foreach ($head as $key => $val)
-                                    echo "<option value='".$val."'>".$val."</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Kelompok Tani</label>
-                            <select name="klp" class="form-control">
-                                <option value="" selected>- Semua Kelompok Tani -</option>
-                                <?php $str = file_get_contents('http://localhost/mapping-dutatani/service/read_klptani.php');
-                                $json = json_decode($str, true);
-                                foreach ($json as $head){
-                                    foreach ($head as $key => $val)
-                                        echo "<option value='".$val."'>".$val."</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <?php }else{
+//                    if ($_SESSION['kategori'] == "ADP"){
+//                    if($_POST){
+//                        $kdes=$_POST['des'];
+//                        $kklp=$_POST['klp'];
+//                    }else{
+//                        $kdes='';
+//                        $kklp='';
+//                    }
+//                    ?>
+<!--                    <form action="" method="post">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="exampleInputEmail1">Kelurahan</label>-->
+<!--                            <select name="des" class="form-control">-->
+<!--                                <option value="" selected>- Semua Desa Kelurahan -</option>-->
+<!--                                --><?php //$str = file_get_contents($BASE_URL.'service/read_kelurahan.php');
+//                                $json = json_decode($str, true);
+//                                foreach ($json as $head){
+//                                    foreach ($head as $key => $val) {
+//                                        echo "<option value='" . $val . "'>" . $val . "</option>";
+//                                    }
+//                                }
+//                                ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="exampleInputPassword1">Kelompok Tani</label>-->
+<!--                            <select name="klp" class="form-control">-->
+<!--                                <option value="" selected>- Semua Kelompok Tani -</option>-->
+<!--                                --><?php //$str = file_get_contents($BASE_URL.'service/read_klptani.php');
+//                                $json = json_decode($str, true);
+//                                foreach ($json as $head){
+//                                    foreach ($head as $key => $val)
+//                                        echo "<option value='".$val."'>".$val."</option>";
+//                                }
+//                                ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--                    </form>-->
+<!--                    --><?php //}else{
+                        if($_SESSION['kategori'] == "PET"){
                         $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
                         $json = json_decode($str, true);
                         $jml_lahan_tercatat = count($json);
@@ -206,7 +208,7 @@ if(!isset($_SESSION['user'])){
 <!--                    </div>-->
 <!---->
 <!--                </div>-->
-<!--            </div>-->-->
+<!--            </div>-->
 <!--            <div class="col-md-3 four-grid">-->
 <!--                <div class="four-agileits">-->
 <!--                    <div class="icon">-->
