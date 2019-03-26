@@ -150,7 +150,7 @@ if(!isset($_SESSION['user'])){
                                 '<img width=200 src=\"".$row['foto']."\" ' +
                                 '<ul>'+
                                 '<li> ".$row['desa']."' +
-                                '<li> <a href=\"view2.php?id=".$row['id_lahan']."\" target=\"_blank\">Detail</a>' +
+                                '<li> <a href=\"detail_lahan.php?id_lahan=".$row['id_lahan']."\" target=\"_blank\">Detail</a>' +
                                 '</ul></div></div>'";
                             echo "['".$row['id_lahan']."',".$row['latitude'].",".$row['longitude'].",".$content."],";
                             }
