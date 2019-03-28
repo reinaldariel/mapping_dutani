@@ -66,12 +66,12 @@ $str_titik_all = '';
                     <!--<div class="toolbar"> -->
                     <?php
                     $penambahan_lahan =0;
-                    if ($_SESSION['kategori'] == "PET"){
+
                         $str_titik_all = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
                         $json = json_decode($str_titik_all, true);
                         $jml_titik_tercatat = count($json);
 
-                        $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$_SESSION['user']);
+                        $str = file_get_contents($BASE_URL.'service/read_one_petani_berdasar_lahan.php?id_lahan='.$_GET['id_lahan']);
                         $json = json_decode($str, true);
                         foreach ($json as $head) {
                             $counter = 0;
@@ -79,13 +79,10 @@ $str_titik_all = '';
                                 if ($counter == 1) {
                                     echo "<p>Lahan milik : </p>" . $val . "<br><br>";
                                 }
-                                elseif ($counter == 9){
-                                    echo "<p>Jumlah lahan : </p>".$val."<br><br>";
-                                }
                                 $counter++;
                             }
                         }
-                    } ?>
+                     ?>
                 </div>
 
 
@@ -98,33 +95,24 @@ $str_titik_all = '';
 <div class="agileits-box-body clearfix">
 
                     <div id="map" style="width: auto; height: 450px;"></div>
-                    <?php
-                    if($_SESSION['kategori'] == "ADP") {
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
-                        $stmt = $conn->prepare($list);
-                        $stmt->execute();
-                    }else{
-                        $list = "SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ".$_GET['id_lahan'];
-                        $stmt = $conn->prepare($list);
-                        $stmt->execute();
-                    }
-                    ?>
+<!--                    --><?php
+//                    if($_SESSION['kategori'] == "ADP") {
+//                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
+//                        $stmt = $conn->prepare($list);
+//                        $stmt->execute();
+//                    }else{
+//                        $list = "SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ".$_GET['id_lahan'];
+//                        $stmt = $conn->prepare($list);
+//                        $stmt->execute();
+//                    }
+//                    ?>
                     <script type="text/javascript">
                         var locations = [
                             <?php
                             $json = json_decode($str_titik_all, true);
                             if (count($json) > 0) {
                                 foreach ($json as $key => $val) {
-                                    $content="'<div id=\"content\">'+
-                                        '<div id=\"siteNotice\">'+
-                                        '</div>'+
-                                        '<h4 id=\"firstHeading\" class=\"firstHeading\">".$val['id_lahan']."</h4>'+
-                                        '<h6>".$val['id_detail']."</h6>'+
-                                        '<div id=\"bodyContent\"><p>'+
-                                        '<ul>'+
-                                        '<li> <a href=\"view2.php?id=".$val['id_detail']."\" target=\"_blank\">Detail</a>' +
-                                        '</ul></div></div>'";
-                                    echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt'].",".$content."],";
+                                    echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt']."],";
                                 }
                             }
                             ?>
@@ -217,8 +205,8 @@ $str_titik_all = '';
                                         <td><?php echo $val['longt']?></td>
                                         <td>
                                         <center>
-                                          <a href="kelola_tanah_add.php?Id_tanah=<?php echo $value['Id_tanah'];?>" class="btn btn-warning">Ubah</a>
-                                          <a href="kelola_tanah.php?Id_tanah_hapus=<?php echo $value['Id_tanah']; ?>" class="btn btn-danger">Hapus</a>
+                                          <a href="kelola_tanah_add.php?Id_tanah=<?php echo $val['id_lahan'];?>" class="btn btn-warning">Ubah</a>
+                                          <a href="kelola_tanah.php?Id_tanah_hapus=<?php echo $val['id_lahan']; ?>" class="btn btn-danger">Hapus</a>
                                         </center>
                                         </td>
                                     </tr>
