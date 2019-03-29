@@ -70,11 +70,11 @@ $id = $_GET['id'];
                             $counter = 0;
                             foreach ($head as $key => $val) {
                                 if ($counter == 1) {
-                                    echo "<p>Lahan milik : </p>" . $val . "<br><br>";
+                                    echo "<p>Lahan milik : " . $val . "</p>";
                                 }
                                 elseif ($counter == 9){
-                                    echo "<p>Jumlah lahan : </p>".$val."<br><br>";
-                                    echo "<p>Jumlah lahan tercatat : </p>".$jml_lahan_tercatat."<br><br>";
+                                    echo "<p>Jumlah lahan : ".$val."</p>";
+                                    echo "<p>Jumlah lahan tercatat : ".$jml_lahan_tercatat."</p>";
                                     $penambahan_lahan = $val-$jml_lahan_tercatat;
                                     echo "<p>Anda dapat menambah ".$penambahan_lahan." lahan</p>";
                                 }
@@ -97,7 +97,7 @@ $id = $_GET['id'];
                     <div class="grid-form1">
                         <h2>Data Lahan Petani</h2>
                         <?php if($penambahan_lahan > 0 ) {
-                            echo '<button type="button" class="btn btn-success"><a href="lahan_add.php" style="color: white">+ Tambah Lahan</a></button>';
+                            echo '<button type="button" class="btn btn-success"><a href="lahan_add.php?id='.$id.'" style="color: white">+ Tambah Lahan</a></button>';
                         }?>
                         <table id="table">
                             <thead>
