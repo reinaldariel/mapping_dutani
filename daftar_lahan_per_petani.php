@@ -112,6 +112,7 @@ $id = $_GET['id'];
                             </thead>
                             <tbody>
                             <?php
+                            $id_lhn="";
                             $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
@@ -119,7 +120,10 @@ $id = $_GET['id'];
                                     $counter = 0;
                                     $tbl_cont = "<tr>";
                                     foreach ($head as $key => $val) {
-                                        if ($counter == 0 or $counter == 2 or $counter == 5 or $counter == 6) {
+                                        if ($counter == 0){
+                                            $id_lhn = $val;
+                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                        } elseif ($counter == 2 or $counter == 5 or $counter == 6) {
                                             $tbl_cont .= "<td>" . $val . "</td>";
                                         } elseif ($counter == 7) {
                                             $tbl_cont .= "<td>" . $val . ", ";
@@ -131,7 +135,7 @@ $id = $_GET['id'];
                                         $counter++;
                                     }
 
-                                    echo $tbl_cont."<td><button type='button' class='btn btn-info'>Detail</button><button type='button' class='btn btn-warning'>Ubah</button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
+                                    echo $tbl_cont."<td><button type='button' class='btn btn-info'><a href='detail_titik_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'>Ubah</button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
                                 }
                             }
                             else {
