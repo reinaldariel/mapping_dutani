@@ -205,8 +205,8 @@ $str_titik_all = '';
                                         <td><?php echo $val['longt']?></td>
                                         <td>
                                         <center>
-                                          <a href="kelola_tanah_add.php?Id_tanah=<?php echo $val['id_lahan'];?>" class="btn btn-warning">Ubah</a>
-                                          <a href="kelola_tanah.php?Id_tanah_hapus=<?php echo $val['id_lahan']; ?>" class="btn btn-danger">Hapus</a>
+                                            <a href="titik_lahan_add.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail'];?>" class="btn btn-warning">Ubah</a>
+                                            <a href="service/hapus_titik_lahan.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail']; ?>" class="btn btn-danger">Hapus</a>
                                         </center>
                                         </td>
                                     </tr>

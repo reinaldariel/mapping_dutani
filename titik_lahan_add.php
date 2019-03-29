@@ -10,29 +10,35 @@ if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
 
-/*if (isset($_POST['lat']))
-{
-  $hasil='';
-  if(!isset($_GET['id_detail'])){
-    $hasil= $tanah->simpan_tanah($_POST['Des_singkat'], $_POST['Des_lengkap'], 
-      $_FILES['Foto_tanah'], $_POST['Alamat_tanah'], $_POST['Kota'], $_POST['Harga']);
+
+// if (isset($_GET['id_detail']))
+// {
+//     $str_titik = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
+//     $json = json_decode($str_titik, true);
     
-  }
-  else{
-    $hasil= $tanah->update_tanah($_GET['Id_tanah'], $_POST['Des_singkat'], $_POST['Des_lengkap'], 
-      $_FILES['Foto_tanah'], $_POST['Alamat_tanah'], $_POST['Kota'], $_POST['Harga']);    
-  }
-  if ($hasil=="sukses"){
-    echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
-    echo "<meta http-equiv='refresh' content='1;url=kelola_tanah.php'>";
-  }
-  else{
-    echo "<div class='box box-danger row callout callout-info' style='text-align: right'><h4>Gagal!</h4></div>";
-  }
-}*/
+//   $hasil='';
+//   if(!isset($_GET['id_detail'])){
+//     $hasil= $tanah->simpan_tanah($_POST['Des_singkat'], $_POST['Des_lengkap'], 
+//       $_FILES['Foto_tanah'], $_POST['Alamat_tanah'], $_POST['Kota'], $_POST['Harga']);
+    
+//   }
+//   else{
+//     $hasil= $tanah->update_tanah($_GET['Id_tanah'], $_POST['Des_singkat'], $_POST['Des_lengkap'], 
+//       $_FILES['Foto_tanah'], $_POST['Alamat_tanah'], $_POST['Kota'], $_POST['Harga']);    
+//   }
+//   if ($hasil=="sukses"){
+//     echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
+//     echo "<meta http-equiv='refresh' content='1;url=kelola_tanah.php'>";
+//   }
+//   else{
+//     echo "<div class='box box-danger row callout callout-info' style='text-align: right'><h4>Gagal!</h4></div>";
+//   }
+//}
 
 //init
 $str_titik_center = '';
+$titik_lat = 0;
+$titik_long = 0;
 
 ?>
 <!DOCTYPE HTML>
@@ -98,7 +104,7 @@ $str_titik_center = '';
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <?php
                     if($_SESSION['kategori'] == "ADP") {
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('') AND l.ID_Lahan= ".$_GET['id_lahan'];
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }else{
@@ -111,6 +117,16 @@ $str_titik_center = '';
                     $json_titik_all = json_decode($str_titik_all, true);
                     $jml_titik_tercatat = count($json_titik_all);
 
+                    if (isset($_GET['id_detail'])){
+                        //cek titik yang ingin diubah
+                        foreach ($json_titik_all as $key => $value) {
+                            if($value['id_detail'] == $_GET['id_detail']){
+                                $titik_lat = $value['lat'];
+                                $titik_long = $value['longt'];
+                            }
+                        }
+                    }
+
                     $str_titik_center = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
                     $json_titik_center = json_decode($str_titik_center, true);
 
@@ -118,8 +134,9 @@ $str_titik_center = '';
                     <script type="text/javascript">
                         var locations = [
                             <?php
-                            if ($jml_titik_tercatat > 0) {
-                                foreach ($json_titik_center as $key => $val) {
+                            $json = json_decode($str_titik_center, true);
+                            if (count($json) > 0) {
+                                foreach ($json as $key => $val) {
                                     $content="'<div id=\"content\">'+
                                         '<div id=\"siteNotice\">'+
                                         '</div>'+
@@ -131,48 +148,51 @@ $str_titik_center = '';
                                         '</ul></div></div>'";
                                     echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt'].",".$content."],";
                                 }
-                            }else{
-                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                                $val = $stmt->fetch();
-                                echo "['".$val['id_lahan']."',".$val['latitude'].",".$val['longitude']."]";
                             }
                             ?>
                         ];
-
 
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 20, //level zoom
                             scaleControl: true,
                             center:latLng,
-                            mapTypeId: google.maps.MapTypeId.HYBRID
+                            mapTypeId: google.maps.MapTypeId.ROADMAP
                         });
 
+                        var infowindow = new google.maps.InfoWindow();
 
-
-                        if (locations.length = 1){
-
-                        }
-                        else if (locations.length > 0) {
-                            var infowindow = new google.maps.InfoWindow();
-                            var marker, i;
-                            /* kode untuk menampilkan banyak marker */
-                            for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                        var marker, i;
+                        /* kode untuk menampilkan banyak marker */
+                        for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                            //cek jika marker adalah yang akan diedit maka warna hijau
+                            if(locations[i][1] == <?php echo $titik_lat; ?>){
                                 marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                                     map: map,
-                                    draggable: false,
+                                    draggable : false,
+                                    animation: google.maps.Animation.DROP,
+                                    icon: {
+                                        url: "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+                                    }
+                                });
+                            }else{
+                                marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                    map: map,
+                                    draggable : false,
                                     animation: google.maps.Animation.DROP
                                 });
-                                /* menambahkan event click untuk menampilkan
-                                 info windows dengan isi sesuai dengan marker yg di klik */
-                                google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                                    return function () {
-                                        infowindow.setContent(locations[i][3]);
-                                        infowindow.open(map, marker);
-                                    }
-                                })(marker, i));
                             }
+                            
+                            /* menambahkan event click untuk menampilkan
+                             info windows dengan isi sesuai dengan marker yg di klik */
+                            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                                return function() {
+                                    infowindow.setContent(locations[i][3]);
+                                    infowindow.open(map, marker);
+                                }
+                            })(marker, i));
                         }
 
                         //Add listener
@@ -214,11 +234,11 @@ $str_titik_center = '';
                         <div class="grid-form1">
                             <div class="form-group">
                               <label>Latitude</label>
-                              <input type="text" value="" name="lat" id="lat" class="form-control">
+                              <input type="text" value="<?php echo $titik_lat; ?>" name="lat" id="lat" class="form-control">
                             </div>
                             <div class="form-group">
                               <label>Longitude</label>
-                              <input type="text" value="" name="longt" id="longt" class="form-control">
+                              <input type="text" value="<?php echo $titik_long; ?>" name="longt" id="longt" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary" id="simpan_tanah" onclick="goAdd()">Simpan</button>
                             <input type="hidden" value="<?php echo isset($_GET['id_lahan'])? $_GET['id_lahan']: 0 ?>" name="id_lahan" id="id_lahan" class="form-control">
