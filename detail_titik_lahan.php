@@ -30,6 +30,7 @@ $str_titik_all = '';
     <link href="css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <!-- tables -->
     <link rel="stylesheet" type="text/css" href="css/table-style.css" />
     <link rel="stylesheet" type="text/css" href="css/basictable.css" />
@@ -43,7 +44,6 @@ $str_titik_all = '';
     <script type="text/javascript">
         $(document).ready(function() {
             $('#table').basictable();
-
         });
 
     </script>
@@ -119,7 +119,7 @@ $str_titik_all = '';
                         ];
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 20, //level zoom
+                            zoom: 19, //level zoom
                             scaleControl: true,
                             center:latLng,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -153,6 +153,19 @@ $str_titik_all = '';
 
                         lahanPath.setMap(map);
 
+                        var marker, i;
+                        /* kode untuk menampilkan banyak marker */
+                        <?php $json_titik_all = json_decode($str_titik_all, true); ?>
+                        for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                            marker = new google.maps.Marker({
+                                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                map: map,
+                                draggable : false,
+                                animation: google.maps.Animation.DROP,
+                                icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld='+locations[i][0]+'|FE6256|000000'
+                            });
+                        }
+
                         //calculate distance
                         //var lengthInMeters = google.maps.geometry.spherical.computeLength(lahanPath.getPath());
 
@@ -185,7 +198,7 @@ $str_titik_all = '';
                     <div class="grid-form1">
                         <h2>Data Titik Lahan Petani</h2>
                         <button type="button" class="btn btn-success" name="titik_lahan_add" id="titik_lahan_add" onclick="goAdd(<?php echo $_GET['id_lahan']; ?>)"> + Tambah Titik</button>
-                        <table id="table">
+                        <table id="table" class="table table-striped table-hover">
                             <thead>
                             <tr>
                                 <th>ID Titik Lahan</th>
@@ -283,6 +296,10 @@ $str_titik_all = '';
     function goAdd(id_lahan){
         document.location = "titik_lahan_add.php?id_lahan="+id_lahan;
     }
+
+    function goUpdatePosisi(){
+        alert('nice');
+    }
 </script>
 <!--js -->
 <script src="js/jquery.nicescroll.js"></script>
@@ -291,5 +308,38 @@ $str_titik_all = '';
 <script src="js/bootstrap.min.js"></script>
 <!-- /Bootstrap Core JavaScript -->
 
+<script type="text/javascript">
+    //$('tbody').sortable();
+    $('tbody').sortable({
+        disabled: false,
+        axis: 'y',
+        items: "> tr:not(:first)",
+        forceHelperSize: true,
+        start: function(event, ui) {
+            ui.item.data('originIndex', ui.item.index());
+            //alert("Posisi Awal " + ui.item.index());
+        },
+        update: function (event, ui) {
+            var originIndex = ui.item.data('originIndex');
+            var Newpos = ui.item.index();
+            var MovedItem
+            var RefID = $('tr').find('td:first').html();
+            //alert("New Position " + Newpos + "..... RefID: " + RefID + "Old Pos " + originIndex);
+            $.ajax({
+                url:"service/update_posisi_titik.php",
+                type:'post',
+                data:{
+                    id_indeks_start:originIndex,
+                    id_indeks_end:Newpos,
+                    id_lahan:<?php echo $_GET['id_lahan']?>
+                },
+                success:function(){
+                    alert('Lahan sudah berhasil diubah!');
+                    document.location.reload();
+                }
+            })
+        }
+    }).disableSelection();
+</script>
 </body>
 </html>

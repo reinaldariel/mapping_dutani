@@ -5,7 +5,7 @@ $conn = $database->getConnection();
 $id_lahan = $_GET['id_lahan'];
 
 try {
-    $stmt = $conn->prepare("SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ?");
+    $stmt = $conn->prepare("SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ? order by indeks asc");
     $stmt->bindParam(1, $id_lahan);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
