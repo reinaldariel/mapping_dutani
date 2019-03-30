@@ -9,17 +9,32 @@ $lat = $_POST['lat'];
 $longt = $_POST['longt'];
 
 try {
-    if(isset($id_detail)){
+    if(isset($id_detail) && $id_detail != 0){
         $stmt = $conn->prepare("update master_peta_lahan_detail set lat = ?, longt = ? where id_detail = ?");
         $stmt->bindParam(1, $lat);
         $stmt->bindParam(2, $longt);
         $stmt->bindParam(3, $id_detail);
     }
     else{
-        $stmt = $conn->prepare("insert into master_peta_lahan_detail (id_lahan, lat, longt) values (?,?,?)");
+        //get max indeks
+        $stmt = $conn->prepare("select max(indeks) as indeks from master_peta_lahan_detail where id_lahan = ?");
+        $stmt->bindParam(1, $id_lahan);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        if (isset($result[0]['indeks']) && $result[0]['indeks'] > 0){
+            $indeks = $result[0]['indeks']+1;
+        }
+        else{
+            $indeks = 1;
+        }
+
+
+        $stmt = $conn->prepare("insert into master_peta_lahan_detail (id_lahan, lat, longt, indeks) values (?,?,?,?)");
         $stmt->bindParam(1, $id_lahan);
         $stmt->bindParam(2, $lat);
         $stmt->bindParam(3, $longt);
+        $stmt->bindParam(4, $indeks);
     }
 
     $stmt->execute();
