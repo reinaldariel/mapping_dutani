@@ -70,7 +70,7 @@ if ($idp == $_SESSION['user']){
                                     <input type="text" value="" name="nama_lahan" id="nama_lahan" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Luas Lahan</label>
+                                    <label>Luas Lahan (dalam meter persegi/m2)</label>
                                     <input type="number" value="" name="luas_lahan" id="luas_lahan" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -168,7 +168,7 @@ if ($idp == $_SESSION['user']){
 
                                     </div>
                         <div class="form-group">
-                            <label>Kebutuhan Benih</label>
+                            <label>Kebutuhan Benih (dalam kg)</label>
                             <input type="number" value="" name="kebutuhan_benih" id="kebutuhan_benih" class="form-control">
                         </div>
                         <div class="form-group">

@@ -100,11 +100,11 @@ if(!isset($_SESSION['user'])){
                             $counter = 0;
                             foreach ($head as $key => $val) {
                                 if ($counter == 1) {
-                                    echo "<p>Lahan milik : </p>" . $val . "<br><br>";
+                                    echo "<p>Lahan milik : " . $val . "</p>";
                                 }
                                 elseif ($counter == 9){
-                                    echo "<p>Jumlah lahan : </p>".$val."<br><br>";
-                                    echo "<p>Jumlah lahan tercatat : </p>".$jml_lahan_tercatat;
+                                    echo "<p>Jumlah lahan : ".$val."</p>";
+                                    echo "<p>Jumlah lahan tercatat : ".$jml_lahan_tercatat." </p>";
                                 }
                                 $counter++;
                             }
