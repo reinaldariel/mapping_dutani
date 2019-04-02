@@ -23,6 +23,8 @@ $id = $_GET['id_lahan'];
     <link rel="stylesheet" href="css/morris.css" type="text/css"/>
     <!-- Graph CSS -->
     <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Modal IMG CSS-->
+    <link href="css/modal_image.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <!-- tables -->
@@ -107,6 +109,8 @@ $id = $_GET['id_lahan'];
                             }
                             else {
                                 ?>
+                        <table style="border: none">
+                            <tbody>
                                 <tr>
                                     <td colspan="8">Belum ada lahan tercatat</td>
                                 </tr>
@@ -160,7 +164,32 @@ $id = $_GET['id_lahan'];
 
                         <br>
                         <h4>Foto</h4>
-                        <img src="images/foto_lahan/<?php echo $foto ?>" alt="">
+                        <a href="./lahan_foto_add.php?id=<?php echo $id;?>" class="btn btn-success">Tambah Foto</a>
+                        <table style="border: none">
+                            <tbody>
+                            <tr>
+                        <?php
+                        $fotocounter=0;
+                        $str = file_get_contents($BASE_URL.'service/read_foto_lahan.php?id_lahan='.$id);
+                        $json = json_decode($str, true);
+                        if (count($json) > 0) {
+                            foreach ($json as $value) {
+                                echo "
+<td><img id='myImg".$fotocounter."' src='images/foto_lahan/".$value['foto']."' alt='".$value['foto']."' style='width:100%;max-width:200px'>
+</td>
+";
+                                $fotocounter++;
+                            }
+                        }
+                        else {
+                        ?>
+
+                                <td colspan="8">Belum ada foto tercatat</td>
+
+                            <?php } ?>
+                            </tr>
+                            </tbody>
+                        </table>
                         <br>
                         <h4>Lokasi</h4>
                         <div id="map" style="width: auto; height: 450px;"></div>
@@ -168,7 +197,18 @@ $id = $_GET['id_lahan'];
                 </div>
                 <!-- //tables -->
             </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
 
+                <!-- The Close Button -->
+                <span class="close">&times;</span>
+
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
             <!-- script for map -->
             <script type="text/javascript">
                 var locations = [
@@ -263,6 +303,40 @@ $id = $_GET['id_lahan'];
 
         toggle = !toggle;
     });
+</script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    <?php
+    for($i=0;$i< $fotocounter ;$i++) {
+        echo "var img".$i." = document.getElementById('myImg".$i."');";
+    }
+    ?>
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    <?php
+    for($i=0;$i< $fotocounter ;$i++) {
+       echo '
+       img'.$i.'.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+       ';
+    }
+    ?>
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
 </script>
 <!--js -->
 <script src="js/jquery.nicescroll.js"></script>

@@ -9,11 +9,11 @@ $id_lahan = $_POST['id_lahan'];
 //nama file
 $filename  = basename($_FILES['filenya']['name']);
 //extensi file yang diupload
-$extension = pathinfo($filename, PATHINFO_EXTENSION);
+//$extension = pathinfo($filename, PATHINFO_EXTENSION);
 //target directory
 $target_dir = $_SERVER["DOCUMENT_ROOT"]. "/mapping_dutani/images/foto_lahan/";
 //nama dan target file untuk cek extensi setelah diupload
-$target_file = $target_dir . $ID_User . "-" . $id_lahan . "." . $extension;
+$target_file = $target_dir . $ID_User . "-" . $id_lahan . "-" . $filename;
 //status upload
 $uploadOk= 1;
 //cek
@@ -22,7 +22,7 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 if ($_FILES["filenya"]["name"] == "") {
     $namaimage = "";
 } else {
-    $namaimage = $ID_User . "-" . $id_lahan . "." . $extension;
+    $namaimage = $ID_User . "-" . $id_lahan . "-" . $filename;
 }
 
 if(isset($_POST["submit"])) {

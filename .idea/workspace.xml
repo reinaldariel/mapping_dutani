@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbf3ddf1-2e7e-4a27-b055-51f5dfc182e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lahan_foto_add.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lahan_tanaman_add.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/insert_lahan_foto.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/insert_lahan_tanaman.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/read_foto_lahan.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/modal_image.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/modal_image.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daftar_lahan_per_petani.php" afterPath="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/config2.php" afterPath="$PROJECT_DIR$/includes/config2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_add.php" afterPath="$PROJECT_DIR$/lahan_add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/insert_lahan.php" afterPath="$PROJECT_DIR$/service/insert_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sidebar.php" afterPath="$PROJECT_DIR$/sidebar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail_lahan.php" afterPath="$PROJECT_DIR$/detail_lahan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_foto_add.php" afterPath="$PROJECT_DIR$/lahan_foto_add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/insert_lahan_foto.php" afterPath="$PROJECT_DIR$/service/insert_lahan_foto.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,12 +32,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config2.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/includes/config2.php">
+      <file leaf-file-name="detail_lahan.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/detail_lahan.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
+            <state relative-caret-position="93">
+              <caret line="200" column="12" lean-forward="true" selection-start-line="200" selection-start-column="12" selection-end-line="210" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#9449#9456#1#HTML" expanded="true" />
+                <marker date="1554229994311" expanded="false" signature="3080:3092" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="3094:5204" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="3138:5204" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="3183:3327" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="3372:3609" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="3654:3802" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="3847:3997" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="4042:4190" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="4235:4381" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="4426:4572" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="4617:4761" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="4806:4966" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="5011:5163" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="6373:7476" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="6409:7443" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="6442:6570" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="6603:6737" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="6770:6910" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="6943:7071" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="7104:7230" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="7263:7406" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="7716:7753" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="8507:8654" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="8511:8652" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="8619:8645" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="9878:10175" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="9937:9979" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="13989:14067" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="13989:14455" ph="..." />
+                <marker date="1554229994311" expanded="true" signature="14118:14455" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail_titik_lahan.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/detail_titik_lahan.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="199" column="168" lean-forward="false" selection-start-line="199" selection-start-column="167" selection-end-line="199" selection-end-column="168" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="insert_lahan_foto.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/service/insert_lahan_foto.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51">
+              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <folding>
+                <marker date="1554231276127" expanded="true" signature="2064:2181" ph="INSERT INTO `master_peta_lahan_foto`... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,26 +101,28 @@
       <file leaf-file-name="lahan_foto_add.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lahan_foto_add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1734">
-              <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
+            <state relative-caret-position="187">
+              <caret line="89" column="78" lean-forward="false" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
               <folding>
-                <element signature="e#3482#3524#0#PHP" expanded="true" />
-                <marker date="1554221448002" expanded="true" signature="331:438" ph="SELECT p.Nam... master_peta_lahan" />
-                <marker date="1554221448002" expanded="true" signature="632:691" ph="SELECT nama_... master_peta_lahan" />
-                <marker date="1554221448002" expanded="true" signature="3772:3947" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="3893:3904" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="4102:4299" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="4245:4256" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="5806:5807" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="5843:5892" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="6311:6389" ph="..." />
-                <marker date="1554221448002" expanded="true" signature="6354:6389" ph="{...}" />
+                <marker date="1554231017909" expanded="true" signature="331:438" ph="SELECT p.Nam... master_peta_lahan" />
+                <marker date="1554231017909" expanded="true" signature="632:691" ph="SELECT nama_... master_peta_lahan" />
+                <marker date="1554231017909" expanded="true" signature="4151:4292" ph="..." />
+                <marker date="1554231017909" expanded="true" signature="4259:4285" ph="..." />
+                <marker date="1554231017909" expanded="true" signature="5033:5034" ph="..." />
+                <marker date="1554231017909" expanded="true" signature="5070:5119" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -104,15 +157,18 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/service/insert_lahan.php" />
         <option value="$PROJECT_DIR$/service/read_lahan_one_petani.php" />
-        <option value="$PROJECT_DIR$/service/insert_lahan_foto.php" />
         <option value="$PROJECT_DIR$/service/insert_lahan_tanaman.php" />
         <option value="$PROJECT_DIR$/lahan_tanaman_add.php" />
         <option value="$PROJECT_DIR$/lahan_add.php" />
         <option value="$PROJECT_DIR$/service/read_foto_lahan.php" />
-        <option value="$PROJECT_DIR$/lahan_foto_add.php" />
         <option value="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
         <option value="$PROJECT_DIR$/sidebar.php" />
         <option value="$PROJECT_DIR$/includes/config2.php" />
+        <option value="$PROJECT_DIR$/css/modal_image.css" />
+        <option value="$PROJECT_DIR$/js/modal_image.js" />
+        <option value="$PROJECT_DIR$/detail_lahan.php" />
+        <option value="$PROJECT_DIR$/lahan_foto_add.php" />
+        <option value="$PROJECT_DIR$/service/insert_lahan_foto.php" />
       </list>
     </option>
   </component>
@@ -176,7 +232,67 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="foto_lahan" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mapping_dutani" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,6 +305,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dutatani" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/xampp/htdocs/mapping_dutani/detail_lahan.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -309,7 +426,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72930000" />
+    <option name="totallyTimeSpent" value="76721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -345,58 +462,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4505">
-          <caret line="265" column="15" lean-forward="true" selection-start-line="265" selection-start-column="15" selection-end-line="265" selection-end-column="35" />
-          <folding>
-            <marker date="1553849515538" expanded="true" signature="6227:6503" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="6983:7274" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="7687:8377" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="7746:7788" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8017:8371" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8020:8133" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8137:8365" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8177:8231" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8235:8360" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="143" column="8" lean-forward="false" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cari.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3621">
-          <caret line="213" column="29" lean-forward="false" selection-start-line="213" selection-start-column="29" selection-end-line="213" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1553849515538" expanded="true" signature="6227:6503" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="6983:7274" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="7687:8377" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="7746:7788" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8017:8371" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8020:8133" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8137:8365" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8177:8231" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8235:8360" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/read_kelurahan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -683,21 +748,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/service/read_one_lahan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="310" lean-forward="false" selection-start-line="7" selection-start-column="310" selection-end-line="7" selection-end-column="310" />
           <folding>
-            <marker date="1553586495311" expanded="true" signature="176:648" ph="SELECT l.ID_... master_peta_lahan" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/insert_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="79" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <marker date="1554210976658" expanded="true" signature="2823:3513" ph="INSERT INTO `master_peta_lahan`... " />
-            <marker date="1554210976658" expanded="true" signature="3529:4072" ph="INSERT INTO `master_peta_lahan`... " />
+            <marker date="1554226308340" expanded="true" signature="176:475" ph="SELECT l.ID_... master_peta_lahan" />
           </folding>
         </state>
       </provider>
@@ -745,23 +799,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/insert_lahan_foto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding>
-            <marker date="1554213201394" expanded="true" signature="2064:2181" ph="INSERT INTO `master_peta_lahan_foto`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -771,64 +813,6 @@
           <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding>
             <marker date="1552636599383" expanded="true" signature="174:223" ph="SELECT * FRO... master_peta_lahan" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detail_titik_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1097">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lahan_foto_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
-          <folding>
-            <element signature="e#3482#3524#0#PHP" expanded="true" />
-            <marker date="1554221448002" expanded="true" signature="331:438" ph="SELECT p.Nam... master_peta_lahan" />
-            <marker date="1554221448002" expanded="true" signature="632:691" ph="SELECT nama_... master_peta_lahan" />
-            <marker date="1554221448002" expanded="true" signature="3772:3947" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="3893:3904" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="4102:4299" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="4245:4256" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="5806:5807" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="5843:5892" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="6311:6389" ph="..." />
-            <marker date="1554221448002" expanded="true" signature="6354:6389" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detail_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1553591663883" expanded="false" signature="3034:3046" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3048:6371" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3092:6371" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3137:3281" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3326:3563" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3608:3756" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3801:3951" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="3996:4144" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="4189:4335" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="4380:4526" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="4571:4715" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="4760:4920" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="4965:5117" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="5162:5314" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="5359:5517" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="5562:5726" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="5771:5923" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="5968:6118" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="6163:6330" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="7371:7668" ph="..." />
-            <marker date="1553591663883" expanded="true" signature="7430:7472" ph="..." />
           </folding>
         </state>
       </provider>
@@ -849,6 +833,126 @@
         <state relative-caret-position="442">
           <caret line="26" column="22" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_tanaman_per_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+          <folding>
+            <marker date="1554226648647" expanded="true" signature="176:312" ph="SELECT t.*, master_peta_lahan_tanaman" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/insert_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-335">
+          <caret line="43" column="1" lean-forward="false" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding>
+            <marker date="1554225920779" expanded="true" signature="2823:3513" ph="INSERT INTO `master_peta_lahan`... " />
+            <marker date="1554225920779" expanded="true" signature="3529:3959" ph="INSERT INTO `master_peta_lahan`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/modal_image.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/modal_image.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detail_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="200" column="12" lean-forward="true" selection-start-line="200" selection-start-column="12" selection-end-line="210" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#9449#9456#1#HTML" expanded="true" />
+            <marker date="1554229994311" expanded="false" signature="3080:3092" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="3094:5204" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="3138:5204" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="3183:3327" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="3372:3609" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="3654:3802" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="3847:3997" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="4042:4190" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="4235:4381" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="4426:4572" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="4617:4761" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="4806:4966" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="5011:5163" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="6373:7476" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="6409:7443" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="6442:6570" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="6603:6737" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="6770:6910" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="6943:7071" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="7104:7230" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="7263:7406" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="7716:7753" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="8507:8654" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="8511:8652" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="8619:8645" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="9878:10175" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="9937:9979" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="13989:14067" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="13989:14455" ph="..." />
+            <marker date="1554229994311" expanded="true" signature="14118:14455" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detail_titik_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="199" column="168" lean-forward="false" selection-start-line="199" selection-start-column="167" selection-end-line="199" selection-end-column="168" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lahan_foto_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="89" column="78" lean-forward="false" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
+          <folding>
+            <marker date="1554231017909" expanded="true" signature="331:438" ph="SELECT p.Nam... master_peta_lahan" />
+            <marker date="1554231017909" expanded="true" signature="632:691" ph="SELECT nama_... master_peta_lahan" />
+            <marker date="1554231017909" expanded="true" signature="4151:4292" ph="..." />
+            <marker date="1554231017909" expanded="true" signature="4259:4285" ph="..." />
+            <marker date="1554231017909" expanded="true" signature="5033:5034" ph="..." />
+            <marker date="1554231017909" expanded="true" signature="5070:5119" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/insert_lahan_foto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <folding>
+            <marker date="1554231276127" expanded="true" signature="2064:2181" ph="INSERT INTO `master_peta_lahan_foto`... " />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -39,6 +39,7 @@ $jmlfoto = count($json);
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
@@ -46,16 +47,32 @@ $jmlfoto = count($json);
     <link rel="stylesheet" href="css/morris.css" type="text/css"/>
     <!-- Graph CSS -->
     <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Modal IMG CSS-->
+    <link href="css/modal_image.css" rel="stylesheet">
     <!-- jQuery -->
-    <!--    <script src="js/jquery-2.1.4.min.js"></script>-->
-    <script
-        src="https://code.jquery.com/jquery-3.3.1.js"
-        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-        crossorigin="anonymous"></script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <!-- tables -->
+    <link rel="stylesheet" type="text/css" href="css/table-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/basictable.css" />
+    <script type="text/javascript" src="js/jquery.basictable.min.js"></script>
+    <script type="text/javascript">
+        //open newwindows
+        function MM_openBrWindow(theURL,winName,features) { //v2.0
+            window.open(theURL,winName,features);
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#table').basictable();
+
+        });
+
+    </script>
+    <!-- //tables -->
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
+
 </head>
 <body>
 <div class="page-container">
@@ -69,52 +86,35 @@ $jmlfoto = count($json);
                     <h5>lahan <?php echo $namalahan; ?></h5>
                     <h5>lahan milik <?php echo $nama; ?> </h5>
 
-
-<!--                    <div id="myCarousel" class="carousel slide" data-ride="carousel">-->
-<!--                        <!-- Indicators -->
-<!--                        <ol class="carousel-indicators">-->
-<!--                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
-<!--                            --><?php //for ($i=1;$i<$jmlfoto;$i++){
-//                                echo '<li data-target="#myCarousel" data-slide-to="'.$i.'"></li>';
-//                            }?>
-<!--                        </ol>-->
-<!---->
-<!--                        <!-- Wrapper for slides -->
-<!--                        <div class="carousel-inner">-->
-<!--                            --><?php
-//                            $counter =0;
-//                            if (count($json) > 0) {
-//                                foreach ($json as $head) {
-//                                    if ($counter == 0){
-//                                        echo "<div class=\"item active\">
-//                                    <img src='./images/foto_lahan/".$head['foto']."' alt='".$head['foto']."' style=\"width:100%;\">
-//                                </div>";
-//                                    }
-//                                    else{
-//                                        echo "<div class=\"item\">
-//                                    <img class='d-block w-100' src='./images/foto_lahan/".$head['foto']."' alt='".$head['foto']."' style=\"width:100%;\">
-//                                </div>";
-//                                    }
-//                                }
-//                            }
-//                            ?>
-<!--                        </div>-->
-<!---->
-<!--                        <!-- Left and right controls -->
-<!--                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">-->
-<!--                            <span class="glyphicon glyphicon-chevron-left"></span>-->
-<!--                            <span class="sr-only">Previous</span>-->
-<!--                        </a>-->
-<!--                        <a class="right carousel-control" href="#myCarousel" data-slide="next">-->
-<!--                            <span class="glyphicon glyphicon-chevron-right"></span>-->
-<!--                            <span class="sr-only">Next</span>-->
-<!--                        </a>-->
-<!--                    </div>-->
-
-
-                    <form action="service/insert_lahan_tanaman.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" value="<?php echo $idl; ?>" name="ID_User" id="ID_User">
+                    <form action="service/insert_lahan_foto.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" value="<?php echo $_SESSION['user']; ?>" name="ID_User" id="ID_User">
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_lahan" id="id_lahan">
+
+                        <table style="border: none">
+                            <tbody>
+                            <tr>
+                                <?php
+                                $fotocounter=0;
+                                $str = file_get_contents($BASE_URL.'service/read_foto_lahan.php?id_lahan='.$idl);
+                                $json = json_decode($str, true);
+                                if (count($json) > 0) {
+                                    foreach ($json as $value) {
+                                        echo "
+<td><img id='myImg".$fotocounter."' src='images/foto_lahan/".$value['foto']."' alt='".$value['foto']."' style='width:100%;max-width:200px'>
+</td>
+";
+                                        $fotocounter++;
+                                    }
+                                }
+                                else {
+                                    ?>
+
+                                    <td colspan="8">Belum ada foto tercatat</td>
+
+                                <?php } ?>
+                            </tr>
+                            </tbody>
+                        </table>
 
                         <table>
                             <tbody>
@@ -138,7 +138,17 @@ $jmlfoto = count($json);
 
             </div>
         </div>
+        <div id="myModal" class="modal">
 
+            <!-- The Close Button -->
+            <span class="close">&times;</span>
+
+            <!-- Modal Content (The Image) -->
+            <img class="modal-content" id="img01">
+
+            <!-- Modal Caption (Image Text) -->
+            <div id="caption"></div>
+        </div>
         <!-- script-for sticky-nav -->
         <script>
             $(document).ready(function() {
@@ -259,5 +269,40 @@ $jmlfoto = count($json);
 
     });
 </script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    <?php
+    for($i=0;$i< $fotocounter ;$i++) {
+        echo "var img".$i." = document.getElementById('myImg".$i."');";
+    }
+    ?>
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+
+    <?php
+    for($i=0;$i< $fotocounter ;$i++) {
+        echo '
+       img'.$i.'.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+       ';
+    }
+    ?>
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+</script>
+
 </body>
 </html>
