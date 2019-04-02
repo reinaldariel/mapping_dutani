@@ -59,185 +59,148 @@ if ($idp == $_SESSION['user']){
 
                     <form action="service/insert_lahan.php" method="post" enctype="multipart/form-data">
 
-                                <div class="form-group">
-                                    <label>Nama Petani</label>
-                                    <input type="text" value="<?php echo $nama; ?>" name="nama_petani" id="nama_petani" class="form-control">
-                                    <input type="hidden" value="<?php echo $idp; ?>" name="ID_User" id="ID_User">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Nama Lahan</label>
-                                    <input type="text" value="" name="nama_lahan" id="nama_lahan" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Luas Lahan (dalam meter persegi/m2)</label>
-                                    <input type="number" value="" name="luas_lahan" id="luas_lahan" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label>Jenis Lahan</label>
-                                    <select class="form-control" id="jenis_lahan" name="jenis_lahan" required>
-                                        <option value="" disabled selected> Jenis Lahan </option>
-                                        <option value="sawah"> Sawah </option>
-                                        <option value="tegalan"> Tegalan </option>
-                                </div>
-                        <div class="form-group">
-                            <label class="control-label">a</label>
-                            <select class="form-control"id="a" name="a" required>
-                            </select>
+                        <div class="col-md-6">
+                            <h4>Data lahan</h4>
+                            <div class="form-group">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>Pemilik </label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <input type="text" value="<?php echo $nama; ?>" name="nama_petani" id="nama_petani">
+                                            <input type="hidden" value="<?php echo $idp; ?>" name="ID_User" id="ID_User">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Nama Lahan</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <input type="text" value="" name="nama_lahan" id="nama_lahan" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Luas Lahan (dalam meter persegi/m2) &nbsp; </label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <input type="number" value="" name="luas_lahan" id="luas_lahan">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Jenis Lahan</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <select id="jenis_lahan" name="jenis_lahan" required>
+                                                <option value="" disabled selected> Jenis Lahan </option>
+                                                <option value="sawah"> Sawah </option>
+                                                <option value="tegalan"> Tegalan </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Provinsi</label>
-                            <select class="form-control" id="provinsi" name="provinsi" required>
-                                <option value="" selected> Provinsi </option>
-                                <?php
-                                $str = "";
-                                $stmt = $conn->prepare("SELECT Nama_Provinsi from provinsi");
-                                $stmt->execute();
-                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                                $result = $stmt->fetchAll();
-                                foreach ($result as $val) {
-                                    $str .= '<option value="' . $val['Nama_Provinsi'] . '">' . $val['Nama_Provinsi'] . '</option>';
-                                }
-                                echo $str;
-                                ?>
-                            </select>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Kabupaten</label>
-                            <select class="form-control"id="Kab" name="Kabupaten" required>
-                                <option value="" disabled selected> Kabupaten </option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group">
-                                            <label class="control-label">Kecamatan</label>
-                                            <select class="form-control"id="Kec" name="Kecamatan" required>
+                        <div class="col-md-6">
+                            <h4>Alamat</h4>
+                            <div class="form-group">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <label>Provinsi</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <select id="provinsi" name="provinsi" required>
+                                                <option value="" selected> Provinsi </option>
+                                                <?php
+                                                $str = "";
+                                                $stmt = $conn->prepare("SELECT Nama_Provinsi from provinsi");
+                                                $stmt->execute();
+                                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                                                $result = $stmt->fetchAll();
+                                                foreach ($result as $val) {
+                                                    $str .= '<option value="' . $val['Nama_Provinsi'] . '">' . $val['Nama_Provinsi'] . '</option>';
+                                                }
+                                                echo $str;
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Kabupaten</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <select id="Kab" name="Kabupaten" required>
+                                                <option value="" disabled selected> Kabupaten </option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Kecamatan</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <select id="Kec" name="Kecamatan" required>
                                                 <option value="" disabled selected> Kecamatan </option>
                                             </select>
-                                        </div>
-                                <div class="form-group">
-                                            <label class="control-label">Desa / Kelurahan</label>
-                                            <select class="form-control"id="Desa" name="Desa_Kelurahan" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Desa / Kelurahan &nbsp;</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <select id="Desa" name="Desa_Kelurahan" required>
                                                 <option value="" disabled selected> Desa / Kelurahan </option>
-
                                             </select>
-                                        </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
 
+                        <br>
+                        <h4>Status lahan</h4>
                                     <div class="form-group">
-                                        <label>Status Organik</label>
-                                        <select class="form-control" id="status_organik" name="status_organik" required>
-                                            <option value="" disabled selected> Status Organik </option>
+                                        <label>Status Organik : </label>
+                                        <select id="status_organik" name="status_organik" required>
+                                            <option value="" disabled selected> Status Organik : </option>
                                             <option value="organik"> Organik </option>
                                             <option value="non_organik"> Non-organik </option>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Status Lahan</label>
-                                        <select class="form-control" id="b" name="b" required>
-                                    </div>
-                        <div class="form-group">
-                            <label>Status Lahan</label>
-                            <select class="form-control" id="status_lahan" name="status_lahan" required>
-                                <option value="" disabled selected> Status Lahan </option>
+                                        </select>
+
+                            <label>Status Lahan : </label>
+                            <select id="status_lahan" name="status_lahan" required>
+                                <option value="" disabled selected> Status Lahan : </option>
                                 <option value="milik"> milik </option>
                                 <option value="sewa"> sewa </option>
                                 <option value="garap"> garap </option>
+                            </select>
                         </div>
+                        <br>
+                        <br>
+                        <h4>Koordinat</h4>
                         <div class="form-group">
-                            <label>Status Lahan</label>
-                            <select class="form-control" id="v" name="v" required>
-                        </div>
-                                    <div class="form-group">
-                                        <label class="control-label">Tanaman</label>
-                                        <select class="form-control" id="ID_Spesies" name="ID_Spesies" required>
-                                            <option value="" disabled selected> Spesies </option>
-                                            <?php
-                                            $str = "";
-                                            $stmt = $conn->prepare("SELECT ID_Spesies, Nama_Tanaman from master_spesies_tanaman");
-                                            $stmt->execute();
-                                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                                            $result = $stmt->fetchAll();
-                                            foreach ($result as $val) {
-                                                    $str .= '<option value="' . $val['ID_Spesies'] . '">' . $val['Nama_Tanaman'] . '</option>';
-                                            }
-                                            echo $str;
-                                            ?>
-                                        </select>
+                            <label>Latitude : </label>
+                            <input type="text" value="" name="lat" id="lat" >
 
-                                    </div>
-                        <div class="form-group">
-                            <label>Kebutuhan Benih (dalam kg)</label>
-                            <input type="number" value="" name="kebutuhan_benih" id="kebutuhan_benih" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Kebutuhan Saprotan</label>
-                            <input type="number" value="" name="kebutuhan_saprotan" id="kebutuhan_saprotan" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Bulan Tanam</label>
-                            <select class="form-control" id="bulan_tanam" name="bulan_tanam" required>
-                                <option value="" disabled selected> Bulan </option>
-                                <option value="01"> Januari </option>
-                                <option value="02"> Februari </option>
-                                <option value="03"> Maret </option>
-                                <option value="04"> April </option>
-                                <option value="05"> Mei </option>
-                                <option value="06"> Juni </option>
-                                <option value="07"> Juli </option>
-                                <option value="08"> Agustus </option>
-                                <option value="09"> September </option>
-                                <option value="10"> Oktober </option>
-                                <option value="11"> November </option>
-                                <option value="12"> Desember </option>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label>Bulan Panen</label>
-                            <select class="form-control" id="c" name="c" >
-                        </div>
-
-                        <div class="form-group">
-                            <label>Bulan Panen</label>
-                            <select class="form-control" id="bulan_panen" name="bulan_panen" required>
-                                <option value="" disabled selected> Bulan </option>
-                                <option value="01"> Januari </option>
-                                <option value="02"> Februari </option>
-                                <option value="03"> Maret </option>
-                                <option value="04"> April </option>
-                                <option value="05"> Mei </option>
-                                <option value="06"> Juni </option>
-                                <option value="07"> Juli </option>
-                                <option value="08"> Agustus </option>
-                                <option value="09"> September </option>
-                                <option value="10"> Oktober </option>
-                                <option value="11"> November </option>
-                                <option value="12"> Desember </option>
-
-                        </div>
-                        <div class="form-group">
-                            <label>Bulan Panen</label>
-                            <select class="form-control" id="c" name="c" >
-                        </div>
-                        <div class="form-group">
-                            <label>Rata-rata hasil per panen</label>
-                            <input type="number" value="" name="rata_hasil_panen" id="rata_hasil_panen" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label">Foto </label>
-                            <input type="file" name="filenya">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Latitude</label>
-                            <input type="text" value="" name="lat" id="lat" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>Longitude</label>
-                            <input type="text" value="" name="longt" id="longt" class="form-control">
+                            <label>Longitude : </label>
+                            <input type="text" value="" name="longt" id="longt">
                         </div>
                         <div id="map" style="width: auto; height: 450px;"></div>
 
@@ -283,7 +246,7 @@ if ($idp == $_SESSION['user']){
 <div class="clearfix"></div>
 </div>
 <script>
-    var latLng=new google.maps.LatLng(-7.9293733, 110.3009733);
+    var latLng=new google.maps.LatLng(<?php echo $def_lat ?>, <?php echo $def_long ?>);
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 17, //level zoom
         scaleControl: true,
