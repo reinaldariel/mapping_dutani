@@ -314,8 +314,8 @@ $id = $_GET['id_lahan'];
 
                 var infowindow = new google.maps.InfoWindow();
 
-                var marker, i;
-                i=0;
+                var marker;
+
                 /* kode untuk menampilkan banyak marker */
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(locations[1], locations[2]),
@@ -331,6 +331,47 @@ $id = $_GET['id_lahan'];
                             infowindow.open(map, marker);
                         }
                     })(marker));
+
+                var line_locations = [
+                    <?php
+                    $str_titik_all = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$id);
+                    $json = json_decode($str_titik_all, true);
+                    if (count($json) > 0) {
+                        foreach ($json as $key => $val) {
+                            if($key == count($json)-1){
+                                echo "{lat:".$val['lat'].", lng:".$val['longt']."}";
+                            }else{
+                                echo "{lat:".$val['lat'].", lng:".$val['longt']."},";
+                            }
+                        }
+                    }
+                    ?>
+                ];
+                var lahanPath = new google.maps.Polygon({
+                    path: line_locations,
+                    geodesic: true,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+
+                lahanPath.setMap(map);
+
+               
+                //calculate area
+                function roundUp(num, precision) {
+                    precision = Math.pow(10, precision)
+                    return Math.ceil(num * precision) / precision
+                }
+
+                var lengthInMeters = google.maps.geometry.spherical.computeArea(lahanPath.getPath());
+
+                //add listener info
+                google.maps.event.addListener(lahanPath,'click', function (event) {
+                    infowindow.setContent("Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                    infowindow.setPosition(event.latLng);
+                    infowindow.open(map,lahanPath);
+                });
             </script>
 
             <!-- script-for sticky-nav -->
