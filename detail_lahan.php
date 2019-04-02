@@ -61,7 +61,6 @@ $id = $_GET['id_lahan'];
                             $lat="";
                             $long="";
                             $nama_lahan ="";
-                            $foto="";
                             $str = file_get_contents($BASE_URL.'service/read_one_lahan.php?id_lahan='.$id);
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
@@ -69,8 +68,8 @@ $id = $_GET['id_lahan'];
                                     $lat=$value['lat'];
                                     $long=$value['longt'];
                                     $nama_lahan=$value['nama_lahan'];
-                                    $foto =$value['foto'];
                                     echo "<h2>".$value['nama_lahan']."</h2>
+                                    <h4>Keterangan lahan</h4>
                                     <table style=\"border: none\">
                                     <tbody>
                                         <tr>
@@ -103,24 +102,6 @@ $id = $_GET['id_lahan'];
                                         <tr>
                                             <td>Status Lahan </td> <td> : ".$value['status_lahan']."</td>
                                         </tr>
-                                        <tr>
-                                            <td>Nama Tanaman </td> <td> : ".$value['Nama_Tanaman']."</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kebutuhan Benih </td> <td> : ".$value['kebutuhan_benih']."</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']."</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bulan Menanam </td> <td> : ".$value['bulan_tanam']."</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bulan Panen </td> <td> : ".$value['bulan_akhir']."</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rata - rata hasil panen </td> <td> : ".$value['rata_hasil_panen']."</td>
-                                        </tr>
                                         ";
                                     }
                             }
@@ -133,10 +114,55 @@ $id = $_GET['id_lahan'];
                             </tbody>
                         </table>
                         <br>
-                        <p>Foto</p>
+                        <h4>Tanaman</h4>
+                        <a href="./lahan_tanaman_add.php?id=<?php echo $id;?>" class="btn btn-success">Tambah penanaman</a>
+                            <?php
+                            $cntr=1;
+                            $str = file_get_contents($BASE_URL.'service/read_tanaman_per_lahan.php?id_lahan='.$id);
+                            $json = json_decode($str, true);
+                            if (count($json) > 0) {
+                                foreach ($json as $value) {
+                                   echo "
+                         <h5>".$cntr."</h5>  
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>Nama Tanaman </td> <td> : ".$value['Nama_Tanaman']."</td>
+                            </tr>
+                            <tr>
+                                <td>Kebutuhan Benih </td> <td> : ".$value['kebutuhan_benih']."</td>
+                            </tr>
+                            <tr>
+                                <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']."</td>
+                            </tr>
+                            <tr>
+                                <td>Bulan Menanam </td> <td> : ".$value['bulan_tanam']."</td>
+                            </tr>
+                            <tr>
+                                <td>Bulan Panen </td> <td> : ".$value['bulan_akhir']."</td>
+                            </tr>
+                            <tr>
+                                <td>Rata - rata hasil panen </td> <td> : ".$value['rata_hasil_panen']."</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                            ";
+                                   $cntr++;
+                                }
+                            }
+                            else {
+                                ?>
+
+                                    <p>Belum ada tanaman tercatat</p>
+
+                            <?php } ?>
+
+                        <br>
+                        <h4>Foto</h4>
                         <img src="images/foto_lahan/<?php echo $foto ?>" alt="">
                         <br>
-                        <p>Lokasi</p>
+                        <h4>Lokasi</h4>
                         <div id="map" style="width: auto; height: 450px;"></div>
                     </div>
                 </div>
