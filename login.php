@@ -44,7 +44,7 @@ if(isset($_SESSION['user'])){
 			</div>
 
 			<div class="login-w3">
-					<input type="submit" class="login" value="Sign In">
+					<input type="submit" class="login" value="Masuk">
 			</div>
 			<div class="clearfix"></div>
 		</form>

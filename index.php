@@ -119,7 +119,7 @@ if(!isset($_SESSION['user'])){
                     <?php
 //                    $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.longitude as longitude,l.latitude as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l, master_kel_tani k where p.ID_User = l.id_user_petani AND p.ID_Kelompok_Tani = k.ID_Kelompok_Tani AND l.id_user_petani not in('') AND l.ID_Lahan not in('')";
                     if($_SESSION['kategori'] == "ADP") {
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
 //                        if (!empty($_POST['des'])) {
 //                            $list = "" . $list . " and l.Desa='$_POST[des]'";
 //                        }
@@ -129,7 +129,7 @@ if(!isset($_SESSION['user'])){
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }else{
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }
@@ -147,7 +147,6 @@ if(!isset($_SESSION['user'])){
                                 '<h4 id=\"firstHeading\" class=\"firstHeading\">".$row['id_lahan']."</h4>'+
                                 '<h6>".$row['nama']."</h6>'+
                                 '<div id=\"bodyContent\"><p>'+
-                                '<img width=200 src=\"".$row['foto']."\" ' +
                                 '<ul>'+
                                 '<li> ".$row['desa']."' +
                                 '<li> <a href=\"detail_lahan.php?id_lahan=".$row['id_lahan']."\" target=\"_blank\">Detail</a>' +

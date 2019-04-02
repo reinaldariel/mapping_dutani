@@ -274,6 +274,7 @@ $id = $_GET['id_lahan'];
                         </table>
                         <br>
                         <h4>Lokasi</h4>
+                        <a href="./detail_titik_lahan.php?id_lahan=<?php echo $id;?>" class="btn btn-success">Detail Titik Lahan</a>
                         <div id="map" style="width: auto; height: 450px;"></div>
                     </div>
                 </div>
@@ -357,7 +358,7 @@ $id = $_GET['id_lahan'];
 
                 lahanPath.setMap(map);
 
-               
+
                 //calculate area
                 function roundUp(num, precision) {
                     precision = Math.pow(10, precision)

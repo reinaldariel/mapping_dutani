@@ -6,7 +6,7 @@
     <div class="menu">
         <ul id="menu" >
             <li style="text-align: center"><span>welcome, <?php echo $_SESSION['user']?></span><div class="clearfix"></div></li>
-            <li><a href="profil.php"><i class="fa fa-user"></i> <span>Profile</span><div class="clearfix"></div></a></li>
+<!--            <li><a href="profil.php"><i class="fa fa-user"></i> <span>Profile</span><div class="clearfix"></div></a></li>-->
             <li><a href="index.php"><i class="fa fa-tachometer"></i> <span>Pemetaan</span><div class="clearfix"></div></a></li>
             <?php if ($_SESSION['kategori']== "ADP"){
 //                echo '<li id="menu-academico" ><a href="cari.php"><i class="fa fa-search"></i><span>Pencarian</span><div class="clearfix"></div></a></li>';
