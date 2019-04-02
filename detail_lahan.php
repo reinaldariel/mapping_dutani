@@ -126,6 +126,88 @@ $id = $_GET['id_lahan'];
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
                                 foreach ($json as $value) {
+                                    $btanam='';
+                                    $bpanen='';
+                                    switch ($value['bulan_tanam']) {
+                                        case "01":
+                                            $btanam  = 'Januari';
+                                            break;
+                                        case "02":
+                                            $btanam  = 'Februari';
+                                            break;
+                                        case "03":
+                                            $btanam  = 'Maret';
+                                            break;
+                                        case "04":
+                                            $btanam  = 'April';
+                                            break;
+                                        case "05":
+                                            $btanam  = 'Mei';
+                                            break;
+                                        case "06":
+                                            $btanam  = 'Juni';
+                                            break;
+                                        case "07":
+                                            $btanam  = 'Juli';
+                                            break;
+                                        case "08":
+                                            $btanam  = 'Agustus';
+                                            break;
+                                        case "09":
+                                            $btanam  = 'September';
+                                            break;
+                                        case "10":
+                                            $btanam  = 'Oktober';
+                                            break;
+                                        case "11":
+                                            $btanam  = 'November';
+                                            break;
+                                        case "12":
+                                            $btanam  = 'Desember';
+                                            break;
+                                        default:
+                                            echo "-";
+                                    }
+                                    switch ($value['bulan_akhir']) {
+                                        case "01":
+                                            $bpanen  = 'Januari';
+                                            break;
+                                        case "02":
+                                            $bpanen  = 'Februari';
+                                            break;
+                                        case "03":
+                                            $bpanen  = 'Maret';
+                                            break;
+                                        case "04":
+                                            $bpanen  = 'April';
+                                            break;
+                                        case "05":
+                                            $bpanen  = 'Mei';
+                                            break;
+                                        case "06":
+                                            $bpanen  = 'Juni';
+                                            break;
+                                        case "07":
+                                            $bpanen  = 'Juli';
+                                            break;
+                                        case "08":
+                                            $bpanen  = 'Agustus';
+                                            break;
+                                        case "09":
+                                            $bpanen  = 'September';
+                                            break;
+                                        case "10":
+                                            $bpanen  = 'Oktober';
+                                            break;
+                                        case "11":
+                                            $bpanen  = 'November';
+                                            break;
+                                        case "12":
+                                            $bpanen  = 'Desember';
+                                            break;
+                                        default:
+                                            echo "-";
+                                    }
                                    echo "
                          <h5>".$cntr."</h5>  
                         <table>
@@ -140,10 +222,10 @@ $id = $_GET['id_lahan'];
                                 <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']."</td>
                             </tr>
                             <tr>
-                                <td>Bulan Menanam </td> <td> : ".$value['bulan_tanam']."</td>
+                                <td>Bulan Menanam </td> <td> : ".$btanam."</td>
                             </tr>
                             <tr>
-                                <td>Bulan Panen </td> <td> : ".$value['bulan_akhir']."</td>
+                                <td>Bulan Panen </td> <td> : ".$bpanen."</td>
                             </tr>
                             <tr>
                                 <td>Rata - rata hasil panen </td> <td> : ".$value['rata_hasil_panen']."</td>
