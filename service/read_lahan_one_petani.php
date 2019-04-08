@@ -5,7 +5,7 @@ $conn = $database->getConnection();
 $id_user = $_GET['id_user'];
 
 try {
-    $stmt = $conn->prepare("SELECT * FROM master_peta_lahan WHERE ID_User = ?");
+    $stmt = $conn->prepare("SELECT l.* FROM trans_lahan tl, master_peta_lahan l WHERE tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = ?");
     $stmt->bindParam(1, $id_user);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
