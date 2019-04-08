@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbf3ddf1-2e7e-4a27-b055-51f5dfc182e9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/read_trans_one_lahan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail_lahan.php" afterPath="$PROJECT_DIR$/detail_lahan.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,41 +20,49 @@
         <entry file="file://$PROJECT_DIR$/detail_lahan.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="227" column="70" lean-forward="false" selection-start-line="227" selection-start-column="70" selection-end-line="227" selection-end-column="70" />
+              <caret line="139" column="180" lean-forward="false" selection-start-line="139" selection-start-column="180" selection-end-line="139" selection-end-column="180" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#13951#13958#1#HTML" expanded="true" />
-                <marker date="1554231725580" expanded="false" signature="3080:3092" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="3094:5204" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="3138:5204" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="3183:3327" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="3372:3609" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="3654:3802" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="3847:3997" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="4042:4190" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="4235:4381" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="4426:4572" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="4617:4761" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="4806:4966" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="5011:5163" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="10903:11978" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="10939:11945" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="10972:11100" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="11133:11267" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="11300:11440" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="11473:11587" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="11620:11732" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="11765:11908" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="12218:12255" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="13009:13156" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="13013:13154" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="13121:13147" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="14380:14677" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="14439:14481" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="18491:18569" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="18491:18957" ph="..." />
-                <marker date="1554231725580" expanded="true" signature="18620:18957" ph="..." />
+                <marker date="1554754225097" expanded="false" signature="3080:3092" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3094:4725" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3138:4725" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3183:3327" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3372:3520" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3565:3715" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3760:3908" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="3953:4099" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="4144:4290" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="4335:4479" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="4524:4684" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="5381:5393" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="5395:5468" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="5439:5468" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="5835:6061" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="6280:6506" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="6726:6954" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="12329:13404" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="12365:13371" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="12398:12526" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="12559:12693" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="12726:12866" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="12899:13013" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="13046:13158" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="13191:13334" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="14439:14580" ph="..." />
+                <marker date="1554754225097" expanded="false" signature="14547:14573" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="15939:16236" ph="..." />
+                <marker date="1554754225097" expanded="true" signature="15998:16040" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="read_trans_one_lahan.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/read_trans_one_lahan.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="77" lean-forward="false" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+              <folding>
+                <marker date="1554754202047" expanded="true" signature="176:308" ph="SELECT tl.st... trans_lahan" />
               </folding>
             </state>
           </provider>
@@ -111,6 +121,8 @@
         <option value="$PROJECT_DIR$/js/modal_image.js" />
         <option value="$PROJECT_DIR$/lahan_foto_add.php" />
         <option value="$PROJECT_DIR$/service/insert_lahan_foto.php" />
+        <option value="$PROJECT_DIR$/service/read_trans_lahan.php" />
+        <option value="$PROJECT_DIR$/service/read_trans_one_lahan.php" />
         <option value="$PROJECT_DIR$/detail_lahan.php" />
       </list>
     </option>
@@ -143,6 +155,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -179,70 +192,9 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="foto_lahan" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -365,15 +317,15 @@
       <workItem from="1552532474308" duration="636000" />
       <workItem from="1554135333036" duration="6392000" />
       <workItem from="1554209772812" duration="12221000" />
+      <workItem from="1554746813473" duration="4084000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77139000" />
+    <option name="totallyTimeSpent" value="81223000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20497803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -405,35 +357,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/service/read_kelurahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="66" lean-forward="false" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/fungsi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="8" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1553849515538" expanded="true" signature="6227:6503" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="6983:7274" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="7687:8377" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="7746:7788" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8017:8371" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8020:8133" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8137:8365" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8177:8231" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8235:8360" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -469,17 +397,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1553849515538" expanded="true" signature="6227:6503" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="6983:7274" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="7687:8377" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="7746:7788" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8017:8371" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8020:8133" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8137:8365" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8177:8231" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8235:8360" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -487,17 +405,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1553849515538" expanded="true" signature="6227:6503" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="6983:7274" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="7687:8377" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="7746:7788" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8017:8371" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8020:8133" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8137:8365" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8177:8231" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8235:8360" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -505,7 +413,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="150" column="36" lean-forward="false" selection-start-line="150" selection-start-column="36" selection-end-line="150" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -604,7 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2431">
           <caret line="143" column="8" lean-forward="false" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -645,17 +551,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="106" column="97" lean-forward="false" selection-start-line="106" selection-start-column="97" selection-end-line="106" selection-end-column="97" />
-          <folding>
-            <marker date="1553849515538" expanded="true" signature="6227:6503" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="6983:7274" ph="select l.ID_... master_petani" />
-            <marker date="1553849515538" expanded="true" signature="7687:8377" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="7746:7788" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8017:8371" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8020:8133" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8137:8365" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8177:8231" ph="..." />
-            <marker date="1553849515538" expanded="true" signature="8235:8360" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -665,16 +561,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1553757565528" expanded="true" signature="176:385" ph="SELECT d.* F... master_peta_lahan_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_one_detail_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1554056217902" expanded="true" signature="176:253" ph="SELECT * FRO... master_peta_lahan_detail" />
           </folding>
         </state>
       </provider>
@@ -746,7 +632,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,9 +639,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding>
-            <marker date="1552636599383" expanded="true" signature="174:223" ph="SELECT * FRO... master_peta_lahan" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -804,7 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
           <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="1" lean-forward="false" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -857,44 +738,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_one_detail_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="2" />
+          <folding>
+            <marker date="1554056217902" expanded="true" signature="176:253" ph="SELECT * FRO... master_peta_lahan_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_petani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1554723793913" expanded="true" signature="146:405" ph="SELECT tl.ID... trans_lahan" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_trans_one_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="77" lean-forward="false" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+          <folding>
+            <marker date="1554754202047" expanded="true" signature="176:308" ph="SELECT tl.st... trans_lahan" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/detail_lahan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="227" column="70" lean-forward="false" selection-start-line="227" selection-start-column="70" selection-end-line="227" selection-end-column="70" />
+          <caret line="139" column="180" lean-forward="false" selection-start-line="139" selection-start-column="180" selection-end-line="139" selection-end-column="180" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#13951#13958#1#HTML" expanded="true" />
-            <marker date="1554231725580" expanded="false" signature="3080:3092" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="3094:5204" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="3138:5204" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="3183:3327" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="3372:3609" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="3654:3802" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="3847:3997" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="4042:4190" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="4235:4381" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="4426:4572" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="4617:4761" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="4806:4966" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="5011:5163" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="10903:11978" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="10939:11945" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="10972:11100" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="11133:11267" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="11300:11440" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="11473:11587" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="11620:11732" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="11765:11908" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="12218:12255" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="13009:13156" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="13013:13154" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="13121:13147" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="14380:14677" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="14439:14481" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="18491:18569" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="18491:18957" ph="..." />
-            <marker date="1554231725580" expanded="true" signature="18620:18957" ph="..." />
+            <marker date="1554754225097" expanded="false" signature="3080:3092" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3094:4725" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3138:4725" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3183:3327" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3372:3520" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3565:3715" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3760:3908" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="3953:4099" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="4144:4290" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="4335:4479" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="4524:4684" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="5381:5393" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="5395:5468" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="5439:5468" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="5835:6061" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="6280:6506" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="6726:6954" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="12329:13404" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="12365:13371" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="12398:12526" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="12559:12693" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="12726:12866" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="12899:13013" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="13046:13158" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="13191:13334" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="14439:14580" ph="..." />
+            <marker date="1554754225097" expanded="false" signature="14547:14573" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="15939:16236" ph="..." />
+            <marker date="1554754225097" expanded="true" signature="15998:16040" ph="..." />
           </folding>
         </state>
       </provider>

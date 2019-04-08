@@ -78,9 +78,6 @@ $id = $_GET['id_lahan'];
                                             <td>ID Lahan </td> <td> : ".$value['ID_Lahan']."</td>
                                         </tr>
                                         <tr>
-                                            <td>Nama Petani </td> <td> : ".$value['Nama_Petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a></td>
-                                        </tr>
-                                        <tr>
                                             <td>Luas lahan </td> <td> : ".$value['luas_lahan']."</td>
                                         </tr>
                                         <tr>
@@ -101,9 +98,6 @@ $id = $_GET['id_lahan'];
                                         <tr>
                                             <td>Status Keorganikan </td> <td> : ".$value['status_organik']."</td>
                                         </tr>
-                                        <tr>
-                                            <td>Status Lahan </td> <td> : ".$value['status_lahan']."</td>
-                                        </tr>
                                         ";
                                     }
                             }
@@ -117,6 +111,39 @@ $id = $_GET['id_lahan'];
                             <?php } ?>
                             </tbody>
                         </table>
+                        <br>
+                        <?php
+                        echo "<h4>Kepemilikan Lahan</h4>
+                            <table style=\"border: none\">
+                                    <tbody>
+                            ";
+                        $str = file_get_contents($BASE_URL.'service/read_trans_one_lahan.php?id_lahan='.$id);
+                        $json = json_decode($str, true);
+                        foreach ($json as $value){
+                            if($value['status_lahan'] == 'milik'){
+                                echo "
+                                    <tr>
+                                    <td>Pemilik Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a></td>
+                                    </tr>
+                                    ";
+                            }
+                            elseif($value['status_lahan'] == 'sewa'){
+                                echo "
+                                    <tr>
+                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a></td>
+                                    </tr>
+                                    ";
+                            }
+                            elseif($value['status_lahan'] == 'garap'){
+                                echo "
+                                    <tr>
+                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a></td>
+                                    </tr>
+                                    ";
+                            }
+                        }
+                        echo "</tbody></table>";
+                        ?>
                         <br>
                         <h4>Tanaman</h4>
                         <a href="./lahan_tanaman_add.php?id=<?php echo $id;?>" class="btn btn-success">Tambah penanaman</a>
