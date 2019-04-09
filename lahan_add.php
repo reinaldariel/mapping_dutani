@@ -66,13 +66,23 @@ if ($idp == $_SESSION['user']){
                                     <tbody>
                                     <tr>
                                         <td>
-                                            <label>Pemilik </label>
+                                            <label>Nama Petani </label>
                                         </td>
                                         <td>
                                             <label> : </label>
                                             <input type="text" value="<?php echo $nama; ?>" name="nama_petani" id="nama_petani">
                                             <input type="hidden" value="<?php echo $idp; ?>" name="ID_User" id="ID_User">
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Status Lahan </label></td>
+                                        <td><label> : </label>
+                                        <select id="status_lahan" name="status_lahan" required>
+                                                <option value="" disabled selected> Status Lahan : </option>
+                                                <option value="milik"> milik </option>
+                                                <option value="sewa"> sewa </option>
+                                                <option value="garap"> garap </option>
+                                            </select></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -104,6 +114,15 @@ if ($idp == $_SESSION['user']){
                                                 <option value="tegalan"> Tegalan </option>
                                             </select>
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Status Organik </label></td>
+                                        <td><label> : </label>
+                                            <select id="status_organik" name="status_organik" required>
+                                                <option value="" disabled selected> Status Organik : </option>
+                                                <option value="organik"> Organik </option>
+                                                <option value="non_organik"> Non-organik </option>
+                                            </select></td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -174,24 +193,7 @@ if ($idp == $_SESSION['user']){
                             </div>
                         </div>
 
-                        <br>
-                        <h4>Status lahan</h4>
-                                    <div class="form-group">
-                                        <label>Status Organik : </label>
-                                        <select id="status_organik" name="status_organik" required>
-                                            <option value="" disabled selected> Status Organik : </option>
-                                            <option value="organik"> Organik </option>
-                                            <option value="non_organik"> Non-organik </option>
-                                        </select>
-
-                            <label>Status Lahan : </label>
-                            <select id="status_lahan" name="status_lahan" required>
-                                <option value="" disabled selected> Status Lahan : </option>
-                                <option value="milik"> milik </option>
-                                <option value="sewa"> sewa </option>
-                                <option value="garap"> garap </option>
-                            </select>
-                        </div>
+                        <div class="clearfix"></div>
                         <br>
                         <br>
                         <h4>Koordinat</h4>

@@ -71,7 +71,7 @@ $id = $_GET['id_lahan'];
                                     $long=$value['longt'];
                                     $nama_lahan=$value['nama_lahan'];
                                     echo "<h2>".$value['nama_lahan']."</h2>
-                                    <h4>Keterangan lahan</h4>
+                                    <h4>Keterangan Lahan</h4>
                                     <table style=\"border: none\">
                                     <tbody>
                                         <tr>

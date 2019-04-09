@@ -6,7 +6,6 @@ $conn = $database->getConnection();
 $lat = $_POST['lat'];
 $longt = $_POST['longt'];
 $nama_petani = $_POST['nama_petani'];
-$ID_User = $_POST['ID_User'];
 $nama_lahan = $_POST['nama_lahan'];
 $luas_lahan = $_POST['luas_lahan'];
 $jenis_lahan = $_POST['jenis_lahan'];
@@ -15,6 +14,8 @@ $Kabupaten = $_POST['Kabupaten'];
 $Kecamatan = $_POST['Kecamatan'];
 $desa = $_POST['Desa_Kelurahan'];
 $status_organik = $_POST['status_organik'];
+
+$id_user = $_POST['ID_User'];
 $status_lahan = $_POST['status_lahan'];
 //$ID_Spesies = $_POST['ID_Spesies'];
 //$kebutuhan_benih = $_POST['kebutuhan_benih'];
@@ -77,14 +78,19 @@ $status_lahan = $_POST['status_lahan'];
 
 try {
 //    $sql = "INSERT INTO `master_peta_lahan` (`ID_Lahan`, `ID_User`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`, `status_lahan`, `ID_Spesies`, `kebutuhan_benih`, `kebutuhan_saprotan`, `bulan_tanam`, `bulan_akhir`, `rata_hasil_panen`, `foto`) VALUES (NULL, '".$ID_User."', '".$nama_lahan."', '".$lat."', '".$longt."', ".$luas_lahan.", '".$jenis_lahan."', '".$desa."', '".$Kecamatan."', '".$Kabupaten."', '".$provinsi."', '".$status_organik."', '".$status_lahan."', '".$ID_Spesies."', ".$kebutuhan_benih.", ".$kebutuhan_saprotan.", '".$bulan_tanam."', '".$bulan_panen."', ".$rata_hasil_panen.", '".$namaimage."');";
-    $sql = "INSERT INTO `master_peta_lahan` (`ID_Lahan`, `ID_User`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`, `status_lahan`) VALUES (NULL, '".$ID_User."', '".$nama_lahan."', '".$lat."', '".$longt."', ".$luas_lahan.", '".$jenis_lahan."', '".$desa."', '".$Kecamatan."', '".$Kabupaten."', '".$provinsi."', '".$status_organik."', '".$status_lahan."');";
+    $sql = "INSERT INTO `master_peta_lahan` (`ID_Lahan`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`) VALUES (NULL, '".$nama_lahan."', '".$lat."', '".$longt."', ".$luas_lahan.", '".$jenis_lahan."', '".$desa."', '".$Kecamatan."', '".$Kabupaten."', '".$provinsi."', '".$status_organik."');";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-//    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-//    $result = $stmt->fetchAll();
-//    echo json_encode($result);
-//    echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
-//    echo "<meta http-equiv='refresh' content='1;url=../daftar_lahan_per_petani.php'>";
+
+    $str = file_get_contents($BASE_URL.'service/read_lahan_latest.php');
+    $json = json_decode($str, true);
+
+        $id_lahan = $json[0]['ID_Lahan'];
+
+    $sql2 = "INSERT INTO `trans_lahan` (`nomor`, `ID_User`, `ID_Lahan`, `tanggal`, `status_lahan`, `status_aktif`) VALUES (NULL, '".$id_user."', '".$id_lahan."', CURRENT_TIMESTAMP, '".$status_lahan."', '1');";
+    $stmt = $conn->prepare($sql2);
+    $stmt->execute();
+
     echo '<script>alert("Berhasil menambah lahan"); history.go(-2);</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();

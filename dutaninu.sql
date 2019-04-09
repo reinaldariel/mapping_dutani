@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2019 at 09:26 PM
+-- Generation Time: Apr 09, 2019 at 02:45 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -1098,7 +1098,7 @@ INSERT INTO `master_petani` (`ID_User`, `Nama_Petani`, `Alamat_Petani`, `Kabupat
 ('bala', 'Budiman', 'aaaaaaaa', 'aaaaaaaaaaa', 'aaaaaaa', 'aaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaa', '', 0, 0, NULL, '08145854', 'SD', NULL, NULL, '', '2017-09-20', 'Mencontek', 0, 0),
 ('bolo', 'Brimada', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaa', '', 0, 0, NULL, '081455887', 'SD', NULL, NULL, '', '2017-09-14', 'Mencuri', 0, 0),
 ('intsatu', 'int 1', 'iny1', 'Gunungkidul', 'Ngawen', 'Daerah Istimewa Yogyakarta', 'Beji', '', 0, 0, 'maxresdefault.jpg', '089671044525', NULL, 2, 'int1@yahoo.com', 'Kristen', '2013-02-12', 'gak ada', 1, 1),
-('ptn_test', 'Petani Test', 'Gilangharjo', 'Bantul', 'Pandak', 'Daerah Istimewa Yogyakarta', 'Gilangharjo', 'Test', 2, 3, NULL, NULL, 'SD', 3, NULL, 'Islam', '2019-03-03', 'Mencangkul', 1, 0),
+('ptn_test', 'Petani Test', 'Gilangharjo', 'Bantul', 'Pandak', 'Daerah Istimewa Yogyakarta', 'Gilangharjo', 'Test', 2, 7, NULL, NULL, 'SD', 3, NULL, 'Islam', '2019-03-03', 'Mencangkul', 1, 0),
 ('uji_coba1', 'Dennis Markus', '', 'Bantul', 'Banguntapan', 'Daerah Istimewa Yogyakarta', 'Singosaren', '', 0, 0, 'maxresdefault.jpg', '', NULL, 0, '', '', '0000-00-00', '', 1, 1),
 ('us1', 'Administrator tanaman', 'jl.kaliurang', NULL, NULL, NULL, NULL, '', 0, 0, NULL, '08888888888', 's2', 0, 'admintanaman@gmail.com', 'Kristen', '1986-02-12', 'tidak ada', 0, 0),
 ('us10', 'Riyantiningsih', 'Dadapan', 'Sleman', 'Turi', 'Daerah Istimewa Yogyakarta', 'Wonokerto', '', 0, 0, NULL, '087738512353', 'SMA', 3, 'riyanti@yahoo.com', 'Katolik', '1975-06-17', 'menanam salak', 1, 0),
@@ -1124,7 +1124,6 @@ INSERT INTO `master_petani` (`ID_User`, `Nama_Petani`, `Alamat_Petani`, `Kabupat
 
 CREATE TABLE `master_peta_lahan` (
   `ID_Lahan` int(11) NOT NULL,
-  `ID_User` varchar(10) NOT NULL,
   `nama_lahan` varchar(255) NOT NULL,
   `Koordinat_X` varchar(20) DEFAULT NULL,
   `Koordinat_Y` varchar(20) DEFAULT NULL,
@@ -1134,20 +1133,20 @@ CREATE TABLE `master_peta_lahan` (
   `Kecamatan` varchar(50) DEFAULT NULL,
   `Kabupaten` varchar(50) DEFAULT NULL,
   `Provinsi` varchar(50) DEFAULT NULL,
-  `status_organik` enum('organik','non_organik') NOT NULL,
-  `status_lahan` enum('milik','sewa','garap') NOT NULL
+  `status_organik` enum('organik','non_organik') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `master_peta_lahan`
 --
 
-INSERT INTO `master_peta_lahan` (`ID_Lahan`, `ID_User`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`, `status_lahan`) VALUES
-(1, 'ptn_test', 'lahan1', '-7.9310236', '110.3011639', 500, 'sawah', 'Gilangharjo', 'Pandak', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik', 'milik'),
-(2, '1234567', 'lahan2', '-7.928363082196162', '110.29961786496813', 0, 'sawah', 'Donoharjo', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik', 'milik'),
-(3, '1234567', 'testing', '-7.927683721783466', '110.30019780631858', 300, 'sawah', 'Gilangharjo', 'Pandak', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik', 'milik'),
-(4, '1234567', 'coba', '-7.92849131978409', '110.29981156822043', 21321, 'tegalan', 'Tirtonirmolo', 'kasihan', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik', 'milik'),
-(5, 'ptn_test', 'test2', '-7.9307708224716515', '110.29598027692714', 5000, 'sawah', 'Minomartani', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik', 'milik');
+INSERT INTO `master_peta_lahan` (`ID_Lahan`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`) VALUES
+(1, 'lahan1testtttt', '-7.93102368', '110.3011638', 505, 'tegalan', 'Gilangharjoo', 'Pandakk', 'Bantull', 'Daerah Istimewa Yogyakartaa', 'non_organik'),
+(2, 'lahan2', '-7.928363082196162', '110.29961786496813', 0, 'sawah', 'Donoharjo', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik'),
+(3, 'testing', '-7.927683721783466', '110.30019780631858', 300, 'sawah', 'Gilangharjo', 'Pandak', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik'),
+(4, 'coba', '-7.92849131978409', '110.29981156822043', 21321, 'tegalan', 'Tirtonirmolo', 'kasihan', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik'),
+(5, 'test2', '-7.9307708224716515', '110.29598027692714', 5000, 'sawah', 'Minomartani', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik'),
+(15, 'coba trans', '-7.932874808682458', '110.2955403946487', 5005, 'sawah', 'Klitren', 'Gondokusuman', 'kota Yogyakarta', 'Daerah Istimewa Yogyakarta', 'organik');
 
 -- --------------------------------------------------------
 
@@ -1202,7 +1201,6 @@ INSERT INTO `master_peta_lahan_foto` (`id_foto`, `ID_Lahan`, `foto`) VALUES
 (2, 4, '1234567-coba.png'),
 (3, 1, 'test.png'),
 (4, 1, 'test.png'),
-(5, 1, '1-1.png'),
 (6, 1, '1-1.png'),
 (7, 1, '1-1.png'),
 (8, 1, '1-1.png'),
@@ -1222,6 +1220,7 @@ CREATE TABLE `master_peta_lahan_tanaman` (
   `ID_Spesies` varchar(10) NOT NULL,
   `kebutuhan_benih` int(11) NOT NULL,
   `kebutuhan_saprotan` int(11) NOT NULL,
+  `satuan_saprotan` varchar(10) DEFAULT NULL,
   `bulan_tanam` varchar(2) NOT NULL,
   `bulan_akhir` varchar(2) NOT NULL,
   `rata_hasil_panen` int(11) NOT NULL
@@ -1231,13 +1230,13 @@ CREATE TABLE `master_peta_lahan_tanaman` (
 -- Dumping data for table `master_peta_lahan_tanaman`
 --
 
-INSERT INTO `master_peta_lahan_tanaman` (`id_detail_tanaman`, `ID_Lahan`, `ID_Spesies`, `kebutuhan_benih`, `kebutuhan_saprotan`, `bulan_tanam`, `bulan_akhir`, `rata_hasil_panen`) VALUES
-(1, 1, 'spt1', 30, 30, '12', '03', 1200),
-(2, 1, 'spt1', 20, 30, '12', '04', 2000),
-(3, 3, 'spt1', 20, 30, '12', '03', 2000),
-(4, 4, 'spt1', 20, 20, '12', '04', 1900),
-(5, 5, 'spt1', 5, 50, '01', '04', 20),
-(6, 5, 'spt1', 4, 30, '07', '10', 400);
+INSERT INTO `master_peta_lahan_tanaman` (`id_detail_tanaman`, `ID_Lahan`, `ID_Spesies`, `kebutuhan_benih`, `kebutuhan_saprotan`, `satuan_saprotan`, `bulan_tanam`, `bulan_akhir`, `rata_hasil_panen`) VALUES
+(1, 1, 'spt2', 3, 300, 'botol', '11', '02', 1100),
+(2, 1, 'spt1', 20, 30, NULL, '12', '04', 2000),
+(3, 3, 'spt1', 20, 30, NULL, '12', '03', 2000),
+(4, 4, 'spt1', 20, 20, NULL, '12', '04', 1900),
+(5, 5, 'spt1', 5, 50, NULL, '01', '04', 20),
+(6, 5, 'spt1', 4, 30, NULL, '07', '10', 400);
 
 -- --------------------------------------------------------
 
@@ -1302,6 +1301,28 @@ INSERT INTO `master_produk_tani_commerce` (`ID_Produk`, `ID`, `ID_Kategori`) VAL
 ('PRO0009', 'BAH0003', 'Kat2'),
 ('PRO0010', 'HAS0004', 'Kat3'),
 ('PRO0011', 'HAS0005', 'Kat3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_satuan_saprotan`
+--
+
+CREATE TABLE `master_satuan_saprotan` (
+  `nomor` int(11) NOT NULL,
+  `satuan` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `master_satuan_saprotan`
+--
+
+INSERT INTO `master_satuan_saprotan` (`nomor`, `satuan`) VALUES
+(4, 'botol'),
+(1, 'kg'),
+(2, 'liter'),
+(5, 'pak'),
+(3, 'sak');
 
 -- --------------------------------------------------------
 
@@ -2084,6 +2105,34 @@ INSERT INTO `trans_komentar_diskusi` (`nomor_komentar`, `ID_topik`, `ID_user`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `trans_lahan`
+--
+
+CREATE TABLE `trans_lahan` (
+  `nomor` int(11) NOT NULL,
+  `ID_User` varchar(10) DEFAULT NULL,
+  `ID_Lahan` int(11) DEFAULT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status_lahan` enum('milik','sewa','garap') NOT NULL,
+  `status_aktif` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `trans_lahan`
+--
+
+INSERT INTO `trans_lahan` (`nomor`, `ID_User`, `ID_Lahan`, `tanggal`, `status_lahan`, `status_aktif`) VALUES
+(1, 'ptn_test', 1, '2019-03-31 17:00:00', 'sewa', 1),
+(2, 'ptn_test', 2, '2019-04-07 17:00:00', 'milik', 1),
+(3, 'ptn_test', 3, '2019-04-07 17:00:00', 'milik', 1),
+(4, '1234567', 4, '2019-04-07 17:00:00', 'sewa', 1),
+(5, '1234567', 5, '2019-04-07 17:00:00', 'garap', 1),
+(6, 'ptn_test', 5, '2019-04-02 17:00:00', 'milik', 1),
+(18, '1234567', 15, '2019-04-09 12:19:31', 'milik', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `trans_pelaksanaan_pelatihan`
 --
 
@@ -2635,7 +2684,8 @@ ALTER TABLE `master_peta_lahan_foto`
 ALTER TABLE `master_peta_lahan_tanaman`
   ADD PRIMARY KEY (`id_detail_tanaman`),
   ADD KEY `master_peta_lahan_tanaman_ibfk_1` (`ID_Spesies`),
-  ADD KEY `master_peta_lahan_tanaman_ibfk_2` (`ID_Lahan`);
+  ADD KEY `master_peta_lahan_tanaman_ibfk_2` (`ID_Lahan`),
+  ADD KEY `master_peta_lahan_tanaman_ibfk_3` (`satuan_saprotan`);
 
 --
 -- Indexes for table `master_produk_tani`
@@ -2643,6 +2693,13 @@ ALTER TABLE `master_peta_lahan_tanaman`
 ALTER TABLE `master_produk_tani`
   ADD PRIMARY KEY (`ID_Produk`),
   ADD KEY `ID_Spesies` (`ID_Spesies`);
+
+--
+-- Indexes for table `master_satuan_saprotan`
+--
+ALTER TABLE `master_satuan_saprotan`
+  ADD PRIMARY KEY (`nomor`),
+  ADD KEY `satuan` (`satuan`);
 
 --
 -- Indexes for table `master_spesies_tanaman`
@@ -2790,6 +2847,14 @@ ALTER TABLE `trans_komentar_diskusi`
   ADD KEY `ID_topik` (`ID_topik`);
 
 --
+-- Indexes for table `trans_lahan`
+--
+ALTER TABLE `trans_lahan`
+  ADD PRIMARY KEY (`nomor`),
+  ADD KEY `trans_lahan_ibfk_2` (`ID_Lahan`),
+  ADD KEY `trans_lahan_ibfk_1` (`ID_User`);
+
+--
 -- Indexes for table `trans_pelaksanaan_pelatihan`
 --
 ALTER TABLE `trans_pelaksanaan_pelatihan`
@@ -2906,7 +2971,7 @@ ALTER TABLE `master_kategori_t`
 -- AUTO_INCREMENT for table `master_peta_lahan`
 --
 ALTER TABLE `master_peta_lahan`
-  MODIFY `ID_Lahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Lahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `master_peta_lahan_detail`
 --
@@ -2922,6 +2987,11 @@ ALTER TABLE `master_peta_lahan_foto`
 --
 ALTER TABLE `master_peta_lahan_tanaman`
   MODIFY `id_detail_tanaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `master_satuan_saprotan`
+--
+ALTER TABLE `master_satuan_saprotan`
+  MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `master_user_kat`
 --
@@ -2957,6 +3027,11 @@ ALTER TABLE `trans_bukti_pembayaran`
 --
 ALTER TABLE `trans_komentar_diskusi`
   MODIFY `nomor_komentar` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+--
+-- AUTO_INCREMENT for table `trans_lahan`
+--
+ALTER TABLE `trans_lahan`
+  MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `trans_penawaran_prod_tani`
 --
@@ -3082,7 +3157,8 @@ ALTER TABLE `master_peta_lahan_foto`
 --
 ALTER TABLE `master_peta_lahan_tanaman`
   ADD CONSTRAINT `master_peta_lahan_tanaman_ibfk_1` FOREIGN KEY (`ID_Spesies`) REFERENCES `master_spesies_tanaman` (`ID_Spesies`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `master_peta_lahan_tanaman_ibfk_2` FOREIGN KEY (`ID_Lahan`) REFERENCES `master_peta_lahan` (`ID_Lahan`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `master_peta_lahan_tanaman_ibfk_2` FOREIGN KEY (`ID_Lahan`) REFERENCES `master_peta_lahan` (`ID_Lahan`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `master_peta_lahan_tanaman_ibfk_3` FOREIGN KEY (`satuan_saprotan`) REFERENCES `master_satuan_saprotan` (`satuan`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `master_produk_tani`
@@ -3175,6 +3251,12 @@ ALTER TABLE `trans_kalender_tanam`
 --
 ALTER TABLE `trans_komentar_diskusi`
   ADD CONSTRAINT `trans_komentar_diskusi_ibfk_1` FOREIGN KEY (`ID_topik`) REFERENCES `trans_topik_diskusi` (`ID_topik`);
+
+--
+-- Constraints for table `trans_lahan`
+--
+ALTER TABLE `trans_lahan`
+  ADD CONSTRAINT `trans_lahan_ibfk_1` FOREIGN KEY (`ID_User`) REFERENCES `master_petani` (`ID_User`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `trans_pelaksanaan_pelatihan`
