@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbf3ddf1-2e7e-4a27-b055-51f5dfc182e9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail_lahan.php" afterPath="$PROJECT_DIR$/detail_lahan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daftar_lahan_per_petani.php" afterPath="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,7 +13,23 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="daftar_lahan_per_petani.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="137" column="379" lean-forward="false" selection-start-line="137" selection-start-column="379" selection-end-line="137" selection-end-column="379" />
+              <folding>
+                <marker date="1554838109806" expanded="true" signature="4038:4050" ph="..." />
+                <marker date="1554838109806" expanded="true" signature="6277:6289" ph="..." />
+                <marker date="1554838109806" expanded="true" signature="6409:6421" ph="..." />
+                <marker date="1554838109806" expanded="true" signature="6547:6559" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -82,7 +97,6 @@
         <option value="$PROJECT_DIR$/service/read_lahan_one_petani.php" />
         <option value="$PROJECT_DIR$/service/read_one_lahan.php" />
         <option value="$PROJECT_DIR$/service/update_lahan.php" />
-        <option value="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
         <option value="$PROJECT_DIR$/lahan_edit.php" />
         <option value="$PROJECT_DIR$/lahan_tanaman_update.php" />
         <option value="$PROJECT_DIR$/lahan_tanaman_add.php" />
@@ -91,6 +105,7 @@
         <option value="$PROJECT_DIR$/service/update_penanaman.php" />
         <option value="$PROJECT_DIR$/detail_lahan.php" />
         <option value="$PROJECT_DIR$/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
       </list>
     </option>
   </component>
@@ -155,20 +170,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mapping_dutani" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,17 +301,18 @@
       <workItem from="1554209772812" duration="12221000" />
       <workItem from="1554746813473" duration="4084000" />
       <workItem from="1554787843260" duration="16753000" />
-      <workItem from="1554826402816" duration="10863000" />
+      <workItem from="1554826402816" duration="11141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108839000" />
+    <option name="totallyTimeSpent" value="109117000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -647,28 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/hapus_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <marker date="1554796470017" expanded="true" signature="176:224" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="137" column="317" lean-forward="true" selection-start-line="137" selection-start-column="187" selection-end-line="137" selection-end-column="317" />
-          <folding>
-            <marker date="1554831399335" expanded="true" signature="4038:4050" ph="..." />
-            <marker date="1554831399335" expanded="true" signature="6277:6289" ph="..." />
-            <marker date="1554831399335" expanded="true" signature="6409:6421" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lahan_add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -859,6 +839,29 @@
             <marker date="1554837775051" expanded="false" signature="15018:15044" ph="..." />
             <marker date="1554837775051" expanded="true" signature="16410:16707" ph="..." />
             <marker date="1554837775051" expanded="true" signature="16469:16511" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/hapus_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <marker date="1554796470017" expanded="true" signature="176:224" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="137" column="379" lean-forward="false" selection-start-line="137" selection-start-column="379" selection-end-line="137" selection-end-column="379" />
+          <folding>
+            <marker date="1554838109806" expanded="true" signature="4038:4050" ph="..." />
+            <marker date="1554838109806" expanded="true" signature="6277:6289" ph="..." />
+            <marker date="1554838109806" expanded="true" signature="6409:6421" ph="..." />
+            <marker date="1554838109806" expanded="true" signature="6547:6559" ph="..." />
           </folding>
         </state>
       </provider>
