@@ -11,13 +11,6 @@ if(!isset($_SESSION['user'])){
 $nama='';
 $namalahan='';
 $idl = $_GET['id'];
-$stmt = $conn->prepare("SELECT p.Nama_Petani from master_peta_lahan l, master_petani p WHERE l.ID_User = p.ID_User AND ID_Lahan = ?");
-$stmt->bindParam(1,$idl);
-$stmt->execute();
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $nama = $row['Nama_Petani'];
-};
 
 $stmt = $conn->prepare("SELECT nama_lahan from master_peta_lahan WHERE ID_Lahan = ?");
 $stmt->bindParam(1,$idl);
@@ -84,7 +77,6 @@ $jmlfoto = count($json);
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
                     <h4>Foto Lahan</h4>
                     <h5>lahan <?php echo $namalahan; ?></h5>
-                    <h5>lahan milik <?php echo $nama; ?> </h5>
 
                     <form action="service/insert_lahan_foto.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" value="<?php echo $_SESSION['user']; ?>" name="ID_User" id="ID_User">
@@ -92,27 +84,30 @@ $jmlfoto = count($json);
 
                         <table style="border: none">
                             <tbody>
-                            <tr>
+
                                 <?php
                                 $fotocounter=0;
                                 $str = file_get_contents($BASE_URL.'service/read_foto_lahan.php?id_lahan='.$idl);
                                 $json = json_decode($str, true);
                                 if (count($json) > 0) {
                                     foreach ($json as $value) {
-                                        echo "
-<td><img id='myImg".$fotocounter."' src='images/foto_lahan/".$value['foto']."' alt='".$value['foto']."' style='width:100%;max-width:200px'>
+                                        echo "<tr>
+<td><img id='myImg".$fotocounter."' src='images/foto_lahan/".$value['foto']."' alt='".$value['foto']."' style='width:100%;max-width:100px'>
 </td>
+<td>
+<a href='./service/hapus_foto.php?id_foto=".$value['id_foto']."' class=\"btn btn-danger\">Hapus Foto</a>
+</td></tr>
 ";
                                         $fotocounter++;
                                     }
                                 }
                                 else {
                                     ?>
-
+<tr>
                                     <td colspan="8">Belum ada foto tercatat</td>
-
+</tr>
                                 <?php } ?>
-                            </tr>
+
                             </tbody>
                         </table>
 

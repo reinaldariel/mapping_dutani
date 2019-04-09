@@ -275,7 +275,7 @@ $id = $_GET['id_lahan'];
 
                         <br>
                         <h4>Foto</h4>
-                        <a href="./lahan_foto_add.php?id=<?php echo $id;?>" class="btn btn-success">Tambah Foto</a>
+                        <a href="./lahan_foto_add.php?id=<?php echo $id;?>" class="btn btn-success">Detail Foto</a>
                         <table style="border: none">
                             <tbody>
                             <tr>
