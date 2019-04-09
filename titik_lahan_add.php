@@ -144,7 +144,7 @@ $titik_long = 0;
                                         '<h6>".$val['id_detail']."</h6>'+
                                         '<div id=\"bodyContent\"><p>'+
                                         '<ul>'+
-                                        '<li> <a href=\"view2.php?id=".$val['id_detail']."\" target=\"_blank\">Detail</a>' +
+                                        '<li> <a href=\"detail_lahan.php?id_lahan=".$val['id_detail']."\" target=\"_blank\">Detail</a>' +
                                         '</ul></div></div>'";
                                     echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt'].",".$content."],";
                                 }
