@@ -11,13 +11,6 @@ if(!isset($_SESSION['user'])){
 $nama='';
 $namalahan='';
 $idl = $_GET['id'];
-    $stmt = $conn->prepare("SELECT p.Nama_Petani from master_peta_lahan l, master_petani p WHERE l.ID_User = p.ID_User AND ID_Lahan = ?");
-    $stmt->bindParam(1,$idl);
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $nama = $row['Nama_Petani'];
-    };
 
 $stmt = $conn->prepare("SELECT nama_lahan from master_peta_lahan WHERE ID_Lahan = ?");
 $stmt->bindParam(1,$idl);
@@ -64,9 +57,8 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
 
                     <form action="service/insert_lahan_tanaman.php" method="post" enctype="multipart/form-data">
-                        <h4>Data penanaman</h4>
-                        <h5>lahan <?php echo $namalahan; ?></h5>
-                        <h5>lahan milik <?php echo $nama; ?> </h5>
+                        <h4>Data penanaman lahan <?php echo $namalahan; ?></h4>
+                        <BR>
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_lahan" id="id_lahan">
 <table>
     <tbody>

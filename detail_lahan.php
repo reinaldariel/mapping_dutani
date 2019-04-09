@@ -237,7 +237,8 @@ $id = $_GET['id_lahan'];
                                             echo "-";
                                     }
                                    echo "
-                         <h5>".$cntr."</h5>  
+                         <h5>Penanaman ".$cntr."</h5>  
+                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."' class='btn btn-warning'>Ubah</a>
                         <table>
                             <tbody>
                             <tr>
@@ -268,7 +269,7 @@ $id = $_GET['id_lahan'];
                             else {
                                 ?>
 
-                                    <p>Belum ada tanaman tercatat</p>
+                                    <p>Belum ada penanaman tercatat</p>
 
                             <?php } ?>
 
