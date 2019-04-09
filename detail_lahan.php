@@ -72,6 +72,7 @@ $id = $_GET['id_lahan'];
                                     $nama_lahan=$value['nama_lahan'];
                                     echo "<h2>".$value['nama_lahan']."</h2>
                                     <h4>Keterangan Lahan</h4>
+                                    <button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id."' style='color: white'>Ubah</a></button>
                                     <table style=\"border: none\">
                                     <tbody>
                                         <tr>

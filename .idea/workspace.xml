@@ -2,24 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbf3ddf1-2e7e-4a27-b055-51f5dfc182e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/hapus_foto.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/hapus_lahan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/hapus_penanaman.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/hapus_transaksi_lahan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/insert_kepemilikan_lahan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/read_lahan_latest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/read_trans_latest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/update_lahan.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/update_penanaman.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/update_transaksi_lahan.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lahan_edit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daftar_lahan_per_petani.php" afterPath="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail_lahan.php" afterPath="$PROJECT_DIR$/detail_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_add.php" afterPath="$PROJECT_DIR$/lahan_add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/insert_lahan.php" afterPath="$PROJECT_DIR$/service/insert_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/insert_lahan_tanaman.php" afterPath="$PROJECT_DIR$/service/insert_lahan_tanaman.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_tanaman_add.php" afterPath="$PROJECT_DIR$/lahan_tanaman_add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/read_lahan_one_petani.php" afterPath="$PROJECT_DIR$/service/read_lahan_one_petani.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/read_one_lahan.php" afterPath="$PROJECT_DIR$/service/read_one_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/read_trans_one_lahan.php" afterPath="$PROJECT_DIR$/service/read_trans_one_lahan.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/update_lahan.php" afterPath="$PROJECT_DIR$/service/update_lahan.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +20,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -48,6 +38,8 @@
       <find>peme</find>
       <find>admin</find>
       <find>base</find>
+      <find>$nama</find>
+      <find>$idp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -69,10 +61,7 @@
         <option value="$PROJECT_DIR$/form_input_lahan.php" />
         <option value="$PROJECT_DIR$/cari2.php" />
         <option value="$PROJECT_DIR$/view2.php" />
-        <option value="$PROJECT_DIR$/service/read_lahan_one_petani.php" />
-        <option value="$PROJECT_DIR$/lahan_tanaman_add.php" />
         <option value="$PROJECT_DIR$/service/read_foto_lahan.php" />
-        <option value="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
         <option value="$PROJECT_DIR$/sidebar.php" />
         <option value="$PROJECT_DIR$/includes/config2.php" />
         <option value="$PROJECT_DIR$/css/modal_image.css" />
@@ -81,15 +70,12 @@
         <option value="$PROJECT_DIR$/service/insert_lahan_foto.php" />
         <option value="$PROJECT_DIR$/service/read_trans_lahan.php" />
         <option value="$PROJECT_DIR$/service/read_trans_one_lahan.php" />
-        <option value="$PROJECT_DIR$/service/read_one_lahan.php" />
-        <option value="$PROJECT_DIR$/detail_lahan.php" />
         <option value="$PROJECT_DIR$/service/hapus_foto.php" />
         <option value="$PROJECT_DIR$/service/hapus_lahan.php" />
         <option value="$PROJECT_DIR$/service/hapus_penanaman.php" />
         <option value="$PROJECT_DIR$/service/update_penanaman.php" />
         <option value="$PROJECT_DIR$/service/hapus_transaksi_lahan.php" />
         <option value="$PROJECT_DIR$/service/insert_lahan_tanaman.php" />
-        <option value="$PROJECT_DIR$/service/update_lahan.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/lahan_add.php" />
         <option value="$PROJECT_DIR$/service/read_trans_latest.php" />
@@ -97,6 +83,13 @@
         <option value="$PROJECT_DIR$/service/insert_lahan.php" />
         <option value="$PROJECT_DIR$/service/insert_kepemilikan_lahan.php" />
         <option value="$PROJECT_DIR$/service/update_transaksi_lahan.php" />
+        <option value="$PROJECT_DIR$/service/read_lahan_one_petani.php" />
+        <option value="$PROJECT_DIR$/lahan_tanaman_add.php" />
+        <option value="$PROJECT_DIR$/service/read_one_lahan.php" />
+        <option value="$PROJECT_DIR$/service/update_lahan.php" />
+        <option value="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
+        <option value="$PROJECT_DIR$/lahan_edit.php" />
+        <option value="$PROJECT_DIR$/detail_lahan.php" />
       </list>
     </option>
   </component>
@@ -128,8 +121,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -168,12 +159,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dutatani" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/xampp/htdocs/mapping_dutani/detail_lahan.php" />
+    <property name="SearchEverywhereHistoryKey" value="read_one_lahan&#9;FILE&#9;file://D:/xampp/htdocs/mapping_dutani/service/read_one_lahan.php" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -291,32 +284,33 @@
       <workItem from="1554135333036" duration="6392000" />
       <workItem from="1554209772812" duration="12221000" />
       <workItem from="1554746813473" duration="4084000" />
-      <workItem from="1554787843260" duration="16157000" />
+      <workItem from="1554787843260" duration="16753000" />
+      <workItem from="1554826402816" duration="5606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97380000" />
+    <option name="totallyTimeSpent" value="103582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20497803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118003" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -331,13 +325,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/logout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/errorpage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -438,16 +425,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_one_petani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <marker date="1552636599388" expanded="true" signature="174:219" ph="SELECT * FRO... master_petani" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_klp_tani.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -468,29 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lahan_tanaman_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="74" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="294" selection-end-column="7" />
-          <folding>
-            <marker date="1554217600910" expanded="true" signature="335:442" ph="SELECT Nama_... master_petani" />
-            <marker date="1554217600910" expanded="true" signature="660:719" ph="SELECT nama_... master_peta_lahan" />
-            <marker date="1554217600910" expanded="true" signature="3209:3268" ph="SELECT ID_Sp... master_spesies_tanaman" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="137" column="114" lean-forward="false" selection-start-line="137" selection-start-column="114" selection-end-line="137" selection-end-column="114" />
-          <folding>
-            <marker date="1554225008426" expanded="true" signature="4038:4050" ph="..." />
-            <marker date="1554225008426" expanded="true" signature="6277:6289" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/read_foto_lahan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -505,14 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="41" lean-forward="false" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_lahan_one_petani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -599,83 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/insert_lahan_tanaman.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="315" lean-forward="false" selection-start-line="15" selection-start-column="315" selection-end-line="15" selection-end-column="315" />
-          <folding>
-            <marker date="1554799566489" expanded="true" signature="465:843" ph="INSERT INTO `master_peta_lahan_tanaman`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/detail_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="52" lean-forward="false" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
-          <folding>
-            <marker date="1554794852592" expanded="false" signature="3080:3092" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3094:4725" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3138:4725" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3183:3327" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3372:3520" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3565:3715" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3760:3908" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="3953:4099" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="4144:4290" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="4335:4479" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="4524:4684" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="5381:5393" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="5395:5468" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="5439:5468" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="5835:6061" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="6280:6506" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="6726:6954" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="12329:13404" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="12365:13371" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="12398:12526" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="12559:12693" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="12726:12866" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="12899:13013" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="13046:13158" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="13191:13334" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="14439:14580" ph="..." />
-            <marker date="1554794852592" expanded="false" signature="14547:14573" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="15939:16236" ph="..." />
-            <marker date="1554794852592" expanded="true" signature="15998:16040" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lahan_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="195" column="44" lean-forward="false" selection-start-line="195" selection-start-column="44" selection-end-line="195" selection-end-column="44" />
-          <folding>
-            <marker date="1554809258813" expanded="true" signature="390:445" ph="SELECT Nama_... master_petani" />
-            <marker date="1554809258813" expanded="true" signature="7608:7642" ph="SELECT Nama_... provinsi" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="98" column="50" lean-forward="true" selection-start-line="96" selection-start-column="24" selection-end-line="98" selection-end-column="50" />
-          <folding>
-            <marker date="1554808225870" expanded="true" signature="6227:6536" ph="select l.ID_... master_petani" />
-            <marker date="1554808225870" expanded="true" signature="7016:7341" ph="select l.ID_... master_petani" />
-            <marker date="1554808225870" expanded="true" signature="7754:8367" ph="..." />
-            <marker date="1554808225870" expanded="true" signature="7813:7855" ph="..." />
-            <marker date="1554808225870" expanded="true" signature="8084:8361" ph="..." />
-            <marker date="1554808225870" expanded="true" signature="8087:8123" ph="..." />
-            <marker date="1554808225870" expanded="true" signature="8127:8355" ph="..." />
-            <marker date="1554808225870" expanded="true" signature="8167:8221" ph="..." />
-            <marker date="1554808225870" expanded="true" signature="8225:8350" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/insert_lahan_foto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -697,34 +566,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/insert_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="91" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="2" />
-          <folding>
-            <marker date="1554812552574" expanded="true" signature="2824:3514" ph="INSERT INTO `master_peta_lahan`... " />
-            <marker date="1554812552574" expanded="true" signature="3530:3896" ph="INSERT INTO `master_peta_lahan`... " />
-            <marker date="1554812552574" expanded="true" signature="4124:4317" ph="INSERT INTO `trans_lahan`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/hapus_foto.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding>
             <marker date="1554796470104" expanded="true" signature="174:226" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/hapus_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <marker date="1554796470017" expanded="true" signature="176:224" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -782,19 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/update_lahan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <marker date="1554802065866" expanded="true" signature="497:542" ph="UPDATE `mast... " />
-            <marker date="1554802065866" expanded="true" signature="497:575" ph="UPDATE `mast... " />
-            <marker date="1554802065866" expanded="true" signature="497:867" ph="UPDATE `mast... " />
-            <marker date="1554802065866" expanded="true" signature="497:868" ph="UPDATE `mast... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/service/update_penanaman.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -817,13 +651,186 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_one_petani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+          <folding>
+            <marker date="1552636599388" expanded="true" signature="174:219" ph="SELECT * FRO... master_petani" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/insert_lahan_tanaman.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="315" lean-forward="false" selection-start-line="15" selection-start-column="315" selection-end-line="15" selection-end-column="315" />
+          <folding>
+            <marker date="1554799566489" expanded="true" signature="465:843" ph="INSERT INTO `master_peta_lahan_tanaman`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/insert_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="84" column="29" lean-forward="true" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+          <folding>
+            <marker date="1554812552574" expanded="true" signature="2824:3514" ph="INSERT INTO `master_peta_lahan`... " />
+            <marker date="1554812552574" expanded="true" signature="3530:3896" ph="INSERT INTO `master_peta_lahan`... " />
+            <marker date="1554812552574" expanded="true" signature="4124:4317" ph="INSERT INTO `trans_lahan`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/service/read_one_lahan.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="282" lean-forward="false" selection-start-line="7" selection-start-column="282" selection-end-line="7" selection-end-column="282" />
+          <caret line="7" column="336" lean-forward="false" selection-start-line="7" selection-start-column="336" selection-end-line="7" selection-end-column="336" />
           <folding>
-            <marker date="1554794781244" expanded="true" signature="176:422" ph="SELECT l.ID_... master_peta_lahan" />
-            <marker date="1554794781244" expanded="true" signature="176:430" ph="SELECT l.ID_... master_peta_lahan" />
+            <marker date="1554829367225" expanded="true" signature="176:496" ph="SELECT l.ID_... master_peta_lahan" />
+            <marker date="1554829367225" expanded="true" signature="176:504" ph="SELECT l.ID_... master_peta_lahan" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/update_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="126" lean-forward="false" selection-start-line="21" selection-start-column="126" selection-end-line="21" selection-end-column="126" />
+          <folding>
+            <marker date="1554831206055" expanded="true" signature="497:542" ph="UPDATE `mast... " />
+            <marker date="1554831206055" expanded="true" signature="497:577" ph="UPDATE `mast... " />
+            <marker date="1554831206055" expanded="true" signature="497:883" ph="UPDATE `mast... " />
+            <marker date="1554831206055" expanded="true" signature="497:884" ph="UPDATE `mast... " />
+            <marker date="1554831206055" expanded="true" signature="497:899" ph="UPDATE `mast... " />
+            <marker date="1554831206055" expanded="true" signature="497:900" ph="UPDATE `mast... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_lahan_one_petani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="153" lean-forward="false" selection-start-line="7" selection-start-column="153" selection-end-line="7" selection-end-column="153" />
+          <folding>
+            <marker date="1554828579613" expanded="true" signature="174:275" ph="SELECT l.* F... trans_lahan" />
+            <marker date="1554828579613" expanded="true" signature="174:299" ph="SELECT l.* F... trans_lahan" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lahan_tanaman_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="316" selection-end-column="7" />
+          <folding>
+            <marker date="1554828839231" expanded="true" signature="335:442" ph="SELECT Nama_... master_petani" />
+            <marker date="1554828839231" expanded="true" signature="660:719" ph="SELECT nama_... master_peta_lahan" />
+            <marker date="1554828839231" expanded="true" signature="3209:3268" ph="SELECT ID_Sp... master_spesies_tanaman" />
+            <marker date="1554828839231" expanded="true" signature="4486:4505" ph="SELECT Nama_... provinsi" />
+            <marker date="1554828839231" expanded="true" signature="4486:4512" ph="SELECT satua... master_" />
+            <marker date="1554828839231" expanded="true" signature="4486:4527" ph="SELECT satua... master_satuan_saprotan" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/hapus_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding>
+            <marker date="1554796470017" expanded="true" signature="176:224" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lahan_edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4879">
+          <caret line="287" column="11" lean-forward="true" selection-start-line="287" selection-start-column="11" selection-end-line="287" selection-end-column="11" />
+          <folding>
+            <marker date="1554831766713" expanded="true" signature="6340:6374" ph="SELECT Nama_... provinsi" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/detail_lahan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="74" column="120" lean-forward="false" selection-start-line="74" selection-start-column="120" selection-end-line="74" selection-end-column="120" />
+          <folding>
+            <marker date="1554831860049" expanded="true" signature="3160:3172" ph="..." />
+            <marker date="1554831860049" expanded="false" signature="3243:3255" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="3257:4888" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="3301:4888" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="3346:3490" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="3535:3683" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="3728:3878" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="3923:4071" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="4116:4262" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="4307:4453" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="4498:4642" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="4687:4847" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="5544:5556" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="5558:5631" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="5602:5631" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="5998:6224" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="6443:6669" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="6889:7117" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="12492:13567" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="12528:13534" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="12561:12689" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="12722:12856" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="12889:13029" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="13062:13176" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="13209:13321" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="13354:13497" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="14602:14743" ph="..." />
+            <marker date="1554831860049" expanded="false" signature="14710:14736" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="16102:16399" ph="..." />
+            <marker date="1554831860049" expanded="true" signature="16161:16203" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="137" column="317" lean-forward="true" selection-start-line="137" selection-start-column="187" selection-end-line="137" selection-end-column="317" />
+          <folding>
+            <marker date="1554831399335" expanded="true" signature="4038:4050" ph="..." />
+            <marker date="1554831399335" expanded="true" signature="6277:6289" ph="..." />
+            <marker date="1554831399335" expanded="true" signature="6409:6421" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lahan_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="137" column="60" lean-forward="true" selection-start-line="137" selection-start-column="60" selection-end-line="137" selection-end-column="60" />
+          <folding>
+            <marker date="1554809258813" expanded="true" signature="390:445" ph="SELECT Nama_... master_petani" />
+            <marker date="1554809258813" expanded="true" signature="7608:7642" ph="SELECT Nama_... provinsi" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="185" column="43" lean-forward="true" selection-start-line="172" selection-start-column="28" selection-end-line="185" selection-end-column="43" />
+          <folding>
+            <marker date="1554808225870" expanded="true" signature="6227:6536" ph="select l.ID_... master_petani" />
+            <marker date="1554808225870" expanded="true" signature="7016:7341" ph="select l.ID_... master_petani" />
+            <marker date="1554808225870" expanded="true" signature="7754:8367" ph="..." />
+            <marker date="1554808225870" expanded="true" signature="7813:7855" ph="..." />
+            <marker date="1554808225870" expanded="true" signature="8084:8361" ph="..." />
+            <marker date="1554808225870" expanded="true" signature="8087:8123" ph="..." />
+            <marker date="1554808225870" expanded="true" signature="8127:8355" ph="..." />
+            <marker date="1554808225870" expanded="true" signature="8167:8221" ph="..." />
+            <marker date="1554808225870" expanded="true" signature="8225:8350" ph="..." />
           </folding>
         </state>
       </provider>

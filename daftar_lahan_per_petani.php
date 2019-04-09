@@ -135,7 +135,7 @@ $id = $_GET['id'];
                                         $counter++;
                                     }
 
-                                    echo $tbl_cont."<td><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'>Ubah</button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
+                                    echo $tbl_cont."<td><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'>Hapus</button> </td></tr>";
                                 }
                             }
                             else {

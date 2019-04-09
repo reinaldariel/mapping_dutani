@@ -110,6 +110,28 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     </tr>
     <tr>
         <td>
+            <label>Satuan Saprotan</label>
+        </td>
+        <td><label> : </label></td>
+        <td>
+            <select id="satuan_saprotan" name="satuan_saprotan" required>
+                <option value="" disabled selected> Satuan </option>
+                <?php
+                $str = "";
+                $stmt = $conn->prepare("SELECT satuan from master_satuan_saprotan");
+                $stmt->execute();
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                $result = $stmt->fetchAll();
+                foreach ($result as $val) {
+                    $str .= '<option value="' . $val['satuan'] . '">' . $val['satuan'] . '</option>';
+                }
+                echo $str;
+                ?>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
         <label>Bulan Tanam</label>
         </td>
         <td><label> : </label></td>
