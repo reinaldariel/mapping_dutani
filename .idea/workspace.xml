@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbf3ddf1-2e7e-4a27-b055-51f5dfc182e9" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/filter_daerah.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/read_detail_titik_lahan_per_daerah.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail_lahan.php" afterPath="$PROJECT_DIR$/detail_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_foto_add.php" afterPath="$PROJECT_DIR$/lahan_foto_add.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/filter.php" afterPath="$PROJECT_DIR$/filter_klp_tani.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,79 +17,33 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="detail_lahan.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detail_lahan.php">
+      <file leaf-file-name="filter_klp_tani.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/filter_klp_tani.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="278" column="24" lean-forward="false" selection-start-line="277" selection-start-column="24" selection-end-line="278" selection-end-column="24" />
-              <folding>
-                <marker date="1554838366773" expanded="true" signature="3160:3172" ph="..." />
-                <marker date="1554838366773" expanded="false" signature="3243:3255" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="3257:4888" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="3301:4888" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="3346:3490" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="3535:3683" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="3728:3878" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="3923:4071" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="4116:4262" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="4307:4453" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="4498:4642" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="4687:4847" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="5544:5556" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="5558:5631" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="5602:5631" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="5998:6224" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="6443:6669" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="6889:7117" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="12735:12747" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="12798:13873" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="12834:13840" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="12867:12939" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="12867:12995" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13028:13103" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13028:13162" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13195:13273" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13195:13335" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13368:13482" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13515:13627" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13660:13743" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="13660:13803" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="14910:15051" ph="..." />
-                <marker date="1554838366773" expanded="false" signature="15018:15044" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="16410:16707" ph="..." />
-                <marker date="1554838366773" expanded="true" signature="16469:16511" ph="..." />
-              </folding>
+            <state relative-caret-position="-1054">
+              <caret line="100" column="69" lean-forward="true" selection-start-line="100" selection-start-column="69" selection-end-line="100" selection-end-column="69" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lahan_foto_add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lahan_foto_add.php">
+      <file leaf-file-name="filter_daerah.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/filter_daerah.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="97" column="87" lean-forward="false" selection-start-line="97" selection-start-column="87" selection-end-line="97" selection-end-column="87" />
-              <folding>
-                <marker date="1554838681806" expanded="true" signature="332:391" ph="SELECT nama_... master_peta_lahan" />
-                <marker date="1554838681806" expanded="true" signature="3755:4022" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="3760:3901" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="3868:3894" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="3906:3944" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="3906:3950" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="3906:4017" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="4739:4740" ph="..." />
-                <marker date="1554838681806" expanded="true" signature="4776:4825" ph="..." />
-              </folding>
+            <state relative-caret-position="1207">
+              <caret line="71" column="108" lean-forward="false" selection-start-line="71" selection-start-column="108" selection-end-line="71" selection-end-column="108" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hapus_foto.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/service/hapus_foto.php">
+      <file leaf-file-name="read_detail_titik_lahan_per_daerah.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_daerah.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="204">
+              <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
               <folding>
-                <marker date="1554796470104" expanded="true" signature="174:226" ph="DELETE FROM " />
+                <marker date="1554839126790" expanded="true" signature="168:276" ph="SELECT d.* F... master_peta_lahan_detail" />
               </folding>
             </state>
           </provider>
@@ -117,6 +72,7 @@
       <find>tambah</find>
       <find>ubah</find>
       <find>btn-da</find>
+      <find>$json = json_decode($str_titik_all</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -171,6 +127,8 @@
         <option value="$PROJECT_DIR$/detail_lahan.php" />
         <option value="$PROJECT_DIR$/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
+        <option value="$PROJECT_DIR$/service/read_detail_titik_lahan_per_daerah.php" />
+        <option value="$PROJECT_DIR$/filter_daerah.php" />
       </list>
     </option>
   </component>
@@ -371,7 +329,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109128000" />
+    <option name="totallyTimeSpent" value="109598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -407,27 +365,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7968">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_klptani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="74" lean-forward="false" selection-start-line="7" selection-start-column="74" selection-end-line="7" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/fungsi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -482,16 +419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
           <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_klp_tani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1553757565528" expanded="true" signature="176:385" ph="SELECT d.* F... master_peta_lahan_detail" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,6 +786,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="3269" column="27" lean-forward="false" selection-start-line="3269" selection-start-column="27" selection-end-line="3269" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -926,6 +854,42 @@
             <marker date="1554838109806" expanded="true" signature="6409:6421" ph="..." />
             <marker date="1554838109806" expanded="true" signature="6547:6559" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_klp_tani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding>
+            <marker date="1553757565528" expanded="true" signature="176:385" ph="SELECT d.* F... master_peta_lahan_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filter_klp_tani.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1054">
+          <caret line="100" column="69" lean-forward="true" selection-start-line="100" selection-start-column="69" selection-end-line="100" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_daerah.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding>
+            <marker date="1554839126790" expanded="true" signature="168:276" ph="SELECT d.* F... master_peta_lahan_detail" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/filter_daerah.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="71" column="108" lean-forward="false" selection-start-line="71" selection-start-column="108" selection-end-line="71" selection-end-column="108" />
+          <folding />
         </state>
       </provider>
     </entry>
