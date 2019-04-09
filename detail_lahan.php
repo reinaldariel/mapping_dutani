@@ -238,7 +238,7 @@ $id = $_GET['id_lahan'];
                                     }
                                    echo "
                          <h5>Penanaman ".$cntr."</h5>  
-                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."' class='btn btn-warning'>Ubah</a>
+                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."' class='btn btn-warning'>Ubah</a><button type='button' class='btn btn-danger'><a href='service/hapus_penanaman.php?id_penanaman=".$value['id_detail_tanaman']."' style='color: white'>Hapus</a></button>
                         <table>
                             <tbody>
                             <tr>
