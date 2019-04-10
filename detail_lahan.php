@@ -251,6 +251,9 @@ $id = $_GET['id_lahan'];
                                 <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']."</td>
                             </tr>
                             <tr>
+                                <td>Satuan Saprotan </td> <td> : ".$value['satuan_saprotan']."</td>
+                            </tr>
+                            <tr>
                                 <td>Bulan Menanam </td> <td> : ".$btanam."</td>
                             </tr>
                             <tr>
