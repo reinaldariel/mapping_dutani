@@ -2,11 +2,11 @@
 include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
-$id_lahan = $_GET['id_lahan'];
+$nomor = $_GET['nomor'];
 
 try {
-    $stmt = $conn->prepare("SELECT tl.nomor, tl.status_lahan, p.nama_petani, tl.ID_User FROM trans_lahan tl, master_petani p WHERE tl.ID_User = p.ID_User AND tl.id_lahan = ? AND tl.status_aktif = 1");
-    $stmt->bindParam(1, $id_lahan);
+    $stmt = $conn->prepare("SELECT tl.*,p.Nama_Petani FROM trans_lahan tl, master_petani p WHERE tl.ID_User = p.ID_User AND tl.nomor = ?");
+    $stmt->bindParam(1, $nomor);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();
