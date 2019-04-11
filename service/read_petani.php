@@ -1,6 +1,6 @@
 <?php
 include_once "../includes/config2.php";
-
+//membaca semua petani yang memiliki lahan
 $database = new Database();
 $conn = $database->getConnection();
 try {

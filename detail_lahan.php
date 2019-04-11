@@ -115,6 +115,7 @@ $id = $_GET['id_lahan'];
                         <br>
                         <?php
                         echo "<h4>Kepemilikan Lahan</h4>
+<a href='./trans_lahan_add.php?id=".$id."' class='btn btn-success'>Tambah</a>
                             <table style=\"border: none\">
                                     <tbody>
                             ";
