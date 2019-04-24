@@ -107,6 +107,10 @@ $str_titik_all = '';
 //                    }
 //                    ?>
                     <script type="text/javascript">
+                    <?php
+                            $json = json_decode($str, true);
+                            //print_r(count($json));exit;
+                            ?>
                         var locations = [
                             <?php
                             $json = json_decode($str_titik_all, true);
@@ -114,15 +118,21 @@ $str_titik_all = '';
                                 foreach ($json as $key => $val) {
                                     echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt']."],";
                                 }
+                            }else{
+                                $json = json_decode($str, true);
+                                foreach ($json as $key => $val) {
+                                    echo "['0',".$val['Koordinat_X'].",".$val['Koordinat_Y']."],";
+                                }
                             }
                             ?>
                         ];
+                        console.log(locations);
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 19, //level zoom
+                            zoom: 20, //level zoom
                             scaleControl: true,
                             center:latLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                            mapTypeId: 'satellite'
                         });
 
                         var infowindow = new google.maps.InfoWindow();

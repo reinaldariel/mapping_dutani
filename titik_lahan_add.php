@@ -127,7 +127,9 @@ $titik_long = 0;
                         }
                     }
 
-                    $str_titik_center = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
+                    //$str_titik_center = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$_GET['id_lahan']);
+                    $str_titik_center = $str_titik_all;
+                    $str_titik_mula = file_get_contents($BASE_URL.'service/read_one_petani_berdasar_lahan.php?id_lahan='.$_GET['id_lahan']);
                     $json_titik_center = json_decode($str_titik_center, true);
 
                     ?>
@@ -148,6 +150,11 @@ $titik_long = 0;
                                         '</ul></div></div>'";
                                     echo "['".$val['id_detail']."',".$val['lat'].",".$val['longt'].",".$content."],";
                                 }
+                            }else{
+                                $json = json_decode($str_titik_mula, true);
+                                foreach ($json as $key => $val) {
+                                    echo "['0',".$val['Koordinat_X'].",".$val['Koordinat_Y']."],";
+                                }
                             }
                             ?>
                         ];
@@ -157,14 +164,14 @@ $titik_long = 0;
                             zoom: 20, //level zoom
                             scaleControl: true,
                             center:latLng,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP
+                            mapTypeId: 'satellite'
                         });
 
                         var infowindow = new google.maps.InfoWindow();
 
                         var marker, i;
                         /* kode untuk menampilkan banyak marker */
-                        for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                        /*for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
                             //cek jika marker adalah yang akan diedit maka warna hijau
                             if(locations[i][1] == <?php echo $titik_lat; ?>){
                                 marker = new google.maps.Marker({
@@ -185,15 +192,40 @@ $titik_long = 0;
                                 });
                             }
                             
-                            /* menambahkan event click untuk menampilkan
-                             info windows dengan isi sesuai dengan marker yg di klik */
+                            //menambahkan event click untuk menampilkan
+                             //info windows dengan isi sesuai dengan marker yg di klik
                             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                                 return function() {
                                     infowindow.setContent(locations[i][3]);
                                     infowindow.open(map, marker);
                                 }
                             })(marker, i));
-                        }
+
+                        }*/
+
+                        var line_locations = [
+                            <?php
+                            $json = json_decode($str_titik_all, true);
+                            if (count($json) > 0) {
+                                foreach ($json as $key => $val) {
+                                    if($key == count($json)-1){
+                                        echo "{lat:".$val['lat'].", lng:".$val['longt']."}";
+                                    }else{
+                                        echo "{lat:".$val['lat'].", lng:".$val['longt']."},";
+                                    }
+                                }
+                            }
+                            ?>
+                        ];
+                        var lahanPath = new google.maps.Polygon({
+                            path: line_locations,
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                        });
+
+                        lahanPath.setMap(map);
 
                         //Add listener
                         google.maps.event.addListener(map, "click", function (event) {
@@ -204,7 +236,7 @@ $titik_long = 0;
                             document.getElementById('longt').value = longitude;
 
                             radius = new google.maps.Circle({map: map,
-                                radius: 4,
+                                radius: 2,
                                 center: event.latLng,
                                 fillColor: '#777',
                                 fillOpacity: 0.1,
