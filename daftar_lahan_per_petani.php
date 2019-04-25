@@ -116,25 +116,17 @@ $id = $_GET['id'];
                             $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
-                                foreach ($json as $head) {
+                                foreach ($json as $val) {
                                     $counter = 0;
                                     $tbl_cont = "<tr>";
-                                    foreach ($head as $key => $val) {
-                                        if ($counter == 0){
-                                            $id_lhn = $val;
-                                            $tbl_cont .= "<td>" . $val . "</td>";
-                                        } elseif ($counter == 2 or $counter == 5 or $counter == 6) {
-                                            $tbl_cont .= "<td>" . $val . "</td>";
-                                        } elseif ($counter == 7) {
-                                            $tbl_cont .= "<td>" . $val . ", ";
-                                        } elseif ($counter == 8 or $counter == 9) {
-                                            $tbl_cont .= $val . ", ";
-                                        } elseif ($counter == 10) {
-                                            $tbl_cont .= $val."</td>";
-                                        }
-                                        $counter++;
-                                    }
 
+                                    $id_lhn = $val['ID_Lahan'];
+                                    $tbl_cont .= "<td>" . $val['ID_Lahan'] . "</td>";
+                                    $tbl_cont .= "<td>" . $val['nama_lahan'] . "</td>";
+                                    $tbl_cont .= "<td>" . $val['luas_lahan'] . "</td>";
+                                    $tbl_cont .= "<td>" . $val['jenis_lahan'] . "</td>";
+                                    $tbl_cont .= "<td>" . $val['Desa'] . ", " . $val['Kecamatan'] . ", " . $val['Kabupaten'] . ", " . $val['Provinsi'] . "</td>";
+                                    
                                     echo $tbl_cont."<td><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'><a href='service/hapus_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Hapus</a></button> </td></tr>";
                                 }
                             }
