@@ -110,7 +110,7 @@ if($_SESSION['kategori'] == 'PET'){
                                         } elseif ($counter == 2) {
                                             $bisa = $val;
                                             $tbl_cont .= "<td>" . $val . "</td>";
-                                            $tbl_cont .= "<td>" . $val . "</td>";
+                                            $tbl_cont .= "<td>" . 0 . "</td>";
                                             $tbl_cont .= "<td>" . $val . "</td>";
                                         } else {
                                             $tbl_cont .= "<td>" . $val . "</td>";
