@@ -281,6 +281,24 @@ if ($idp == $_SESSION['user']){
 
     }); //end addListener
 
+
+    var marker;
+    /* kode untuk menampilkan banyak marker */
+
+    <?php $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$idp);
+    $json = json_decode($str, true);
+    if (count($json) > 0){
+    foreach ($json as $val) {
+        echo "marker = new google.maps.Marker({
+            position: new google.maps.LatLng(".$val['Koordinat_X'].", ".$val['Koordinat_Y']."),
+            map: map,
+            draggable : false,
+            animation: google.maps.Animation.DROP
+        });";
+    }
+    }?>
+
+
 </script>
 <script>
     $(document).ready(function(){
