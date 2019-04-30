@@ -92,20 +92,9 @@ $str_titik_all = '';
             <div class="agile-grids">
                 <div class="grid-form">
                     <div class="grid-form1">
-<div class="agileits-box-body clearfix">
+                        <div class="agileits-box-body clearfix">
 
-                    <div id="map" style="width: auto; height: 450px;"></div>
-<!--                    --><?php
-//                    if($_SESSION['kategori'] == "ADP") {
-//                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l where p.ID_User = l.ID_User AND l.ID_User not in('') AND l.ID_Lahan not in('')";
-//                        $stmt = $conn->prepare($list);
-//                        $stmt->execute();
-//                    }else{
-//                        $list = "SELECT * FROM master_peta_lahan_detail WHERE id_lahan = ".$_GET['id_lahan'];
-//                        $stmt = $conn->prepare($list);
-//                        $stmt->execute();
-//                    }
-//                    ?>
+                            <div id="map" style="width: auto; height: 450px;"></div>
                     <script type="text/javascript">
                     <?php
                             $json = json_decode($str, true);

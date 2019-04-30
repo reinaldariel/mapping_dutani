@@ -45,6 +45,8 @@ $id = $_GET['id'];
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
+
 </head>
 <body>
 <div class="page-container">
@@ -87,6 +89,57 @@ $id = $_GET['id'];
 
             </div>
             <!--//grid-->
+
+            <div class="agile-grids">
+                <div class="grid-form">
+                    <div class="grid-form1">
+                        <div class="agileits-box-body clearfix">
+
+                            <div id="map" style="width: auto; height: 450px;"></div>
+                            <script type="text/javascript">
+                                var latLng=new google.maps.LatLng(<?php echo $def_lat; ?>, <?php echo $def_long; ?>);
+                                var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 15, //level zoom
+                                    scaleControl: true,
+                                    center:latLng,
+                                    mapTypeId: google.maps.MapTypeId.HYBRID
+                                });
+
+                                //                        var infowindow = new google.maps.InfoWindow();
+
+                                <?php
+                                $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
+                                $json = json_decode($str, true);
+                                foreach ($json as $value) {
+                                    $lineloc ="";
+                                    $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);
+                                    $json2 = json_decode($str2, true);
+                                    foreach ($json2 as $value2){
+                                        $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
+                                    }
+
+                                    $lineloc = substr($lineloc, 0 , -1);
+                                    $lineloc .= "];";
+                                    echo "var line_locations=[".$lineloc."
+                            var lahanPath = new google.maps.Polygon({
+                            path: line_locations,
+                            geodesic: true,
+                            strokeColor: '#FF0000',
+                            strokeOpacity: 1.0,
+                            strokeWeight: 2
+                        });
+
+                        lahanPath.setMap(map);
+                            ";
+                                }
+                                ?>
+
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="agile-grids">
                 <!-- tables -->
