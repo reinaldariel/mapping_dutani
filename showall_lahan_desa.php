@@ -5,6 +5,7 @@ include "includes/config2.php";
 $database = new Database();
 $conn = $database->getConnection();
 session_start();
+$desa = $_GET['desa'];
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
@@ -64,11 +65,11 @@ if(!isset($_SESSION['user'])){
 //                        var infowindow = new google.maps.InfoWindow();
 
                         <?php
-                        $str = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
+                        $str = file_get_contents($BASE_URL.'service/read_lahan_per_daerah.php?desa='.$desa);
                         $json = json_decode($str, true);
                         foreach ($json as $value) {
                             $lineloc ="";
-                            $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['id_lahan']);
+                            $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);
                             $json2 = json_decode($str2, true);
                             foreach ($json2 as $value2){
                                 $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
