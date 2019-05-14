@@ -9,8 +9,6 @@ if(!isset($_SESSION['user'])){
 $database = new Database();
 $conn = $database->getConnection();
 
-$daerah = $_GET['daerah'];
-
 //init
 $str_titik_all = '';
 
@@ -65,13 +63,31 @@ $str_titik_all = '';
             <!--grid-->
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Detil Titik Lahan Pertanian</h2>
-
-                    <!--<div class="toolbar"> -->
-                    <?php
-                    $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_daerah.php?desa='.$daerah);
-                    echo 'Daerah : '.$daerah;
-                    ?>
+                    <h2>Peta Gabungan Lahan Pertanian</h2>
+                    <h4>Berdasar Daerah</h4>
+                    <form action="filter_daerah.php" method="post">
+                        <label>pilih daerah </label>
+                        <select id="daerah" name="daerah">
+                            <?php
+                            if (isset($_POST['daerah'])){
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_daerah.php?desa='.$_POST['daerah']);
+                                echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
+                            }else{
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_daerah.php');
+                            }
+                            $str = "";
+                            $stmt = $conn->prepare("SELECT Nama_Desa from kelurahan_desa");
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['Nama_Desa'] . '">' . $val['Nama_Desa'] . '</option>';
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                        <input class="btn btn-primary btn-lg" id="pilih_daerah" value="Pilih" type="submit">
+                    </form>
                 </div>
 
 
@@ -146,25 +162,12 @@ $str_titik_all = '';
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });
-
                             </script>
 
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!--            <div class="agile-grids">-->
-            <!--                <!-- tables -->
-            <!---->
-            <!--                <div class="grid-form">-->
-            <!--                    <div class="grid-form1">-->
-            <!--                       -->
-            <!--                    </div>-->
-            <!---->
-            <!--                </div>-->
-            <!--                <!-- //tables -->
-            <!--            </div>-->
 
             <!-- script-for sticky-nav -->
             <script>
