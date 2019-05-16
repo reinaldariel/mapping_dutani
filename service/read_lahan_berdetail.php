@@ -4,7 +4,7 @@ $database = new Database();
 $conn = $database->getConnection();
 
 try {
-    $stmt = $conn->prepare("SELECT DISTINCT id_lahan FROM master_peta_lahan_detail");
+    $stmt = $conn->prepare("SELECT DISTINCT id_lahan as ID_Lahan FROM master_peta_lahan_detail");
     $stmt->bindParam(1, $id_lahan);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);

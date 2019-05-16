@@ -5,7 +5,6 @@ include "includes/config2.php";
 $database = new Database();
 $conn = $database->getConnection();
 session_start();
-$desa = $_GET['desa'];
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
@@ -46,7 +45,32 @@ if(!isset($_SESSION['user'])){
         <div class="mother-grid-inner">
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
+                    <h2>Peta Persebaran Lahan Pertanian</h2>
+                    <h4>Berdasar Daerah</h4>
+                    <form action="filter_daerah.php" method="post">
+                        <label>pilih daerah </label>
+                        <select id="daerah" name="daerah">
+                            <option value="">- pilih -</option>
+                            <?php
+                            if (isset($_POST['daerah'])){
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_per_daerah.php?desa='.$_POST['daerah']);
+                                echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
+                            }else{
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
+                            }
+                            $str = "";
+                            $stmt = $conn->prepare("SELECT Nama_Desa from kelurahan_desa");
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['Nama_Desa'] . '">' . $val['Nama_Desa'] . '</option>';
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                        <input class="btn btn-primary btn-lg" id="pilih_daerah" value="Pilih" type="submit">
+                    </form>
                 </div>
                 </header>
 
@@ -65,8 +89,7 @@ if(!isset($_SESSION['user'])){
 //                        var infowindow = new google.maps.InfoWindow();
 
                         <?php
-                        $str = file_get_contents($BASE_URL.'service/read_lahan_per_daerah.php?desa='.$desa);
-                        $json = json_decode($str, true);
+                        $json = json_decode($str_titik_all, true);
                         foreach ($json as $value) {
                             $lineloc ="";
                             $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);

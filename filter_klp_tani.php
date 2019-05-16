@@ -64,10 +64,11 @@ $str_titik_all = '';
             <div class="grid-form">
                 <div class="grid-form1">
                     <h2>Peta Gabungan Lahan Pertanian</h2>
-                    <h4>Berdasar Daerah</h4>
+                    <h4>Berdasar Kelompok Tani</h4>
                     <form action="filter_klp_tani.php" method="post">
-                        <label>pilih daerah </label>
+                        <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
+                            <option value="">- pilih -</option>
                             <?php
                             if (isset($_POST['klptani'])){
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);

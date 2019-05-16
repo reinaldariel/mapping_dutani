@@ -68,6 +68,7 @@ $str_titik_all = '';
                     <form action="filter_daerah.php" method="post">
                         <label>pilih daerah </label>
                         <select id="daerah" name="daerah">
+                            <option value="">- pilih -</option>
                             <?php
                             if (isset($_POST['daerah'])){
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_daerah.php?desa='.$_POST['daerah']);
