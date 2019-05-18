@@ -47,7 +47,7 @@ if(!isset($_SESSION['user'])){
                 <div class="grid-form1">
                     <h2>Peta Persebaran Lahan Pertanian</h2>
                     <h4>Berdasar Kelompok Tani</h4>
-                    <form action="filter_klp_tani.php" method="post">
+                    <form action="showall_lahan_klptani.php" method="post">
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
                             <option value="">- pilih -</option>
@@ -103,7 +103,7 @@ if(!isset($_SESSION['user'])){
                             var lahanPath = new google.maps.Polygon({
                             path: line_locations,
                             geodesic: true,
-                            strokeColor: '#FF0000',
+                            strokeColor: '#".$value['col_hex']."',
                             strokeOpacity: 1.0,
                             strokeWeight: 2
                         });

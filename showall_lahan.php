@@ -68,7 +68,7 @@ if(!isset($_SESSION['user'])){
                         $json = json_decode($str, true);
                         foreach ($json as $value) {
                             $lineloc ="";
-                            $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['id_lahan']);
+                            $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);
                             $json2 = json_decode($str2, true);
                             foreach ($json2 as $value2){
                                 $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
@@ -80,7 +80,7 @@ if(!isset($_SESSION['user'])){
                             var lahanPath = new google.maps.Polygon({
                             path: line_locations,
                             geodesic: true,
-                            strokeColor: '#FF0000',
+                            strokeColor: '#".$value['col_hex']."',
                             strokeOpacity: 1.0,
                             strokeWeight: 2
                         });

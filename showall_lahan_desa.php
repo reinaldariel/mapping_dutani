@@ -47,7 +47,7 @@ if(!isset($_SESSION['user'])){
                 <div class="grid-form1">
                     <h2>Peta Persebaran Lahan Pertanian</h2>
                     <h4>Berdasar Daerah</h4>
-                    <form action="filter_daerah.php" method="post">
+                    <form action="showall_lahan_desa.php" method="post">
                         <label>pilih daerah </label>
                         <select id="daerah" name="daerah">
                             <option value="">- pilih -</option>
