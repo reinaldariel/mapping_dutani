@@ -81,8 +81,10 @@ if(!isset($_SESSION['user'])){
                             path: line_locations,
                             geodesic: true,
                             strokeColor: '#".$value['col_hex']."',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 2
+                            strokeOpacity: 0.35,
+                            strokeWeight: 0.5,
+                            fillColor: '#".$value['col_hex']."',
+                            fillOpacity: 0.35
                         });
 
                         lahanPath.setMap(map);
