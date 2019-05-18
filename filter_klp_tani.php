@@ -9,8 +9,6 @@ if(!isset($_SESSION['user'])){
 $database = new Database();
 $conn = $database->getConnection();
 
-$klp_tani = $_GET['klp_tani'];
-
 //init
 $str_titik_all = '';
 
@@ -65,13 +63,31 @@ $str_titik_all = '';
             <!--grid-->
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Detil Titik Lahan Pertanian</h2>
-
-                    <!--<div class="toolbar"> -->
-                    <?php
-                    $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php?klp_tani='.$klp_tani);
-                   echo 'Kelompok tani : '.$klp_tani;
-                    ?>
+                    <h2>Peta Gabungan Lahan Pertanian</h2>
+                    <h4>Berdasar Kelompok Tani</h4>
+                    <form action="filter_klp_tani.php" method="post">
+                        <label>pilih kelompok </label>
+                        <select id="klptani" name="klptani">
+                            <option value="">- pilih -</option>
+                            <?php
+                            if (isset($_POST['klptani'])){
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
+                            }else{
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php');
+                            }
+                            $str = "";
+                            $stmt = $conn->prepare("SELECT ID_Kelompok_Tani as id, Nama_Kelompok_Tani as nama from master_kel_tani");
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['id'] . '">' . $val['nama'] . '</option>';
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                        <input class="btn btn-primary btn-lg" id="pilih_poktan" value="Pilih" type="submit">
+                    </form>
                 </div>
 
 
@@ -146,25 +162,12 @@ $str_titik_all = '';
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });
-
                             </script>
 
                         </div>
                     </div>
                 </div>
             </div>
-
-<!--            <div class="agile-grids">-->
-<!--                <!-- tables -->
-<!---->
-<!--                <div class="grid-form">-->
-<!--                    <div class="grid-form1">-->
-<!--                       -->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--                <!-- //tables -->
-<!--            </div>-->
 
             <!-- script-for sticky-nav -->
             <script>

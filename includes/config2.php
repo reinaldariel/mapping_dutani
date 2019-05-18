@@ -22,7 +22,7 @@ class Database{
     }
 }
 
-//$BASE_URL="http://localhost/mapping_dutani/";
-$BASE_URL="http://localhost/dutatani_mapping/";
+$BASE_URL="http://localhost/mapping_dutani/";
+//$BASE_URL="http://localhost/dutatani_mapping/";
 $def_lat="-7.9314509";
 $def_long="110.3002641";
