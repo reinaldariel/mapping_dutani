@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2019 at 02:45 PM
+-- Generation Time: May 18, 2019 at 08:18 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -249,6 +249,7 @@ INSERT INTO `kelurahan_desa` (`Nama_Desa`, `Nama_Kecamatan`, `Nama_Kabupaten`, `
 ('Watusigar', 'Ngawen', 'Gunungkidul', 'Daerah Istimewa Yogyakarta'),
 ('Hargobingangun', 'Pakem', 'Sleman', 'Daerah Istimewa Yogyakarta'),
 ('Pakembingangun', 'Pakem', 'Sleman', 'Daerah Istimewa Yogyakarta'),
+('Gilangharjo', 'Pandak', 'Bantul', 'Daerah Istimewa Yogyakarta'),
 ('Girimulyo', 'Panggang', 'Gunungkidul', 'Daerah Istimewa Yogyakarta'),
 ('Karang Sari', 'Pengasih', 'Kulon Progo', 'Daerah Istimewa Yogyakarta'),
 ('Kalitekuk', 'Semin', 'Gunungkidul', 'Daerah Istimewa Yogyakarta'),
@@ -926,16 +927,17 @@ CREATE TABLE `master_kel_tani` (
   `Nomor_Telpon` varchar(15) DEFAULT NULL,
   `ID_User` varchar(10) NOT NULL,
   `Tgl_Terbentuk` date DEFAULT NULL,
-  `Email` varchar(30) DEFAULT NULL
+  `Email` varchar(30) DEFAULT NULL,
+  `col_hex` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `master_kel_tani`
 --
 
-INSERT INTO `master_kel_tani` (`ID_Kelompok_Tani`, `Nama_Kelompok_Tani`, `Alamat_Sekretariat`, `Kabupaten`, `Kecamatan`, `Provinsi`, `Desa_Kelurahan`, `Deskripsi`, `Foto1`, `Foto2`, `Legalitas`, `Bukti_Legalitas`, `Kontak_Person`, `Nomor_Telpon`, `ID_User`, `Tgl_Terbentuk`, `Email`) VALUES
-('kelompok_a', 'Uchiha Tani', 'alamat', 'Bantul', 'kasihan', 'Daerah Istimewa Yogyakarta', 'Bangunjiwo', 'desc', 'kelompok_a.jpg', 'kelompok_a.jpg', '123', 'kelompok_a.jpg', 'argi', '0238492834', '1234567', '2019-01-01', 'argo@gmail.com'),
-('kelompok_b', 'Kelompok Baru', 'alamat', 'Bantul', 'kasihan', 'Daerah Istimewa Yogyakarta', 'Bangunjiwo', 'deskripsi', 'kelompok b.jpg', 'kelompok b.png', 'legal', 'kelompok b.jpg', 'arg', '08123', '1234567', '2018-01-01', 'askdasd@gmail.com');
+INSERT INTO `master_kel_tani` (`ID_Kelompok_Tani`, `Nama_Kelompok_Tani`, `Alamat_Sekretariat`, `Kabupaten`, `Kecamatan`, `Provinsi`, `Desa_Kelurahan`, `Deskripsi`, `Foto1`, `Foto2`, `Legalitas`, `Bukti_Legalitas`, `Kontak_Person`, `Nomor_Telpon`, `ID_User`, `Tgl_Terbentuk`, `Email`, `col_hex`) VALUES
+('kelompok_a', 'Uchiha Tani', 'alamat', 'Bantul', 'kasihan', 'Daerah Istimewa Yogyakarta', 'Bangunjiwo', 'desc', 'kelompok_a.jpg', 'kelompok_a.jpg', '123', 'kelompok_a.jpg', 'argi', '0238492834', '1234567', '2019-01-01', 'argo@gmail.com', 'FF0000'),
+('kelompok_b', 'Kelompok Baru', 'alamat', 'Bantul', 'kasihan', 'Daerah Istimewa Yogyakarta', 'Bangunjiwo', 'deskripsi', 'kelompok b.jpg', 'kelompok b.png', 'legal', 'kelompok b.jpg', 'arg', '08123', '1234567', '2018-01-01', 'askdasd@gmail.com', 'FFFF00');
 
 -- --------------------------------------------------------
 
@@ -1099,6 +1101,7 @@ INSERT INTO `master_petani` (`ID_User`, `Nama_Petani`, `Alamat_Petani`, `Kabupat
 ('bolo', 'Brimada', 'aaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaa', 'aaaaaaaaaa', 'aaaaaa', '', 0, 0, NULL, '081455887', 'SD', NULL, NULL, '', '2017-09-14', 'Mencuri', 0, 0),
 ('intsatu', 'int 1', 'iny1', 'Gunungkidul', 'Ngawen', 'Daerah Istimewa Yogyakarta', 'Beji', '', 0, 0, 'maxresdefault.jpg', '089671044525', NULL, 2, 'int1@yahoo.com', 'Kristen', '2013-02-12', 'gak ada', 1, 1),
 ('ptn_test', 'Petani Test', 'Gilangharjo', 'Bantul', 'Pandak', 'Daerah Istimewa Yogyakarta', 'Gilangharjo', 'Test', 2, 7, NULL, NULL, 'SD', 3, NULL, 'Islam', '2019-03-03', 'Mencangkul', 1, 0),
+('reinaldcb', 'Reinald Coba', 'Temanggung', 'Sleman', 'Pakem', 'Daerah Istimewa Yogyakarta', 'Pakembingangun', 'siapaaa', 2, 5, 'reinaldcb.png', '08222', 'SMA', 3, 'reinald.a.k@gmail.com', 'Kristen', '2019-04-16', 'game', 0, 1),
 ('uji_coba1', 'Dennis Markus', '', 'Bantul', 'Banguntapan', 'Daerah Istimewa Yogyakarta', 'Singosaren', '', 0, 0, 'maxresdefault.jpg', '', NULL, 0, '', '', '0000-00-00', '', 1, 1),
 ('us1', 'Administrator tanaman', 'jl.kaliurang', NULL, NULL, NULL, NULL, '', 0, 0, NULL, '08888888888', 's2', 0, 'admintanaman@gmail.com', 'Kristen', '1986-02-12', 'tidak ada', 0, 0),
 ('us10', 'Riyantiningsih', 'Dadapan', 'Sleman', 'Turi', 'Daerah Istimewa Yogyakarta', 'Wonokerto', '', 0, 0, NULL, '087738512353', 'SMA', 3, 'riyanti@yahoo.com', 'Katolik', '1975-06-17', 'menanam salak', 1, 0),
@@ -1141,12 +1144,11 @@ CREATE TABLE `master_peta_lahan` (
 --
 
 INSERT INTO `master_peta_lahan` (`ID_Lahan`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`) VALUES
-(1, 'lahan1testtttt', '-7.93102368', '110.3011638', 505, 'tegalan', 'Gilangharjoo', 'Pandakk', 'Bantull', 'Daerah Istimewa Yogyakartaa', 'non_organik'),
+(1, 'lahan1testtttt', '-7.93102368', '110.3011638', 505, 'tegalan', 'Gilangharjo', 'Pandak', 'Bantul', 'Daerah Istimewa Yogyakarta', 'non_organik'),
 (2, 'lahan2', '-7.928363082196162', '110.29961786496813', 0, 'sawah', 'Donoharjo', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik'),
 (3, 'testing', '-7.927683721783466', '110.30019780631858', 300, 'sawah', 'Gilangharjo', 'Pandak', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik'),
-(4, 'coba', '-7.92849131978409', '110.29981156822043', 21321, 'tegalan', 'Tirtonirmolo', 'kasihan', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik'),
-(5, 'test2', '-7.9307708224716515', '110.29598027692714', 5000, 'sawah', 'Minomartani', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik'),
-(15, 'coba trans', '-7.932874808682458', '110.2955403946487', 5005, 'sawah', 'Klitren', 'Gondokusuman', 'kota Yogyakarta', 'Daerah Istimewa Yogyakarta', 'organik');
+(4, 'cobaupdate', '-7.929468936295299', '110.29790183540183', 21321, 'tegalan', 'Tirtonirmolo', 'kasihan', 'Bantul', 'Daerah Istimewa Yogyakarta', 'organik'),
+(5, 'test2', '-7.9307708224716515', '110.29598027692714', 5000, 'sawah', 'Minomartani', 'Ngaglik', 'Sleman', 'Daerah Istimewa Yogyakarta', 'organik');
 
 -- --------------------------------------------------------
 
@@ -1203,10 +1205,7 @@ INSERT INTO `master_peta_lahan_foto` (`id_foto`, `ID_Lahan`, `foto`) VALUES
 (4, 1, 'test.png'),
 (6, 1, '1-1.png'),
 (7, 1, '1-1.png'),
-(8, 1, '1-1.png'),
-(9, 1, 'admin_ptn-1.png'),
-(10, 1, 'admin_ptn-1.png'),
-(11, 1, 'admin_ptn-1-Untitled.png');
+(8, 1, '1-1.png');
 
 -- --------------------------------------------------------
 
@@ -1232,11 +1231,11 @@ CREATE TABLE `master_peta_lahan_tanaman` (
 
 INSERT INTO `master_peta_lahan_tanaman` (`id_detail_tanaman`, `ID_Lahan`, `ID_Spesies`, `kebutuhan_benih`, `kebutuhan_saprotan`, `satuan_saprotan`, `bulan_tanam`, `bulan_akhir`, `rata_hasil_panen`) VALUES
 (1, 1, 'spt2', 3, 300, 'botol', '11', '02', 1100),
-(2, 1, 'spt1', 20, 30, NULL, '12', '04', 2000),
-(3, 3, 'spt1', 20, 30, NULL, '12', '03', 2000),
-(4, 4, 'spt1', 20, 20, NULL, '12', '04', 1900),
-(5, 5, 'spt1', 5, 50, NULL, '01', '04', 20),
-(6, 5, 'spt1', 4, 30, NULL, '07', '10', 400);
+(2, 1, 'spt1', 20, 30, 'kg', '12', '04', 2000),
+(3, 3, 'spt1', 20, 30, 'liter', '12', '03', 2000),
+(4, 4, 'spt1', 20, 20, 'kg', '12', '04', 1900),
+(5, 5, 'spt1', 55555, 50, 'kg', '01', '04', 200),
+(6, 4, 'spt1', 987, 13, 'botol', '04', '08', 1500);
 
 -- --------------------------------------------------------
 
@@ -1347,30 +1346,29 @@ CREATE TABLE `master_spesies_tanaman` (
   `Foto2` varchar(200) DEFAULT NULL,
   `Iklim` varchar(50) DEFAULT NULL,
   `Jenis_Tanah` varchar(20) DEFAULT NULL,
-  `Kelembaban` varchar(20) DEFAULT NULL,
-  `ID_Morfologi` varchar(10) NOT NULL
+  `Kelembaban` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `master_spesies_tanaman`
 --
 
-INSERT INTO `master_spesies_tanaman` (`ID_Spesies`, `Jenis_Tanaman`, `Nama_Tanaman`, `Nama_Latin`, `Habitat`, `Masa_Tanam`, `Akar`, `Batang`, `Daun`, `Buah`, `Biji`, `Perkembangbiakan`, `Foto1`, `Foto2`, `Iklim`, `Jenis_Tanah`, `Kelembaban`, `ID_Morfologi`) VALUES
-('spt1', 'Persawahan', 'Padi ', 'Oryza sativa', 'Sawah', 100, 'Akar, redikula,  serabut,tajuk dan akar rambut', 'berbatang rumput', 'Susunan daun berselang seling', 'lemma dan palea', 'lemma dan palea', 'Ditanam pada area yang memiliki banyak air,dl', 'spt1.jpg', 'spt1.jpg', 'Tropis', 'Tanah Basah', 'Tinggi', 'morf1'),
-('spt10', 'Persawahan', 'Bawang Merah', 'Allium cepa', 'Daerah beriklim kering', 70, 'Perakaran pada bawang merah ini memiliki perakaran yang dangkal dan juga bercabang memencar, dengan kedalam mencapai 15-30 cm didalam tanah serta tumbuh di sekitar umbi bawang merah.', 'Batang bawang merah memiliki batang sejati disebut diskus, yang memiliki bentuk hampir menyerupai cakram, tipis dan juga pendek sebagai tempat melekatnya akar dan juga mata tunas', 'Daun bawang merah memiliki bentuk silindris kecil memanjang yang mencapai sekitar 50-70 cm, memiliki lubang dibagian tengah dan pangkal daun runcing', 'Buah bawang merah berbentuk  ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', 'Buah bawang merah berbentuk  ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', 'Reproduksi bawang putih sama dengan bawang merah yaitu melalui umbi lapis. Siung bawang putih ditanam dan mereka akan individu yang baru namun memiliki genetik yang sama dengan induknya', 'spt10.jpg', 'spt10.jpg', 'Tropis - subtropis', 'Tanah kering', '80-90%', 'morf10'),
-('spt11', 'Perkebunan', 'Bawang Putih', 'Allium sativum', 'Daerah beriklim kering', 70, 'Perakaran pada bawang putih ini memiliki perakaran yang dangkal dan juga bercabang memencar, dengan kedalam mencapai 15-30 cm didalam tanah serta tumbuh di sekitar umbi bawang merah.', 'Batang bawang putihmemiliki batang sejati disebut diskus, yang memiliki bentuk hampir menyerupai cakram, tipis dan juga pendek sebagai tempat melekatnya akar dan juga mata tunas', 'Daun bawang putih memiliki bentuk silindris kecil memanjang yang mencapai sekitar 50-70 cm, memiliki lubang dibagian tengah dan pangkal daun runcing', 'Buah bawang putih berbentuk ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', ' Buah bawang putihberbentuk ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', 'Reproduksi bawang putih sama dengan bawang putih yaitu melalui umbi lapis. Siung bawang putih ditanam dan mereka akan individu yang baru namun memiliki genetik yang sama dengan induknya', 'spt11.jpg', 'spt11.jpg', 'Tropis - subtropis', 'Tanah kering', '80-90%', 'morf11'),
-('spt12', 'Perkebunan', 'anggrek', 'anggresia', '-', 4, 'tunggang', 'kecil', 'ga punya', 'banyak', 'kecil', 'di kebun dicubit', 'spt12.jpg', 'spt12.jpg', 'Tropis', 'Tanah kering', 'tinggi', 'morf3'),
-('spt2', 'Perkebunan', 'Jagung', 'Zea mays ssp. mays', 'Lahan kering', 60, 'Akar seminal, Adventif, Kait/penyangga', 'Batang tak bercabang', 'Daun tegak atau erect dan Daun menggantung atau pendant', 'Buah tongkol', 'kernel ', 'Pada saat penanaman tanah harus cukup lembab tetapi tidak becek. Jarak tanaman harus diusahakan teratur agar ruang tumbuh tanaman seragam dan pemeliharaan tanaman mudah. Beberapa varietas mempunyai po', 'spt2.jpg', 'spt2.jpg', 'Tropis dan sub tropis ', 'Tanah kering', 'Sedang', 'morf2'),
-('spt3', 'Perkebunan', 'Gandum', 'T. aestivum (hard wheat)', 'dataran tinggi', 80, 'Serabut', 'Beruas dan berongga', 'daun tegak, dan menggantung', 'berbentuk oval dankeras', 'berbentuk oval dankeras', 'Tanah untuk menanam gandum harus gembur, oleh karena itu kita harus membajak tanah terlebih dahulu dengan menggunakan cangkul, kerbau, maupun traktor. Pembajakan tanah ini sebaiknya dilakukan minimal', 'spt3.jpg', 'spt3.jpg', 'Sub Tropis', 'Tanah kering', 'Tinggi, 80 hingga 90', 'morf3'),
-('spt4', 'Persawahan', 'Bayam', 'Amaranthus', 'Liar', 15, 'Akar Tunggang', 'Tanaman bayam memiliki batang tumbuh dengan tegak, tebal dan banyak mengandung air. Batang pada tanaman ini memiliki panjang hingga 0.5-1 meter dan memiliki cabang monodial. Batang bayam berwarna keco', 'Tanaman ini memiliki daun tunggal, berwarna hijau muda dan tua, berbentuk bulat memanjang serta oval. Panjang daun pada bayam 1,5-6,0 cm bahkan lebih, dengan lebar 0,5 â€“ 3,2 cm dan memiliki pangkal ', 'Tidak ada buah', 'Tanaman bayam memiliki biji berukuran kecil, dan halus, memiliki bentuk bulat serta memiliki warna kecoklatan hingga kehitaman. Namun, ada beberapa jenis bayam yang terdapat biji berwarna putih dan me', 'Tanaman bayam menghendaki tanah yang gembur dan subur. Jenis tanah yang sesuai untuk anaman bayam adalah yang penting kandungan haranya terpenuhi.', 'spt4.jpg', 'spt4.jpeg', 'Sub tropis', 'Tanah kering', '40-60%', 'morf4'),
-('spt5', 'Perkebunan', 'Kentang', 'Solanum tuberosum', 'curah hujan rata-rata antara 500-750 mm', 135, 'Akat Tunggang', 'Tegak, menyebar, menjalar', 'Daun  berseling, bertangkai, majemuk menyirip gasal', 'Buah kentang berwarna hijau tua sampai keunguan, berbentuk bulat, bergaristengah Â± 2,5 cm dan berongga.Buah kentang mengandung 500 bakal biji akan tetapi yang dapat berkembang hanya berkisar antara 1', 'Buah kentang berwarna hijau tua sampai keunguan, berbentuk bulat, bergaristengah Â± 2,5 cm dan berongga.Buah kentang mengandung 500 bakal biji akan tetapi yang dapat berkembang hanya berkisar antara 1', 'Perkembangbiakan vegetatif alami adalah perkembangbiakan secara tidak kawin pada tumbuhan yang terjadi dengan sendirinya tanpa bantuan manusia. Macam-macam perkembangbiakan vegetatif alami, antara lai', 'spt5.jpeg', 'spt5.jpg', 'dataran tinggi', 'Tanah kering', '80%-90%', 'morf5'),
-('spt6', 'Persawahan', 'Kedelai', 'Glycine soja', 'sawah atau lahan kering', 75, 'Tanaman kedelai mempunyai akar tunggang yang membentuk akar-akar cabang yang tumbuh menyamping (horizontal)', 'Kedelai berbatang memiliki tinggi 30â€“100 cm. Batang dapat membentuk 3 â€“ 6 cabang, tetapi bila jarak antar tanaman rapat, cabang menjadi berkurang, atau tidak bercabang sama sekali.', 'Pada buku (nodus) pertama tanaman yang tumbuh dari biji terbentuk sepasang daun tunggal', 'Buah kedelai berbentuk polong, setiap tanaman mampu menghasilkan 100 â€“ 250 polong.', 'Buah kedelai berbentuk polong, setiap tanaman mampu menghasilkan 100 â€“ 250 polong.', 'Kedelai dapat ditanam dilahan bekas tanaman padi maupun dilahan tegalan/ lahan kering.', 'spt6.jpg', 'spt6.jpg', 'Sub Tropis', 'Tanah kering', ' lebih dari 80%', 'morf6'),
-('spt7', 'Perkebunan', 'Ketela Pohon', 'Manihot utilissima', 'dapat tumbuh dimana saja dan kondisi apapun', 120, 'Akar pada Tanaman Ubi Kayu merupakan akar tunggang dan termasuk tumbuhan dikotil. Dalam Akar inilah Tanaman Ubi Kayu menyimpan cadangan makanan, dan juga yang akan membesar hingga membentuk  umbinya U', 'Batang pada Tanaman Ubi Kayu berbentuk bulat, panjangg, berkayu, berbuku â€“ buku dan tumbuh memanjang.', 'Daun pada Tanaman Ubi Kayu termasuk daun tunggal (folium simplek) yang bertulang daun (nervatio/ veneratio) berbentuk menjari (palminervis)', 'Buah pada Tanaman Ubi Kayu disebut sebagai Umbi. Umbi pada Tanaman Ubi Kayu ini terbentuk dari akar yang berubah bentuk dan fungsinya sebagai tempat penyimpanan makanan cadangan. ', 'Tidak ada', ' perkembangan biaknya secara vegetatif/tidak kawin.', 'spt7.jpg', 'spt7.jpg', 'Tropis', 'Tanah kering', '60-65%', 'morf7'),
-('spt8', 'Perkebunan', 'Salak', 'Salacca zalacca', 'Tanah dengan keasaman (pH)  4,5 - 7,5.', 120, 'Akar serabut yang sebaran akarnya tidak luas,  akar mudah rusak bila kekurangan air', 'Pada bagian batang ini memiliki duri dalam jumlah yang banyak, hampir di seluruh permukaan batang tersebut terdapat durinya', 'Batang pohon yang melengkung ini memiliki bentuk daun sebagai pelepah', 'Buah salak yang terdapat pada Tanaman ini berada di tengah-tengah batang berduri', 'Biji salak terdapat pada buahnya', 'Tanaman ssalak sesuai bila ditanam di daerah berzona iklim Aa bcd, Babc dan Cbc. A berarti jumlah bulan basah tinggi (11-12 bulan/tahun), B: 8-10 bulan/tahun dan C : 5-7 bulan/tahun. Curah hujan rata-', 'spt8.jpg', 'spt8.jpg', 'Tropis', 'Tanah kering', 'Kelembaban Tinggi', 'morf8'),
-('spt9', 'Persawahan', 'Cabai Rawit', 'Capsicum Frutescens', 'Curah hujan 1500-2500 mm/th', 80, 'Perakaran cabai rawit terdiri atas akar tunggang ', 'Batang tanaman cabai rawit memiliki struktur yang keras dan berkayu, berwarna hijau gelap, berbentuk bulat, halus dan bercabang banyak. ', 'Daun berbentuk bulat telur dengan ujung runcing dan tepi daun rata (tidak bergerigi/berlekuk) ukuran daun lebih kecil dibandingkan dengan daun tanaman cabai besar.', 'Buah cabai rawit dapat berbentuk bulat pendek dengan ujung runcing/berbentuk kerucut', 'Biji cabai rawit berwarna putih kekuningan-kuningan, berbentuk bulat pipih, tersusun berkelompok (bergerombol) dan saling melekat pada empulur', 'Cabe dapat tumbuh di dataran rendah sampai ketinggian 200 m di atas permukaan laut.  Tetapi bila udara sangat dingin sampai embun membeku (frost) mungkin tanaman akan mati', 'spt9.jpg', 'spt9.jpg', 'Tropis', 'Tanah kering', 'Kelembaban Rendah te', 'morf9'),
-('T2', 'Persawahan', 'T2', 'latin', 'h1', 1, 't', 't', 't', 't', 't', 't', 'T2.png', 'T2.png', 'u', 'Tanah kering', 'j', 'M12'),
-('t3', 'Persawahan', 'u', 'u', 'u', 8, '8', '8', '8', '8', '8', '8', 't3.jpg', 't3.jpg', '7', 'Tanah kering', '7', 'M12'),
-('TES1', 'Perkebunan', 'TES', 'T1', 'ALAM', 1, 'AKAR', 'BATANG', 'DAUN', 'BUAH', 'BIJI', 'KEMBANG', 'TES1.png', 'TES1.png', 'IKLIM', 'Tanah kering', 'LEMBAB', 'M12');
+INSERT INTO `master_spesies_tanaman` (`ID_Spesies`, `Jenis_Tanaman`, `Nama_Tanaman`, `Nama_Latin`, `Habitat`, `Masa_Tanam`, `Akar`, `Batang`, `Daun`, `Buah`, `Biji`, `Perkembangbiakan`, `Foto1`, `Foto2`, `Iklim`, `Jenis_Tanah`, `Kelembaban`) VALUES
+('spt1', 'Persawahan', 'Padi ', 'Oryza sativa', 'Sawah', 100, 'Akar, redikula,  serabut,tajuk dan akar rambut', 'berbatang rumput', 'Susunan daun berselang seling', 'lemma dan palea', 'lemma dan palea', 'Ditanam pada area yang memiliki banyak air,dl', 'spt1.jpg', 'spt1.jpg', 'Tropis', 'Tanah Basah', 'Tinggi'),
+('spt10', 'Persawahan', 'Bawang Merah', 'Allium cepa', 'Daerah beriklim kering', 70, 'Perakaran pada bawang merah ini memiliki perakaran yang dangkal dan juga bercabang memencar, dengan kedalam mencapai 15-30 cm didalam tanah serta tumbuh di sekitar umbi bawang merah.', 'Batang bawang merah memiliki batang sejati disebut diskus, yang memiliki bentuk hampir menyerupai cakram, tipis dan juga pendek sebagai tempat melekatnya akar dan juga mata tunas', 'Daun bawang merah memiliki bentuk silindris kecil memanjang yang mencapai sekitar 50-70 cm, memiliki lubang dibagian tengah dan pangkal daun runcing', 'Buah bawang merah berbentuk  ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', 'Buah bawang merah berbentuk  ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', 'Reproduksi bawang putih sama dengan bawang merah yaitu melalui umbi lapis. Siung bawang putih ditanam dan mereka akan individu yang baru namun memiliki genetik yang sama dengan induknya', 'spt10.jpg', 'spt10.jpg', 'Tropis - subtropis', 'Tanah kering', '80-90%'),
+('spt11', 'Perkebunan', 'Bawang Putih', 'Allium sativum', 'Daerah beriklim kering', 70, 'Perakaran pada bawang putih ini memiliki perakaran yang dangkal dan juga bercabang memencar, dengan kedalam mencapai 15-30 cm didalam tanah serta tumbuh di sekitar umbi bawang merah.', 'Batang bawang putihmemiliki batang sejati disebut diskus, yang memiliki bentuk hampir menyerupai cakram, tipis dan juga pendek sebagai tempat melekatnya akar dan juga mata tunas', 'Daun bawang putih memiliki bentuk silindris kecil memanjang yang mencapai sekitar 50-70 cm, memiliki lubang dibagian tengah dan pangkal daun runcing', 'Buah bawang putih berbentuk ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', ' Buah bawang putihberbentuk ulat dengan pangkal ujung tumpul yang terbungkus dengan biji berjumlah 2-3 butir, selain itu biji ini memiliki bentuk agak pipih berwarna bening dan juga agak keputihan.', 'Reproduksi bawang putih sama dengan bawang putih yaitu melalui umbi lapis. Siung bawang putih ditanam dan mereka akan individu yang baru namun memiliki genetik yang sama dengan induknya', 'spt11.jpg', 'spt11.jpg', 'Tropis - subtropis', 'Tanah kering', '80-90%'),
+('spt12', 'Perkebunan', 'anggrek', 'anggresia', '-', 4, 'tunggang', 'kecil', 'ga punya', 'banyak', 'kecil', 'di kebun dicubit', 'spt12.jpg', 'spt12.jpg', 'Tropis', 'Tanah kering', 'tinggi'),
+('spt2', 'Perkebunan', 'Jagung', 'Zea mays ssp. mays', 'Lahan kering', 60, 'Akar seminal, Adventif, Kait/penyangga', 'Batang tak bercabang', 'Daun tegak atau erect dan Daun menggantung atau pendant', 'Buah tongkol', 'kernel ', 'Pada saat penanaman tanah harus cukup lembab tetapi tidak becek. Jarak tanaman harus diusahakan teratur agar ruang tumbuh tanaman seragam dan pemeliharaan tanaman mudah. Beberapa varietas mempunyai po', 'spt2.jpg', 'spt2.jpg', 'Tropis dan sub tropis ', 'Tanah kering', 'Sedang'),
+('spt3', 'Perkebunan', 'Gandum', 'T. aestivum (hard wheat)', 'dataran tinggi', 80, 'Serabut', 'Beruas dan berongga', 'daun tegak, dan menggantung', 'berbentuk oval dankeras', 'berbentuk oval dankeras', 'Tanah untuk menanam gandum harus gembur, oleh karena itu kita harus membajak tanah terlebih dahulu dengan menggunakan cangkul, kerbau, maupun traktor. Pembajakan tanah ini sebaiknya dilakukan minimal', 'spt3.jpg', 'spt3.jpg', 'Sub Tropis', 'Tanah kering', 'Tinggi, 80 hingga 90'),
+('spt4', 'Persawahan', 'Bayam', 'Amaranthus', 'Liar', 15, 'Akar Tunggang', 'Tanaman bayam memiliki batang tumbuh dengan tegak, tebal dan banyak mengandung air. Batang pada tanaman ini memiliki panjang hingga 0.5-1 meter dan memiliki cabang monodial. Batang bayam berwarna keco', 'Tanaman ini memiliki daun tunggal, berwarna hijau muda dan tua, berbentuk bulat memanjang serta oval. Panjang daun pada bayam 1,5-6,0 cm bahkan lebih, dengan lebar 0,5 â€“ 3,2 cm dan memiliki pangkal ', 'Tidak ada buah', 'Tanaman bayam memiliki biji berukuran kecil, dan halus, memiliki bentuk bulat serta memiliki warna kecoklatan hingga kehitaman. Namun, ada beberapa jenis bayam yang terdapat biji berwarna putih dan me', 'Tanaman bayam menghendaki tanah yang gembur dan subur. Jenis tanah yang sesuai untuk anaman bayam adalah yang penting kandungan haranya terpenuhi.', 'spt4.jpg', 'spt4.jpeg', 'Sub tropis', 'Tanah kering', '40-60%'),
+('spt5', 'Perkebunan', 'Kentang', 'Solanum tuberosum', 'curah hujan rata-rata antara 500-750 mm', 135, 'Akat Tunggang', 'Tegak, menyebar, menjalar', 'Daun  berseling, bertangkai, majemuk menyirip gasal', 'Buah kentang berwarna hijau tua sampai keunguan, berbentuk bulat, bergaristengah Â± 2,5 cm dan berongga.Buah kentang mengandung 500 bakal biji akan tetapi yang dapat berkembang hanya berkisar antara 1', 'Buah kentang berwarna hijau tua sampai keunguan, berbentuk bulat, bergaristengah Â± 2,5 cm dan berongga.Buah kentang mengandung 500 bakal biji akan tetapi yang dapat berkembang hanya berkisar antara 1', 'Perkembangbiakan vegetatif alami adalah perkembangbiakan secara tidak kawin pada tumbuhan yang terjadi dengan sendirinya tanpa bantuan manusia. Macam-macam perkembangbiakan vegetatif alami, antara lai', 'spt5.jpeg', 'spt5.jpg', 'dataran tinggi', 'Tanah kering', '80%-90%'),
+('spt6', 'Persawahan', 'Kedelai', 'Glycine soja', 'sawah atau lahan kering', 75, 'Tanaman kedelai mempunyai akar tunggang yang membentuk akar-akar cabang yang tumbuh menyamping (horizontal)', 'Kedelai berbatang memiliki tinggi 30â€“100 cm. Batang dapat membentuk 3 â€“ 6 cabang, tetapi bila jarak antar tanaman rapat, cabang menjadi berkurang, atau tidak bercabang sama sekali.', 'Pada buku (nodus) pertama tanaman yang tumbuh dari biji terbentuk sepasang daun tunggal', 'Buah kedelai berbentuk polong, setiap tanaman mampu menghasilkan 100 â€“ 250 polong.', 'Buah kedelai berbentuk polong, setiap tanaman mampu menghasilkan 100 â€“ 250 polong.', 'Kedelai dapat ditanam dilahan bekas tanaman padi maupun dilahan tegalan/ lahan kering.', 'spt6.jpg', 'spt6.jpg', 'Sub Tropis', 'Tanah kering', ' lebih dari 80%'),
+('spt7', 'Perkebunan', 'Ketela Pohon', 'Manihot utilissima', 'dapat tumbuh dimana saja dan kondisi apapun', 120, 'Akar pada Tanaman Ubi Kayu merupakan akar tunggang dan termasuk tumbuhan dikotil. Dalam Akar inilah Tanaman Ubi Kayu menyimpan cadangan makanan, dan juga yang akan membesar hingga membentuk  umbinya U', 'Batang pada Tanaman Ubi Kayu berbentuk bulat, panjangg, berkayu, berbuku â€“ buku dan tumbuh memanjang.', 'Daun pada Tanaman Ubi Kayu termasuk daun tunggal (folium simplek) yang bertulang daun (nervatio/ veneratio) berbentuk menjari (palminervis)', 'Buah pada Tanaman Ubi Kayu disebut sebagai Umbi. Umbi pada Tanaman Ubi Kayu ini terbentuk dari akar yang berubah bentuk dan fungsinya sebagai tempat penyimpanan makanan cadangan. ', 'Tidak ada', ' perkembangan biaknya secara vegetatif/tidak kawin.', 'spt7.jpg', 'spt7.jpg', 'Tropis', 'Tanah kering', '60-65%'),
+('spt8', 'Perkebunan', 'Salak', 'Salacca zalacca', 'Tanah dengan keasaman (pH)  4,5 - 7,5.', 120, 'Akar serabut yang sebaran akarnya tidak luas,  akar mudah rusak bila kekurangan air', 'Pada bagian batang ini memiliki duri dalam jumlah yang banyak, hampir di seluruh permukaan batang tersebut terdapat durinya', 'Batang pohon yang melengkung ini memiliki bentuk daun sebagai pelepah', 'Buah salak yang terdapat pada Tanaman ini berada di tengah-tengah batang berduri', 'Biji salak terdapat pada buahnya', 'Tanaman ssalak sesuai bila ditanam di daerah berzona iklim Aa bcd, Babc dan Cbc. A berarti jumlah bulan basah tinggi (11-12 bulan/tahun), B: 8-10 bulan/tahun dan C : 5-7 bulan/tahun. Curah hujan rata-', 'spt8.jpg', 'spt8.jpg', 'Tropis', 'Tanah kering', 'Kelembaban Tinggi'),
+('spt9', 'Persawahan', 'Cabai Rawit', 'Capsicum Frutescens', 'Curah hujan 1500-2500 mm/th', 80, 'Perakaran cabai rawit terdiri atas akar tunggang ', 'Batang tanaman cabai rawit memiliki struktur yang keras dan berkayu, berwarna hijau gelap, berbentuk bulat, halus dan bercabang banyak. ', 'Daun berbentuk bulat telur dengan ujung runcing dan tepi daun rata (tidak bergerigi/berlekuk) ukuran daun lebih kecil dibandingkan dengan daun tanaman cabai besar.', 'Buah cabai rawit dapat berbentuk bulat pendek dengan ujung runcing/berbentuk kerucut', 'Biji cabai rawit berwarna putih kekuningan-kuningan, berbentuk bulat pipih, tersusun berkelompok (bergerombol) dan saling melekat pada empulur', 'Cabe dapat tumbuh di dataran rendah sampai ketinggian 200 m di atas permukaan laut.  Tetapi bila udara sangat dingin sampai embun membeku (frost) mungkin tanaman akan mati', 'spt9.jpg', 'spt9.jpg', 'Tropis', 'Tanah kering', 'Kelembaban Rendah te'),
+('T2', 'Persawahan', 'T2', 'latin', 'h1', 1, 't', 't', 't', 't', 't', 't', 'T2.png', 'T2.png', 'u', 'Tanah kering', 'j'),
+('t3', 'Persawahan', 'u', 'u', 'u', 8, '8', '8', '8', '8', '8', '8', 't3.jpg', 't3.jpg', '7', 'Tanah kering', '7'),
+('TES1', 'Perkebunan', 'TES', 'T1', 'ALAM', 1, 'AKAR', 'BATANG', 'DAUN', 'BUAH', 'BIJI', 'KEMBANG', 'TES1.png', 'TES1.png', 'IKLIM', 'Tanah kering', 'LEMBAB');
 
 -- --------------------------------------------------------
 
@@ -1467,6 +1465,7 @@ INSERT INTO `master_user` (`ID_User`, `Password`, `PIN`, `Tingkat_Priv`) VALUES
 ('pembeli', '7c4a8d09ca3762af61e59520943dc26494f8941b', 123456, '2'),
 ('penjual', '7c4a8d09ca3762af61e59520943dc26494f8941b', 123456, '0'),
 ('ptn_test', 'f865b53623b121fd34ee5426c792e5c33af8c227', 123456, '0'),
+('reinaldcb', 'f865b53623b121fd34ee5426c792e5c33af8c227', 123456, '1'),
 ('superadmin', '7c4a8d09ca3762af61e59520943dc26494f8941b', 123456, '1'),
 ('tesjanuari', '7c4a8d09ca3762af61e59520943dc26494f8941b', 123456, '2'),
 ('uji_coba', '0c760bcd51cc46b768e3539e76cd9bcd22462b11', 123456, '1'),
@@ -2705,8 +2704,7 @@ ALTER TABLE `master_satuan_saprotan`
 -- Indexes for table `master_spesies_tanaman`
 --
 ALTER TABLE `master_spesies_tanaman`
-  ADD PRIMARY KEY (`ID_Spesies`),
-  ADD KEY `ID_Morfologi` (`ID_Morfologi`);
+  ADD PRIMARY KEY (`ID_Spesies`);
 
 --
 -- Indexes for table `master_supplier`
@@ -2971,7 +2969,7 @@ ALTER TABLE `master_kategori_t`
 -- AUTO_INCREMENT for table `master_peta_lahan`
 --
 ALTER TABLE `master_peta_lahan`
-  MODIFY `ID_Lahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Lahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `master_peta_lahan_detail`
 --
@@ -2981,7 +2979,7 @@ ALTER TABLE `master_peta_lahan_detail`
 -- AUTO_INCREMENT for table `master_peta_lahan_foto`
 --
 ALTER TABLE `master_peta_lahan_foto`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `master_peta_lahan_tanaman`
 --
@@ -3165,12 +3163,6 @@ ALTER TABLE `master_peta_lahan_tanaman`
 --
 ALTER TABLE `master_produk_tani`
   ADD CONSTRAINT `master_produk_tani_ibfk_1` FOREIGN KEY (`ID_Spesies`) REFERENCES `master_spesies_tanaman` (`ID_Spesies`);
-
---
--- Constraints for table `master_spesies_tanaman`
---
-ALTER TABLE `master_spesies_tanaman`
-  ADD CONSTRAINT `master_spesies_tanaman_ibfk_1` FOREIGN KEY (`ID_Morfologi`) REFERENCES `master_morf_tanaman` (`ID_Morfologi`);
 
 --
 -- Constraints for table `master_supplier`
