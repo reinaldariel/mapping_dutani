@@ -1,10 +1,12 @@
 <?php
 //error_reporting(0);
 include "includes/config2.php";
-//include "includes/fungsi.php";
+include "includes/fungsi.php";
 $database = new Database();
 $conn = $database->getConnection();
 session_start();
+$klp='';
+$desa='';
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
@@ -159,7 +161,7 @@ if(!isset($_SESSION['user'])){
                         ];
                         var latLng=new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 20, //level zoom
+                            zoom: 16, //level zoom
                             scaleControl: true,
                             center:latLng,
                             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -193,79 +195,62 @@ if(!isset($_SESSION['user'])){
         </div>
         <!--//agileinfo-grap-->
 
-<!--        <div class="four-grids">-->
-<!---->
-<!--            <!--	<div class="col-md-3 four-grid">-->
-<!--                <div class="four-agileits">-->
-<!--                    <div class="icon">-->
-<!--                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>-->
-<!--                    </div>-->
-<!--                    <div class="four-text">-->
-<!--                        <h3>Warga Disabilitas</h3>-->
-<!--                        <h4> 0 </h4>-->
-<!---->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-3 four-grid">-->
-<!--                <div class="four-agileits">-->
-<!--                    <div class="icon">-->
-<!--                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>-->
-<!--                    </div>-->
-<!--                    <div class="four-text">-->
-<!--                        <h3>Lahan Pertanian</h3>-->
-<!--                        <h4> --><?//=tot_dis($kdes,$kklp)?><!-- </h4>-->
-<!---->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-3 four-grid">-->
-<!--                <div class="four-agileinfo">-->
-<!--                    <div class="icon">-->
-<!--                        <i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i>-->
-<!--                    </div>-->
-<!--                    <div class="four-text">-->
-<!--                        <h3>Dusun</h3>-->
-<!--                        --><?php //if (!empty($kdus)){ ?>
-<!--                            <h4>--><?//=$kdus?><!--</h4>-->
-<!--                        --><?php //}else{ ?>
-<!--                            <h4>--><?//=tot_dus()?><!--</h4>-->
-<!--                        --><?php //} ?>
-<!---->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-3 four-grid">-->
-<!--                <div class="four-w3ls">-->
-<!--                    <div class="icon">-->
-<!--                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>-->
-<!--                    </div>-->
-<!--                    <div class="four-text">-->
-<!--                        <h3>Laki - Laki</h3>-->
-<!--                        <h4>--><?//=tot_laki($kdes,$kklp)?><!--</h4>-->
-<!---->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-md-3 four-grid">-->
-<!--                <div class="four-wthree">-->
-<!--                    <div class="icon">-->
-<!--                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>-->
-<!--                    </div>-->
-<!--                    <div class="four-text">-->
-<!--                        <h3>Perempuan</h3>-->
-<!--                        <h4>--><?//=tot_wanita($kdes,$kklp)?><!--</h4>-->
-<!---->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="clearfix"></div>-->
-<!--        </div>-->
+        <div class="four-grids">
+
+            <div class="col-md-3 four-grid">
+                <div class="four-agileits">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-grain" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Lahan Pertanian</h3>
+                        <h4> <?php echo $stmt->rowCount(); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-agileinfo">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Petani</h3>
+                        <h4> <?php echo tot_petani($klp,$desa); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-w3ls">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Desa</h3>
+                        <h4> <?php echo tot_desa(); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-wthree">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-list" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Kelompok Tani</h3>
+                        <h4> <?php echo tot_klp_tani(); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
 
         <!-- script-for sticky-nav -->
         <script>
