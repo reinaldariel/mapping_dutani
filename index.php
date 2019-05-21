@@ -7,6 +7,7 @@ $conn = $database->getConnection();
 session_start();
 $klp='';
 $desa='';
+$json='';
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
@@ -97,8 +98,8 @@ if(!isset($_SESSION['user'])){
                         $jml_lahan_tercatat = count($json);
 
                         $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$_SESSION['user']);
-                        $json = json_decode($str, true);
-                        foreach ($json as $head) {
+                        $json2 = json_decode($str, true);
+                        foreach ($json2 as $head) {
                             $counter = 0;
                             foreach ($head as $key => $val) {
                                 if ($counter == 1) {
@@ -230,7 +231,7 @@ if(!isset($_SESSION['user'])){
                     </div>
                     <div class="four-text">
                         <h3>Desa</h3>
-                        <h4> <?php echo tot_desa(); ?> </h4>
+                        <h4> <?php echo tot_desa($json); ?> </h4>
 
                     </div>
 
@@ -243,7 +244,7 @@ if(!isset($_SESSION['user'])){
                     </div>
                     <div class="four-text">
                         <h3>Kelompok Tani</h3>
-                        <h4> <?php echo tot_klp_tani(); ?> </h4>
+                        <h4> <?php echo tot_klp_tani($json); ?> </h4>
 
                     </div>
 

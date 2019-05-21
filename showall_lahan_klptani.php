@@ -1,10 +1,12 @@
 <?php
 //error_reporting(0);
 include "includes/config2.php";
-//include "includes/fungsi.php";
+include "includes/fungsi.php";
 $database = new Database();
 $conn = $database->getConnection();
 session_start();
+$klp='';
+$desa='';
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
@@ -50,15 +52,19 @@ if(!isset($_SESSION['user'])){
                     <form action="showall_lahan_klptani.php" method="post">
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
-                            <option value="">- pilih -</option>
+
                             <?php
+                            $strlistklp = "SELECT ID_Kelompok_Tani as id, Nama_Kelompok_Tani as nama from master_kel_tani";
                             if (isset($_POST['klptani'])){
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
+                                $strlistklp .= " WHERE ID_Kelompok_Tani != '".$_POST['klptani']."'";
+
+                                    echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
                             }else{
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
                             }
-                            $str = "";
-                            $stmt = $conn->prepare("SELECT ID_Kelompok_Tani as id, Nama_Kelompok_Tani as nama from master_kel_tani");
+                            $str = "<option value=\"\">- pilih -</option>";
+                            $stmt = $conn->prepare($strlistklp);
                             $stmt->execute();
                             $stmt->setFetchMode(PDO::FETCH_ASSOC);
                             $result = $stmt->fetchAll();
@@ -119,6 +125,67 @@ if(!isset($_SESSION['user'])){
 
             </div>
         </div>
+
+
+        <div class="four-grids">
+
+            <div class="col-md-3 four-grid">
+                <div class="four-agileits">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-grain" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Lahan Pertanian</h3>
+                        <h4> <?php echo count($json); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-agileinfo">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Petani</h3>
+                        <h4> <?php echo tot_petani($klp,$desa); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-w3ls">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Desa</h3>
+                        <h4> <?php echo tot_desa($json); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-wthree">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-list" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Kelompok Tani</h3>
+                        <h4> <?php
+                            echo tot_klp_tani($json);
+                            ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
         <!-- script-for sticky-nav -->
         <script>
             $(document).ready(function() {

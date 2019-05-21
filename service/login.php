@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $myusername = $_POST['id_user'];
     $mypassword = hash('SHA1', $_POST['password']);
 
-    $sql = "SELECT m.ID_User as 'ID_User',m.Password as 'Password',k.ID_Kategori as 'Kategori' FROM master_user m, master_user_kat k WHERE m.ID_User = k.ID_User AND m.ID_User = '$myusername' AND m.password = '$mypassword' LIMIT 1";
+    $sql = "SELECT m.ID_User as 'ID_User',m.Password as 'Password',k.ID_Kategori as 'Kategori' FROM master_user m, master_user_kat k WHERE m.ID_User = k.ID_User AND m.ID_User = '$myusername' AND m.password = '$mypassword' AND k.ID_Kategori in ('PET','ADP') LIMIT 1";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
@@ -27,12 +27,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     if ($_SESSION['kategori'] == 'PET'){
-        $sql = "SELECT Nama_Petani as 'Nama' FROM master_petani WHERE ID_User =".$_SESSION["user"];
+        $sql = "SELECT Nama_Petani as 'Nama' FROM master_petani WHERE ID_User = '".$_SESSION["user"]."'";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         if ($stmt->rowCount() == 1){
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $_SESSION['nama'] = $row["Nama"];
+            $_SESSION['nama'] = $row['Nama'];
             }
         }
     }

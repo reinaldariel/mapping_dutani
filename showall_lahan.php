@@ -1,10 +1,12 @@
 <?php
 //error_reporting(0);
 include "includes/config2.php";
-//include "includes/fungsi.php";
+include "includes/fungsi.php";
 $database = new Database();
 $conn = $database->getConnection();
 session_start();
+$klp='';
+$desa='';
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
@@ -98,6 +100,65 @@ if(!isset($_SESSION['user'])){
 
             </div>
         </div>
+
+
+        <div class="four-grids">
+
+            <div class="col-md-3 four-grid">
+                <div class="four-agileits">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-grain" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Lahan Pertanian</h3>
+                        <h4> <?php echo count($json); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-agileinfo">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Petani</h3>
+                        <h4> <?php echo tot_petani($klp,$desa); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-w3ls">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Desa</h3>
+                        <h4> <?php echo tot_desa($json); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 four-grid">
+                <div class="four-wthree">
+                    <div class="icon">
+                        <i class="glyphicon glyphicon-list" aria-hidden="true"></i>
+                    </div>
+                    <div class="four-text">
+                        <h3>Kelompok Tani</h3>
+                        <h4> <?php echo tot_klp_tani($json); ?> </h4>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
         <!-- script-for sticky-nav -->
         <script>
             $(document).ready(function() {
