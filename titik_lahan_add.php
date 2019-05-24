@@ -89,7 +89,8 @@ $titik_long = 0;
                <!--grid-->
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Tambah Titik Lahan Pertanian</h2>
+                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
+                    <h4>Tambah Titik Lahan Pertanian</h4>
                 </div>
 
 

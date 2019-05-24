@@ -47,7 +47,7 @@ if(!isset($_SESSION['user'])){
         <div class="mother-grid-inner">
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
+                    <h2>Peta Persebaran Lahan Pertanian</h2>
                 </div>
                 </header>
 

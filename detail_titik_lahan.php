@@ -61,7 +61,8 @@ $str_titik_all = '';
                <!--grid-->
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Detil Titik Lahan Pertanian</h2>
+                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
+                    <h4>Detil Titik Lahan Pertanian</h4>
 
                     <!--<div class="toolbar"> -->
                     <?php
@@ -195,7 +196,7 @@ $str_titik_all = '';
 
                 <div class="grid-form">
                     <div class="grid-form1">
-                        <h2>Data Titik Lahan Petani</h2>
+                        <h4>Data Titik Lahan Petani</h4>
                         <button type="button" class="btn btn-success" name="titik_lahan_add" id="titik_lahan_add" onclick="goAdd(<?php echo $_GET['id_lahan']; ?>)"> + Tambah Titik</button>
                         <table id="table" class="table table-striped table-hover">
                             <thead>

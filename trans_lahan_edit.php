@@ -60,7 +60,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
 
                     <form action="service/update_transaksi_lahan.php" method="post" enctype="multipart/form-data">
-                        <h4>Data kepemilikan lahan <?php echo $namalahan; ?></h4>
+                        <h4>Ubah data kepemilikan lahan <?php echo $namalahan; ?></h4>
                         <input type="hidden" value="<?php echo $idl; ?>"; name="nomor" id="nomor">
                         <BR>
                         <table>

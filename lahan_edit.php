@@ -45,7 +45,7 @@ $json = json_decode($str, true);
         <div class="mother-grid-inner">
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
+                    <h2>Ubah Lahan Pertanian</h2>
 
 
                     <form action="service/update_lahan.php" method="post" enctype="multipart/form-data">

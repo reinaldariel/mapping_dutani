@@ -57,8 +57,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
 
                     <form action="service/insert_lahan_tanaman.php" method="post" enctype="multipart/form-data">
-                        <h4>Data penanaman lahan <?php echo $namalahan; ?></h4>
-                        <BR>
+                        <h4>Tambah data penanaman lahan <?php echo $namalahan; ?></h4>
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_lahan" id="id_lahan">
 <table>
     <tbody>

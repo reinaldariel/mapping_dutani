@@ -55,7 +55,7 @@ if ($idp == $_SESSION['user']){
         <div class="mother-grid-inner">
             <div class="grid-form">
                 <div class="grid-form1">
-                    <h2>Pemetaan Lokasi Lahan Pertanian</h2>
+                    <h2>Tambah Lahan Pertanian</h2>
 
                     <form action="service/insert_lahan.php" method="post" enctype="multipart/form-data">
 
