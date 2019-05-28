@@ -107,9 +107,11 @@ if(!isset($_SESSION['user'])){
                             var lahanPath = new google.maps.Polygon({
                             path: line_locations,
                             geodesic: true,
-                            strokeColor: '#FF0000',
+                            strokeColor: '#".$value['col_hex']."',
                             strokeOpacity: 1.0,
-                            strokeWeight: 2
+                            strokeWeight: 2,
+                            fillColor: '#".$value['col_hex']."',
+                            fillOpacity: 0.35
                         });
 
                         lahanPath.setMap(map);

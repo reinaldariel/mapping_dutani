@@ -111,7 +111,9 @@ if(!isset($_SESSION['user'])){
                             geodesic: true,
                             strokeColor: '#".$value['col_hex']."',
                             strokeOpacity: 1.0,
-                            strokeWeight: 2
+                            strokeWeight: 2,
+                            fillColor: '#".$value['col_hex']."',
+                            fillOpacity: 0.35
                         });
 
                         lahanPath.setMap(map);
