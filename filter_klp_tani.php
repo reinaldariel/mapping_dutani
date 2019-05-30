@@ -72,7 +72,7 @@ $str_titik_all = '';
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
                             <?php
-                            $strlistklp = "SELECT ID_Kelompok_Tani as id, Nama_Kelompok_Tani as nama from master_kel_tani";
+                            $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
                             if (isset($_POST['klptani'])){
                                 $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);

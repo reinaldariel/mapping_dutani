@@ -53,7 +53,7 @@ if(!isset($_SESSION['user'])){
                         <label>pilih daerah </label>
                         <select id="daerah" name="daerah">
                             <?php
-                            $strlistdesa = "SELECT Nama_Desa from kelurahan_desa";
+                            $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
                             if (isset($_POST['daerah'])){
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_per_daerah.php?desa='.$_POST['daerah']);
                                 $strlistdesa .= "WHERE != '".$_POST['daerah']."'";
@@ -67,7 +67,7 @@ if(!isset($_SESSION['user'])){
                             $stmt->setFetchMode(PDO::FETCH_ASSOC);
                             $result = $stmt->fetchAll();
                             foreach ($result as $val) {
-                                $str .= '<option value="' . $val['Nama_Desa'] . '">' . $val['Nama_Desa'] . '</option>';
+                                $str .= '<option value="' . $val['Desa'] . '">' . $val['Desa'] . '</option>';
                             }
                             echo $str;
                             ?>
