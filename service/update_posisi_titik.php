@@ -34,6 +34,7 @@ try {
     $stmt->bindParam(2, $result[0]['id_detail']);
     $stmt->execute();
 
+    echo '<script>alert("Berhasil mengubah posisi titik lahan"); window.location.assign("'.$BASE_URL.'detail_titik_lahan.php?id_lahan='.$id_lahan.'");</script>';
     // echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
     // echo "<meta http-equiv='refresh' content='1;url=../detail_titik_lahan.php?id_lahan=".$id_lahan."'>";
 

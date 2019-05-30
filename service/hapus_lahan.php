@@ -3,6 +3,15 @@ include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
 $id_lahan = $_GET['id_lahan'];
+$id_petani = '';
+$stmt = $conn->prepare("SELECT ID_User FROM trans_lahan WHERE ID_Lahan = ?");
+$stmt->bindParam(1, $id_lahan);
+$stmt->execute();
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+while($id_petani = $stmt->fetch(PDO::FETCH_ASSOC)){
+    $id_petani = $id_petani['ID_User'];
+}
+
 
 try {
     //hapus kepemilikan lahan
@@ -39,7 +48,7 @@ try {
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();
-    echo '<script>alert("Kepemilikan lahan berhasil dihapus"); history.go(-1);</script>';
+    echo '<script>alert("Lahan berhasil dihapus"); window.location.assign("'.$BASE_URL.'daftar_lahan_per_petani.php?id='.$id_petani.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

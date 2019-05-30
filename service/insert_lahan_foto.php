@@ -62,12 +62,7 @@ try {
     $sql = "INSERT INTO `master_peta_lahan_foto` (`id_foto`, `ID_Lahan`, `foto`) VALUES (NULL, '".$id_lahan."', '".$namaimage."');";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-//    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-//    $result = $stmt->fetchAll();
-//    echo json_encode($result);
-//    echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
-//    echo "<meta http-equiv='refresh' content='1;url=../daftar_lahan_per_petani.php'>";
-    echo '<script>alert("Berhasil menambah foto"); history.go(-2);</script>';
+    echo '<script>alert("Berhasil menambah foto"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

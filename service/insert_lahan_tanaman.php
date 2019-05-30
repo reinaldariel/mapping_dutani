@@ -17,7 +17,7 @@ try {
 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    echo '<script>alert("Berhasil menambah penanaman pada lahan"); history.go(-2);</script>';
+    echo '<script>alert("Berhasil menambah penanaman pada lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }
