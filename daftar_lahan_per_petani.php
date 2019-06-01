@@ -57,8 +57,7 @@ $id = $_GET['id'];
             <div class="grid-form">
                 <div class="grid-form1">
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
-
-                    <!--<div class="toolbar"> -->
+                    <table>
                     <?php
                     $penambahan_lahan =0;
 
@@ -68,22 +67,15 @@ $id = $_GET['id'];
 
                         $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$id);
                         $json = json_decode($str, true);
-                        foreach ($json as $head) {
-                            $counter = 0;
-                            foreach ($head as $key => $val) {
-                                if ($counter == 1) {
-                                    echo "<p>Lahan milik : " . $val . "</p>";
-                                }
-                                elseif ($counter == 9){
-                                    echo "<p>Jumlah lahan : ".$val."</p>";
-                                    echo "<p>Jumlah lahan tercatat : ".$jml_lahan_tercatat."</p>";
-                                    $penambahan_lahan = $val-$jml_lahan_tercatat;
-                                    echo "<p>Anda dapat menambah ".$penambahan_lahan." lahan</p>";
-                                }
-                                $counter++;
-                            }
+                        foreach ($json as $val) {
+                                    echo "<tr><td> Lahan milik </td><td> : " . $val['Nama_Petani'] . "</td></tr>";
+                                    echo "<tr><td> Jumlah lahan </td><td> : ".$val['jml_lahan']."</td></tr>";
+                                    echo "<tr><td> Jumlah lahan tercatat </td><td> : ".$jml_lahan_tercatat."</td></tr>";
+                                    $penambahan_lahan = $val['jml_lahan']-$jml_lahan_tercatat;
+                                    echo "<tr><td> Anda dapat menambah </td><td> : ".$penambahan_lahan." lahan </td></tr>";
                         }
                      ?>
+                    </table>
                 </div>
 
 
@@ -170,7 +162,6 @@ $id = $_GET['id'];
                             $json = json_decode($str, true);
                             if (count($json) > 0) {
                                 foreach ($json as $val) {
-                                    $counter = 0;
                                     $tbl_cont = "<tr>";
 
                                     $id_lhn = $val['ID_Lahan'];
@@ -180,7 +171,7 @@ $id = $_GET['id'];
                                     $tbl_cont .= "<td>" . $val['jenis_lahan'] . "</td>";
                                     $tbl_cont .= "<td>" . $val['Desa'] . ", " . $val['Kecamatan'] . ", " . $val['Kabupaten'] . ", " . $val['Provinsi'] . "</td>";
                                     
-                                    echo $tbl_cont."<td><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'><a href='service/hapus_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Hapus</a></button> </td></tr>";
+                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'><a href='service/hapus_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Hapus</a></button></div> </td></tr>";
                                 }
                             }
                             else {
