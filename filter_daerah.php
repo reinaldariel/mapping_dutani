@@ -73,15 +73,15 @@ $str_titik_all = '';
                         <select id="daerah" name="daerah">
                             <?php
                             $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
-                            if (isset($_POST['daerah'])){
+                            if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
                                 $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_per_daerah.php?desa='.$_POST['daerah']);
-                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_daerah.php?desa='.$_POST['daerah']);
-                                $strlistdesa .= "WHERE != '".$_POST['daerah']."'";
-
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php?desa='.$_POST['daerah']);
+                                $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                                $desa = $_POST['daerah'];
                                 echo  '<option value="' . $_POST['klptani'] . '">' . tot_desa($strlistdesa) . '</option>';
                             }else{
                                 $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
-                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_daerah.php');
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
                             }
                             $str = "<option value=\"\">- pilih -</option>";
                             $stmt = $conn->prepare($strlistdesa);
@@ -119,13 +119,16 @@ $str_titik_all = '';
                                     foreach ($json as $key => $val) {
                                         echo "convexHull.addPoint(".$val['lat'].",".$val['longt'].");";
                                     }
+                                    echo "
+                                var locations = convexHull.getHull();
+
+                                var latLng=new google.maps.LatLng(locations[0].x, locations[0].y);";
+                                }else{
+                                    echo "var latLng=new google.maps.LatLng(".$def_lat.", ".$def_long.");";
                                 }
                                 $json = json_decode($lahancounter, true);
                                 ?>
 
-                                var locations = convexHull.getHull();
-
-                                var latLng=new google.maps.LatLng(locations[0].x, locations[0].y);
                                 var map = new google.maps.Map(document.getElementById('map'), {
                                     zoom: 18, //level zoom
                                     scaleControl: true,
@@ -140,7 +143,7 @@ $str_titik_all = '';
                                 var line_locations=[];
                                 for (i=0;i<locations.length;i++){
                                     line_locations.push({lat:locations[i].x, lng:locations[i].y});
-                                };
+                                }
 
                                 console.log(line_locations);
 

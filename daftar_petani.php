@@ -1,5 +1,4 @@
 <?php
-//error_reporting(0);
 include "includes/config2.php";
 session_start();
 if(!isset($_SESSION['user'])){

@@ -73,15 +73,15 @@ $str_titik_all = '';
                         <select id="klptani" name="klptani">
                             <?php
                             $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
-                            if (isset($_POST['klptani'])){
+                            if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
                                 $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
-                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
-                                $strlistklp .= " WHERE ID_Kelompok_Tani != '".$_POST['klptani']."'";
-
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php?klp_tani='.$_POST['klptani']);
+                                $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
+                                $klp = $_POST['klptani'];
                                 echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
                             }else{
                                 $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
-                                $str_titik_all = file_get_contents($BASE_URL.'service/read_detail_titik_lahan_per_klp_tani.php');
+                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
                             }
                             $str = "<option value=\"\">- pilih -</option>";
                             $stmt = $conn->prepare($strlistklp);
@@ -119,14 +119,16 @@ $str_titik_all = '';
                                     foreach ($json as $key => $val) {
                                         echo "convexHull.addPoint(".$val['lat'].",".$val['longt'].");";
                                     }
-                                }
+                                    echo "
+                                var locations = convexHull.getHull();
 
+                                var latLng=new google.maps.LatLng(locations[0].x, locations[0].y);";
+                                }else{
+                                    echo "var latLng=new google.maps.LatLng(".$def_lat.", ".$def_long.");";
+                                }
                                 $json = json_decode($lahancounter, true);
                                 ?>
 
-                                var locations = convexHull.getHull();
-
-                                var latLng=new google.maps.LatLng(locations[0].x, locations[0].y);
                                 var map = new google.maps.Map(document.getElementById('map'), {
                                     zoom: 18, //level zoom
                                     scaleControl: true,
@@ -141,7 +143,7 @@ $str_titik_all = '';
                                 var line_locations=[];
                                 for (i=0;i<locations.length;i++){
                                     line_locations.push({lat:locations[i].x, lng:locations[i].y});
-                                };
+                                }
 
                                 console.log(line_locations);
 

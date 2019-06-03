@@ -57,7 +57,7 @@ if(!isset($_SESSION['user'])){
                     <script type="text/javascript">
                         var latLng=new google.maps.LatLng(<?php echo $def_lat; ?>, <?php echo $def_long; ?>);
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 15, //level zoom
+                            zoom: 16, //level zoom
                             scaleControl: true,
                             center:latLng,
                             mapTypeId: google.maps.MapTypeId.HYBRID
@@ -68,11 +68,12 @@ if(!isset($_SESSION['user'])){
                         <?php
                         $str = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
                         $json = json_decode($str, true);
+                        $str = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
+                        $json2 = json_decode($str, true);
                         foreach ($json as $value) {
                             $lineloc ="";
-                            $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);
-                            $json2 = json_decode($str2, true);
                             foreach ($json2 as $value2){
+                                if ($value['ID_Lahan'] == $value2['ID_Lahan'])
                                 $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
                             }
 
@@ -83,7 +84,7 @@ if(!isset($_SESSION['user'])){
                             path: line_locations,
                             geodesic: true,
                             strokeColor: '#".$value['col_hex']."',
-                            strokeOpacity: 0.35,
+                            strokeOpacity: 0.5,
                             strokeWeight: 0.5,
                             fillColor: '#".$value['col_hex']."',
                             fillOpacity: 0.35

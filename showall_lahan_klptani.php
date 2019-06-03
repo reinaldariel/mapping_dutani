@@ -52,16 +52,17 @@ if(!isset($_SESSION['user'])){
                     <form action="showall_lahan_klptani.php" method="post">
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
-
                             <?php
                             $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
-                            if (isset($_POST['klptani'])){
+                            if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
-                                $strlistklp .= " WHERE ID_Kelompok_Tani != '".$_POST['klptani']."'";
-
+                                $str_dtl_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php?klp_tani='.$_POST['klptani']);
+                                $klp = $_POST['klptani'];
+                                $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
                                     echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
                             }else{
                                 $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
+                                $str_dtl_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
                             }
                             $str = "<option value=\"\">- pilih -</option>";
                             $stmt = $conn->prepare($strlistklp);
@@ -85,22 +86,22 @@ if(!isset($_SESSION['user'])){
                     <script type="text/javascript">
                         var latLng=new google.maps.LatLng(<?php echo $def_lat; ?>, <?php echo $def_long; ?>);
                         var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 15, //level zoom
+                            zoom: 16, //level zoom
                             scaleControl: true,
                             center:latLng,
                             mapTypeId: google.maps.MapTypeId.HYBRID
                         });
 
-//                        var infowindow = new google.maps.InfoWindow();
+                        //var infowindow = new google.maps.InfoWindow();
 
                         <?php
                         $json = json_decode($str_titik_all, true);
+                        $json2 = json_decode($str_dtl_titik_all, true);
                         foreach ($json as $value) {
                             $lineloc ="";
-                            $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);
-                            $json2 = json_decode($str2, true);
                             foreach ($json2 as $value2){
-                                $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
+                                if ($value['ID_Lahan'] == $value2['ID_Lahan'])
+                                    $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
                             }
 
                             $lineloc = substr($lineloc, 0 , -1);
@@ -110,8 +111,8 @@ if(!isset($_SESSION['user'])){
                             path: line_locations,
                             geodesic: true,
                             strokeColor: '#".$value['col_hex']."',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 2,
+                            strokeOpacity: 0.5,
+                            strokeWeight: 0.5,
                             fillColor: '#".$value['col_hex']."',
                             fillOpacity: 0.35
                         });
@@ -122,7 +123,6 @@ if(!isset($_SESSION['user'])){
                         ?>
 
                     </script>
-
                 </div>
 
             </div>

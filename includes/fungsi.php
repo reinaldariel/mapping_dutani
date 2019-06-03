@@ -12,7 +12,7 @@
 //	}
 //
 	function tot_desa($json) {
-        if (isset($_POST['daerah'])){
+        if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
             return $_POST['daerah'];
         }
         else {
@@ -55,7 +55,7 @@
 	function tot_klp_tani($json) {
         $database = new Database();
         $conn = $database->getConnection();
-        if (isset($_POST['klptani'])) {
+        if (isset($_POST['klptani']) and $_POST['klptani'] != "") {
 
             $strnama = "SELECT Nama_Kelompok_Tani from master_kel_tani WHERE ID_Kelompok_Tani = '" . $_POST['klptani'] . "'";
             $stmt = $conn->prepare($strnama);
