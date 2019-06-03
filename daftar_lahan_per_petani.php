@@ -57,7 +57,7 @@ $id = $_GET['id'];
             <div class="grid-form">
                 <div class="grid-form1">
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
-                    <table>
+<!--                    <table>-->
                     <?php
                     $penambahan_lahan =0;
 
@@ -68,20 +68,17 @@ $id = $_GET['id'];
                         $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$id);
                         $json = json_decode($str, true);
                         foreach ($json as $val) {
-                                    echo "<tr><td> Lahan milik </td><td> : " . $val['Nama_Petani'] . "</td></tr>";
-                                    echo "<tr><td> Jumlah lahan </td><td> : ".$val['jml_lahan']."</td></tr>";
-                                    echo "<tr><td> Jumlah lahan tercatat </td><td> : ".$jml_lahan_tercatat."</td></tr>";
-                                    $penambahan_lahan = $val['jml_lahan']-$jml_lahan_tercatat;
-                                    echo "<tr><td> Anda dapat menambah </td><td> : ".$penambahan_lahan." lahan </td></tr>";
+                            echo "<div class='col-md-3'> Lahan milik </div><div class='col-md-3'> : " . $val['Nama_Petani'] . "</div><br>";
+                            echo "<div class='col-md-3'> Jumlah lahan </div><div class='col-md-3'> : ".$val['jml_lahan']."</div><br>";
+                            echo "<div class='col-md-3'> Jumlah lahan tercatat </div><div class='col-md-3'> : ".$jml_lahan_tercatat."</div><br>";
+                            $penambahan_lahan = $val['jml_lahan']-$jml_lahan_tercatat;
+                            echo "<div class='col-md-3'> Anda dapat menambah </div><div class='col-md-3'> : ".$penambahan_lahan." lahan </div><br>";
                         }
                      ?>
-                    </table>
+<!--                    </table>-->
                 </div>
-
-
             </div>
             <!--//grid-->
-
             <div class="agile-grids">
                 <div class="grid-form">
                     <div class="grid-form1">

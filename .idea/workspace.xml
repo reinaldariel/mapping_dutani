@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbf3ddf1-2e7e-4a27-b055-51f5dfc182e9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/input.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/style.css" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daftar_lahan_per_petani.php" afterPath="$PROJECT_DIR$/daftar_lahan_per_petani.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/detail_titik_lahan.php" afterPath="$PROJECT_DIR$/detail_titik_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_add.php" afterPath="$PROJECT_DIR$/lahan_add.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_edit.php" afterPath="$PROJECT_DIR$/lahan_edit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_tanaman_add.php" afterPath="$PROJECT_DIR$/lahan_tanaman_add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_tanaman_edit.php" afterPath="$PROJECT_DIR$/lahan_tanaman_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_add.php" afterPath="$PROJECT_DIR$/lahan_add.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/showall_lahan.php" afterPath="$PROJECT_DIR$/showall_lahan.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/titik_lahan_add.php" afterPath="$PROJECT_DIR$/titik_lahan_add.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trans_lahan_add.php" afterPath="$PROJECT_DIR$/trans_lahan_add.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trans_lahan_edit.php" afterPath="$PROJECT_DIR$/trans_lahan_edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/titik_lahan_add.php" afterPath="$PROJECT_DIR$/titik_lahan_add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lahan_edit.php" afterPath="$PROJECT_DIR$/lahan_edit.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,134 +27,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/service/login.php">
+      <file leaf-file-name="daftar_lahan_per_petani.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="32" column="36" lean-forward="false" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+            <state relative-caret-position="246">
+              <caret line="74" column="146" lean-forward="true" selection-start-line="74" selection-start-column="146" selection-end-line="74" selection-end-column="146" />
               <folding>
-                <marker date="1558459428956" expanded="true" signature="358:595" ph="SELECT m.ID_... master_user" />
-                <marker date="1558459428956" expanded="true" signature="358:610" ph="SELECT m.ID_... master_user" />
-                <marker date="1558459428956" expanded="true" signature="963:1026" ph="SELECT Nama_... master_petani" />
-                <marker date="1558459428956" expanded="true" signature="963:1028" ph="SELECT Nama_... master_petani" />
-                <marker date="1558459428956" expanded="true" signature="963:1050" ph="SELECT Nama_... master_petani" />
-                <marker date="1558459428956" expanded="true" signature="963:1051" ph="SELECT Nama_... master_petani" />
+                <marker date="1559586825979" expanded="true" signature="6584:6596" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="6733:7138" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="6766:7101" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="7174:7238" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="8274:8304" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="8404:8416" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="8536:8548" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="8674:8686" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="8895:8944" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="9293:9379" ph="..." />
+                <marker date="1559586825979" expanded="true" signature="9340:9379" ph="{...}" />
+                <marker date="1559586825979" expanded="true" signature="10354:10386" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lahan_add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lahan_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
-              <folding>
-                <marker date="1558709583235" expanded="true" signature="390:445" ph="SELECT Nama_... master_petani" />
-                <marker date="1558709583235" expanded="true" signature="7599:7633" ph="SELECT Nama_... provinsi" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lahan_edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lahan_edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="47" column="49" lean-forward="true" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-              <folding>
-                <marker date="1558709582992" expanded="true" signature="6329:6363" ph="SELECT Nama_... provinsi" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trans_lahan_add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trans_lahan_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="39" selection-end-line="63" selection-end-column="39" />
-              <folding>
-                <marker date="1558709712711" expanded="true" signature="455:514" ph="SELECT nama_... master_peta_lahan" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trans_lahan_edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trans_lahan_edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
-              <folding>
-                <marker date="1558709880925" expanded="true" signature="450:558" ph="SELECT l.nam... master_peta_lahan" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lahan_tanaman_add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lahan_tanaman_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="59" column="86" lean-forward="false" selection-start-line="59" selection-start-column="86" selection-end-line="59" selection-end-column="86" />
-              <folding>
-                <marker date="1558710912889" expanded="true" signature="332:391" ph="SELECT nama_... master_peta_lahan" />
-                <marker date="1558710912889" expanded="true" signature="2788:2847" ph="SELECT ID_Sp... master_spesies_tanaman" />
-                <marker date="1558710912889" expanded="true" signature="4065:4106" ph="SELECT satua... master_satuan_saprotan" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lahan_tanaman_edit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lahan_tanaman_edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="130" column="19" lean-forward="true" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="60" />
-              <folding>
-                <marker date="1558710889228" expanded="true" signature="4689:4748" ph="SELECT ID_Sp... master_spesies_tanaman" />
-                <marker date="1558710889228" expanded="true" signature="7122:7163" ph="SELECT satua... master_satuan_saprotan" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="titik_lahan_add.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/titik_lahan_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="60" />
-              <folding>
-                <marker date="1558714786331" expanded="true" signature="3849:4125" ph="select l.ID_... master_petani" />
-                <marker date="1558714786331" expanded="true" signature="4285:4576" ph="select l.ID_... master_petani" />
-                <marker date="1558714786331" expanded="true" signature="6245:6870" ph="..." />
-                <marker date="1558714786331" expanded="true" signature="6312:6362" ph="..." />
-                <marker date="1558714786331" expanded="true" signature="6620:6864" ph="..." />
-                <marker date="1558714786331" expanded="true" signature="6623:6667" ph="..." />
-                <marker date="1558714786331" expanded="true" signature="6671:6858" ph="..." />
-                <marker date="1558714786331" expanded="true" signature="6719:6853" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detail_titik_lahan.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detail_titik_lahan.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="64" column="23" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="showall_lahan.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/showall_lahan.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="49" column="39" lean-forward="false" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -274,7 +169,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,6 +221,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,15 +357,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128182000" />
+    <option name="totallyTimeSpent" value="128183000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23373677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -478,13 +374,23 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -502,9 +408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <marker date="1554231276127" expanded="true" signature="2064:2181" ph="INSERT INTO `master_peta_lahan_foto`... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -559,56 +462,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daftar_lahan_per_petani.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="137" column="379" lean-forward="false" selection-start-line="137" selection-start-column="379" selection-end-line="137" selection-end-column="379" />
+        <state relative-caret-position="246">
+          <caret line="74" column="146" lean-forward="true" selection-start-line="74" selection-start-column="146" selection-end-line="74" selection-end-column="146" />
+          <folding>
+            <marker date="1559586825979" expanded="true" signature="6584:6596" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="6733:7138" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="6766:7101" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="7174:7238" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="8274:8304" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="8404:8416" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="8536:8548" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="8674:8686" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="8895:8944" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="9293:9379" ph="..." />
+            <marker date="1559586825979" expanded="true" signature="9340:9379" ph="{...}" />
+            <marker date="1559586825979" expanded="true" signature="10354:10386" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_klp_tani.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_klp_tani.php" />
     <entry file="file://$PROJECT_DIR$/filter_klp_tani.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3077">
           <caret line="181" column="0" lean-forward="false" selection-start-line="181" selection-start-column="0" selection-end-line="239" selection-end-column="18" />
-          <folding>
-            <marker date="1558459064701" expanded="true" signature="2754:2832" ph="SELECT ID_Ke... master_kel_tani" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_daerah.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service/read_detail_titik_lahan_per_daerah.php" />
     <entry file="file://$PROJECT_DIR$/filter_daerah.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="75" column="52" lean-forward="false" selection-start-line="75" selection-start-column="52" selection-end-line="75" selection-end-column="52" />
-          <folding>
-            <marker date="1558459331263" expanded="true" signature="2742:2778" ph="SELECT Nama_... kelurahan_desa" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/faq.html" />
     <entry file="file://$PROJECT_DIR$/view2.php" />
-    <entry file="file://$PROJECT_DIR$/input.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11016">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/input.html" />
     <entry file="file://$PROJECT_DIR$/edit.php" />
     <entry file="file://$PROJECT_DIR$/cari.php" />
     <entry file="file://$PROJECT_DIR$/sidebar.php">
@@ -622,9 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="328" lean-forward="false" selection-start-line="15" selection-start-column="328" selection-end-line="15" selection-end-column="328" />
-          <folding>
-            <marker date="1554885191704" expanded="true" signature="465:845" ph="INSERT INTO `master_peta_lahan_tanaman`... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -632,17 +522,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="9" />
-          <folding>
-            <marker date="1558349159078" expanded="true" signature="6256:6565" ph="select l.ID_... master_petani" />
-            <marker date="1558349159078" expanded="true" signature="7045:7370" ph="select l.ID_... master_petani" />
-            <marker date="1558349159078" expanded="true" signature="7783:8396" ph="..." />
-            <marker date="1558349159078" expanded="true" signature="7842:7884" ph="..." />
-            <marker date="1558349159078" expanded="true" signature="8113:8390" ph="..." />
-            <marker date="1558349159078" expanded="true" signature="8116:8152" ph="..." />
-            <marker date="1558349159078" expanded="true" signature="8156:8384" ph="..." />
-            <marker date="1558349159078" expanded="true" signature="8196:8250" ph="..." />
-            <marker date="1558349159078" expanded="true" signature="8254:8379" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -664,9 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding>
-            <marker date="1554799566561" expanded="true" signature="176:253" ph="UPDATE `tran... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -761,7 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,14 +645,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="68" column="14" lean-forward="false" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-          <folding>
-            <element signature="e#7#19#0#PHP" expanded="false" />
-            <marker date="1558458268811" expanded="true" signature="62:124" ph="SELECT * FRO... master_peta_lahan" />
-            <marker date="1558458268811" expanded="true" signature="546:732" ph="SELECT DISTI... master_petani" />
-            <marker date="1558458268811" expanded="true" signature="1323:1522" ph="SELECT * FRO... master_petani" />
-            <marker date="1558458268811" expanded="true" signature="2008:2107" ph="SELECT Nama_... master_kel_tani" />
-            <marker date="1558458268811" expanded="true" signature="2429:2628" ph="SELECT DISTI... master_petani" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -784,10 +652,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1554056217883" expanded="true" signature="241:297" ph="delete from " />
-            <marker date="1554056217883" expanded="true" signature="549:566" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -795,9 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1071">
           <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="113" />
-          <folding>
-            <marker date="1558456704777" expanded="true" signature="2274:2352" ph="SELECT ID_Ke... master_kel_tani" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -805,13 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" column="77" lean-forward="false" selection-start-line="41" selection-start-column="63" selection-end-line="41" selection-end-column="77" />
-          <folding>
-            <marker date="1558464965011" expanded="true" signature="206:248" ph="DELETE FROM " />
-            <marker date="1558464965011" expanded="true" signature="445:500" ph="DELETE FROM " />
-            <marker date="1558464965011" expanded="true" signature="695:751" ph="DELETE FROM " />
-            <marker date="1558464965011" expanded="true" signature="941:994" ph="DELETE FROM " />
-            <marker date="1558464965011" expanded="true" signature="1179:1227" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,10 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1530">
           <caret line="90" column="34" lean-forward="true" selection-start-line="90" selection-start-column="34" selection-end-line="90" selection-end-column="34" />
-          <folding>
-            <marker date="1558465728102" expanded="true" signature="3530:3896" ph="INSERT INTO `master_peta_lahan`... " />
-            <marker date="1558465728102" expanded="true" signature="4124:4317" ph="INSERT INTO `trans_lahan`... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -830,9 +682,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="69" column="32" lean-forward="false" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="119" />
-          <folding>
-            <marker date="1558456296192" expanded="true" signature="2260:2296" ph="SELECT Nama_... kelurahan_desa" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -840,9 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-          <folding>
-            <marker date="1554796907037" expanded="true" signature="184:249" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,9 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <marker date="1554796470104" expanded="true" signature="174:226" ph="DELETE FROM " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -951,16 +795,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="91" column="20" lean-forward="true" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="60" />
-          <folding>
-            <marker date="1558714786331" expanded="true" signature="3849:4125" ph="select l.ID_... master_petani" />
-            <marker date="1558714786331" expanded="true" signature="4285:4576" ph="select l.ID_... master_petani" />
-            <marker date="1558714786331" expanded="true" signature="6245:6870" ph="..." />
-            <marker date="1558714786331" expanded="true" signature="6312:6362" ph="..." />
-            <marker date="1558714786331" expanded="true" signature="6620:6864" ph="..." />
-            <marker date="1558714786331" expanded="true" signature="6623:6667" ph="..." />
-            <marker date="1558714786331" expanded="true" signature="6671:6858" ph="..." />
-            <marker date="1558714786331" expanded="true" signature="6719:6853" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
