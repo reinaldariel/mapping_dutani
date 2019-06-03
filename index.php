@@ -33,13 +33,6 @@ if(!isset($_SESSION['user'])){
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
-
-<!--    <script type="text/javascript">-->
-<!--        //open newwindows-->
-<!--        function MM_openBrWindow(theURL,winName,features) { //v2.0-->
-<!--            window.open(theURL,winName,features);-->
-<!--        }-->
-<!--    </script>-->
 </head>
 <body>
 <div class="page-container">
@@ -49,49 +42,7 @@ if(!isset($_SESSION['user'])){
             <div class="grid-form">
                 <div class="grid-form1">
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
-
-                    <!--<div class="toolbar"> -->
-                    <?php
-//                    if ($_SESSION['kategori'] == "ADP"){
-//                    if($_POST){
-//                        $kdes=$_POST['des'];
-//                        $kklp=$_POST['klp'];
-//                    }else{
-//                        $kdes='';
-//                        $kklp='';
-//                    }
-//                    ?>
-<!--                    <form action="" method="post">-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="exampleInputEmail1">Kelurahan</label>-->
-<!--                            <select name="des" class="form-control">-->
-<!--                                <option value="" selected>- Semua Desa Kelurahan -</option>-->
-<!--                                --><?php //$str = file_get_contents($BASE_URL.'service/read_kelurahan.php');
-//                                $json = json_decode($str, true);
-//                                foreach ($json as $head){
-//                                    foreach ($head as $key => $val) {
-//                                        echo "<option value='" . $val . "'>" . $val . "</option>";
-//                                    }
-//                                }
-//                                ?>
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                        <div class="form-group">-->
-<!--                            <label for="exampleInputPassword1">Kelompok Tani</label>-->
-<!--                            <select name="klp" class="form-control">-->
-<!--                                <option value="" selected>- Semua Kelompok Tani -</option>-->
-<!--                                --><?php //$str = file_get_contents($BASE_URL.'service/read_klptani.php');
-//                                $json = json_decode($str, true);
-//                                foreach ($json as $head){
-//                                    foreach ($head as $key => $val)
-//                                        echo "<option value='".$val."'>".$val."</option>";
-//                                }
-//                                ?>
-<!--                            </select>-->
-<!--                        </div>-->
-<!--                        <button type="submit" class="btn btn-primary">Submit</button>-->
-<!--                    </form>-->
-<!--                    --><?php //}else{
+                        <?php
                         if($_SESSION['kategori'] == "PET"){
                         $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user']);
                         $json = json_decode($str, true);
@@ -117,33 +68,22 @@ if(!isset($_SESSION['user'])){
                 </header>
 
                 <div class="agileits-box-body clearfix">
-
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <?php
-//                    $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.longitude as longitude,l.latitude as latitude,l.foto as foto,l.Desa as desa,p.ID_User as id_user from master_petani p, master_peta_lahan l, master_kel_tani k where p.ID_User = l.id_user_petani AND p.ID_Kelompok_Tani = k.ID_Kelompok_Tani AND l.id_user_petani not in('') AND l.ID_Lahan not in('')";
                     if($_SESSION['kategori'] == "ADP") {
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,tl.ID_User as id_user from master_petani p, master_peta_lahan l, trans_lahan tl where tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User not in('') AND l.ID_Lahan not in('')";
-//                        if (!empty($_POST['des'])) {
-//                            $list = "" . $list . " and l.Desa='$_POST[des]'";
-//                        }
-//                    if(!empty($_POST['klp'])){
-//                        $list="".$list." and k.Nama_Kelompok_Tani='$_POST[klp]'";
-//                    }
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User not in('') AND l.ID_Lahan not in('')";
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }else{
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa, tl.ID_User as id_user from master_petani p, master_peta_lahan l, trans_lahan tl where tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
+                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa, tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }
-
-
                     ?>
                     <script type="text/javascript">
                         var locations = [
                             <?php
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-
                                 $content="'<div id=\"content\">'+
                                 '<div id=\"siteNotice\">'+
                                 '</div>'+
@@ -152,6 +92,7 @@ if(!isset($_SESSION['user'])){
                                 '<div id=\"bodyContent\"><p>'+
                                 '<ul>'+
                                 '<li> ".$row['desa']."' +
+                                '<li> ".$row['Nama_Kelompok_Tani']."' +
                                 '<li> <a href=\"detail_lahan.php?id_lahan=".$row['id_lahan']."\" target=\"_blank\">Detail</a>' +
                                 '</ul></div></div>'";
                             echo "['".$row['id_lahan']."',".$row['latitude'].",".$row['longitude'].",".$content."],";
