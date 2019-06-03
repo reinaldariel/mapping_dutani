@@ -15,6 +15,22 @@
         if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
             return $_POST['daerah'];
         }
+        if (isset($_POST['klptani']) and $_POST['klptani']){
+            $database = new Database();
+            $conn = $database->getConnection();
+            $list = "SELECT DISTINCT l.Desa FROM master_petani p, trans_lahan tl, trans_ang_petani tp, master_peta_lahan l, master_peta_lahan_detail d where d.ID_Lahan = l.ID_Lahan and p.ID_User = tl.ID_User and tl.ID_Lahan = l.ID_Lahan and p.ID_User = tp.ID_User";
+            if (!empty($json)) {
+                $list .= " and tl.ID_Lahan in (";
+                foreach ($json as $val) {
+                    $list .= $val['ID_Lahan'] . ", ";
+                }
+                $list = substr($list, 0, -2);
+                $list .= ")";
+            }
+            $stmt = $conn->prepare($list);
+            $stmt->execute();
+            return $stmt->rowCount();
+        }
         else {
             $database = new Database();
             $conn = $database->getConnection();

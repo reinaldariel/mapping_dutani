@@ -172,10 +172,13 @@ $titik_long = 0;
 
                         var marker, i;
                         /* kode untuk menampilkan banyak marker */
-                        /*for (i = 0; i < <?php echo count($json_titik_all) ?>; i++) {
+                        /*for (i = 0; i <  */
+                        <?php
+                        //echo count($json_titik_all) ?>//; i++) {
                             //cek jika marker adalah yang akan diedit maka warna hijau
-                            if(locations[i][1] == <?php echo $titik_lat; ?>){
-                                marker = new google.maps.Marker({
+                            //if(locations[i][1] == <?php
+//                        echo $titik_lat; ?>//){
+                              /*  marker = new google.maps.Marker({
                                     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                                     map: map,
                                     draggable : false,
