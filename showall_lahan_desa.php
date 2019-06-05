@@ -78,7 +78,39 @@ if(!isset($_SESSION['user'])){
 
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <script type="text/javascript">
-                        var latLng=new google.maps.LatLng(<?php echo $def_lat; ?>, <?php echo $def_long; ?>);
+                        var locations = [
+                            <?php
+                            $str = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
+                            $json = json_decode($str, true);
+                            $str = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
+                            $json2 = json_decode($str, true);
+                            foreach ($json as $row){
+
+                                $content="'<div id=\"content\">'+
+                                '<div id=\"siteNotice\">'+
+                                '</div>'+
+                                '<h4 id=\"firstHeading\" class=\"firstHeading\">".$row['ID_Lahan']."</h4>'+
+                                '<h6>".$row['nama']."</h6>'+
+                                '<div id=\"bodyContent\"><p>'+
+                                '<ul>'+
+                                '<li> ".$row['desa']."' +
+                                '<li> ".$row['Nama_Kelompok_Tani']."' +
+                                '<li> <a href=\"detail_lahan.php?id_lahan=".$row['ID_Lahan']."\" target=\"_blank\">Detail</a>' +
+                                '</ul></div></div>'";
+
+                                $lineloc ="[";
+                                foreach ($json2 as $value2){
+                                    if ($row['ID_Lahan'] == $value2['ID_Lahan'])
+                                        $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
+                                }
+                                $lineloc = substr($lineloc, 0 , -1);
+                                $lineloc .= "]";
+
+                                echo "['".$row['ID_Lahan']."',".$row['lat'].",".$row['longt'].",'#".$row['col_hex']."',".$content.",".$lineloc."],";
+                            }
+                            ?>
+                        ];
+                        var latLng = new google.maps.LatLng(locations[0][1], locations[0][2]);
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 16, //level zoom
                             scaleControl: true,
@@ -86,36 +118,30 @@ if(!isset($_SESSION['user'])){
                             mapTypeId: google.maps.MapTypeId.HYBRID
                         });
 
-                        //var infowindow = new google.maps.InfoWindow();
-
-                        <?php
-                        $json = json_decode($str_titik_all, true);
-                        $json2 = json_decode($str_dtl_titik_all, true);
-                        foreach ($json as $value) {
-                            $lineloc ="";
-                            foreach ($json2 as $value2){
-                                if ($value['ID_Lahan'] == $value2['ID_Lahan'])
-                                    $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
-                            }
-
-                            $lineloc = substr($lineloc, 0 , -1);
-                            $lineloc .= "];";
-                            echo "var line_locations=[".$lineloc."
-                            var lahanPath = new google.maps.Polygon({
-                            path: line_locations,
-                            geodesic: true,
-                            strokeColor: '#".$value['col_hex']."',
-                            strokeOpacity: 0.5,
-                            strokeWeight: 0.5,
-                            fillColor: '#".$value['col_hex']."',
-                            fillOpacity: 0.35
-                        });
-
-                        lahanPath.setMap(map);
-                            ";
+                        var infowindow = new google.maps.InfoWindow();
+                        var line_locations, lahanPath, i;
+                        /* kode untuk menampilkan banyak marker */
+                        for (i = 0; i < <?php echo count($json)?>; i++) {
+                            line_locations = locations[i][5];
+                            lahanPath = new google.maps.Polygon({
+                                path: line_locations,
+                                geodesic: true,
+                                map:map,
+                                strokeColor: locations[i][3],
+                                strokeOpacity: 0.5,
+                                strokeWeight: 0.5,
+                                fillColor: locations[i][3],
+                                fillOpacity: 0.35
+                            });
+                            google.maps.event.addListener(lahanPath, 'click', (function(lahanPath, i) {
+                                return function() {
+                                    latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+                                    infowindow.setContent(locations[i][4]);
+                                    infowindow.setPosition(latLng);
+                                    infowindow.open(map);
+                                }
+                            })(lahanPath, i));
                         }
-                        ?>
-
                     </script>
                 </div>
 

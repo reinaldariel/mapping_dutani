@@ -157,9 +157,6 @@ $str_titik_all = '';
 
                                 lahanPath.setMap(map);
 
-                                //calculate distance
-                                //var lengthInMeters = google.maps.geometry.spherical.computeLength(lahanPath.getPath());
-
                                 //calculate area
                                 function roundUp(num, precision) {
                                     precision = Math.pow(10, precision)
@@ -170,7 +167,7 @@ $str_titik_all = '';
 
                                 //add listener info
                                 google.maps.event.addListener(lahanPath,'click', function (event) {
-                                    infowindow.setContent("Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                                    infowindow.setContent(<?php if (isset($_POST['klptani']) and $_POST['klptani'] != ""){ echo "'".tot_klp_tani($strlistklp)."<br>' + "; } ?> "Luas Area : " + roundUp(lengthInMeters,2) + "m2");
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });

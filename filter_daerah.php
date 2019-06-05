@@ -170,7 +170,7 @@ $str_titik_all = '';
 
                                 //add listener info
                                 google.maps.event.addListener(lahanPath,'click', function (event) {
-                                    infowindow.setContent("Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                                    infowindow.setContent(<?php if (isset($_POST['daerah']) and $_POST['daerah'] != ""){ echo "'".$_POST['daerah']."<br>' + "; } ?>"Luas Area : " + roundUp(lengthInMeters,2) + "m2");
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });
