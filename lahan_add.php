@@ -1,7 +1,5 @@
 <?php
-//error_reporting(0);
 include "includes/config2.php";
-//include "includes/fungsi.php";
 $database = new Database();
 $conn = $database->getConnection();
 session_start();
@@ -207,7 +205,6 @@ if ($idp == $_SESSION['user']){
                         <div id="map" style="width: auto; height: 450px;"></div>
 
                         <input class="btn btn-primary btn-lg" id="simpan_tanah" type="submit" value="Simpan">
-<!--                        <input type="submit" class="btn btn-primary" id="simpan_tanah" value"Simpan">Simpan</input>-->
                     </form>
                 </div>
 

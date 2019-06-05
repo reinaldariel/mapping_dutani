@@ -1,5 +1,8 @@
 <?php
+include "includes/fungsi.php";
 include "includes/config2.php";
+$database = new Database();
+$conn = $database->getConnection();
 session_start();
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
@@ -57,6 +60,64 @@ if($_SESSION['kategori'] == 'PET'){
                     <div class="grid-form1">
                         <h2>Data Petani</h2>
 
+                        <form action="daftar_petani.php" method="post">
+                            <label>Kelompok Tani : </label>
+                            <select id="klptani" name="klptani">
+                                <?php
+                                $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User";
+                                if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                                    $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
+                                    $klp = $_POST['klptani'];
+                                    echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
+                                }
+                                $str = "<option value=\"\">- pilih -</option>";
+                                $stmt = $conn->prepare($strlistklp);
+                                $stmt->execute();
+                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                                $result = $stmt->fetchAll();
+                                foreach ($result as $val) {
+                                    $str .= '<option value="' . $val['id'] . '">' . $val['nama'] . '</option>';
+                                }
+                                echo $str;
+                                ?>
+                            </select>
+                            <label>Desa Petani : </label>
+                            <select id="daerah" name="daerah">
+                                <?php
+                                $strlistdesa = "SELECT DISTINCT Desa_Kelurahan as desa from master_petani where Desa_Kelurahan !=''";
+                                if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                                    $desa = $_POST['daerah'];
+                                    $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                                    echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
+                                }
+                                $str = "<option value=\"\">- pilih -</option>";
+                                $stmt = $conn->prepare($strlistdesa);
+                                $stmt->execute();
+                                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                                $result = $stmt->fetchAll();
+                                foreach ($result as $val) {
+                                    $str .= '<option value="' . $val['desa'] . '">' . $val['desa'] . '</option>';
+                                }
+                                echo $str;
+                                ?>
+                            </select>
+                            <label>Cari nama : </label>
+                            <?php
+                            if (isset($_POST['nama']) and $_POST['nama'] != ""){
+                                echo "<input type=\"text\" value=\"".$_POST['nama']."\" name=\"nama\" id=\"nama\">";
+                            }else{
+                                echo "<input type=\"text\" value=\"\" name=\"nama\" id=\"nama\">";
+                            }
+                            ?>
+                            <input class="btn btn-primary btn-lg" id="cari" type="submit" value="cari">
+                            <?php
+                            if ((isset($_POST['nama'])) or (isset($_POST['daerah'])) or (isset($_POST['klptani'])))
+                            {
+                                echo "<button type='button' class='btn btn-info btn-lg'><a style='color: white' href='daftar_petani.php'>Reset</a></button>";
+                            }
+                            ?>
+                        </form>
+
                         <table id="table">
                             <thead>
                             <tr>
@@ -71,7 +132,34 @@ if($_SESSION['kategori'] == 'PET'){
                             <tbody>
                             <?php
                             $bisa = "";
-                            $str = file_get_contents($BASE_URL.'service/read_petani.php');
+                            $cnt = 0;
+                            $call = $BASE_URL.'service/read_petani.php';
+                            if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                                if ($cnt == 0){
+                                    $call .= '?klptani='.$_POST['klptani'];
+                                }else{
+                                    $call .= '&klptani='.$_POST['klptani'];
+                                }
+                                $cnt++;
+                            }
+                            if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                                if ($cnt == 0){
+                                    $call .= '?daerah='.$_POST['daerah'];
+                                }else{
+                                    $call .= '&daerah='.$_POST['daerah'];
+                                }
+                                $cnt++;
+                            }
+                            if (isset($_POST['nama']) and $_POST['nama'] != ""){
+                                if ($cnt == 0){
+                                    $call .= '?nama='.$_POST['nama'];
+                                }else{
+                                    $call .= '&nama='.$_POST['nama'];
+                                }
+                                $cnt++;
+                            }
+
+                            $str = file_get_contents($call);
                             $json = json_decode($str, true);
                             $cnt = count($json);
                             if ($cnt > 0) {
