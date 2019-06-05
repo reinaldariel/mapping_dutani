@@ -86,19 +86,24 @@ $id = $_GET['id'];
 
                             <div id="map" style="width: auto; height: 450px;"></div>
                             <script type="text/javascript">
-                                var latLng=new google.maps.LatLng(<?php echo $def_lat; ?>, <?php echo $def_long; ?>);
-                                var map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 15, //level zoom
-                                    scaleControl: true,
-                                    center:latLng,
-                                    mapTypeId: google.maps.MapTypeId.HYBRID
-                                });
-
-                                //                        var infowindow = new google.maps.InfoWindow();
-
                                 <?php
                                 $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
                                 $json = json_decode($str, true);
+                                if (count($json) > 0){
+                                echo "
+                                var latLng=new google.maps.LatLng(".$json[0]['Koordinat_X'].",".$json[0]['Koordinat_Y'].");
+                                ";
+                                }else{
+                                    echo "
+                                var latLng=new google.maps.LatLng(".$def_lat.",".$def_long.");
+                                ";
+                                }
+                                echo "var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 16, //level zoom
+                                    center: latLng,
+                                    scaleControl: true,
+                                    mapTypeId: google.maps.MapTypeId.HYBRID
+                                });";
                                 foreach ($json as $value) {
                                     $lineloc ="";
                                     $str2 = file_get_contents($BASE_URL.'service/read_one_detail_lahan.php?id_lahan='.$value['ID_Lahan']);
