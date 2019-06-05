@@ -113,7 +113,7 @@ if($_SESSION['kategori'] == 'PET'){
                             <?php
                             if ((isset($_POST['nama'])) or (isset($_POST['daerah'])) or (isset($_POST['klptani'])))
                             {
-                                echo "<button type='button' class='btn btn-info btn-lg'><a style='color: white' href='daftar_petani.php'>Reset</a></button>";
+                                echo "<a href=\"daftar_petani.php\"><i class=\"fa fa-times fa-lg\"></i></a>";
                             }
                             ?>
                         </form>
