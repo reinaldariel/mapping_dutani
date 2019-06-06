@@ -14,7 +14,8 @@ $conn = $database->getConnection();
 
 //init
 $str_titik_all = '';
-
+$lahancounter = $BASE_URL.'service/read_lahan_berdetail.php';
+$str_titik_all = $BASE_URL.'service/read_lahan_detail.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -67,21 +68,43 @@ $str_titik_all = '';
             <div class="grid-form">
                 <div class="grid-form1">
                     <h2>Peta Gabungan Lahan Pertanian</h2>
-                    <h4>Berdasar Kelompok Tani</h4>
-                    <form action="filter_klp_tani.php" method="post">
+                    <label>Gabungan berdasar :</label>
+                    <select id="pilihan" onchange="pilihanGabungan()">
+                    <?php
+                    if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                    echo '<option value="formKtani">Kelompok Tani</option>
+                        <option value="">-Pilih-</option>
+                        <option value="formDaerah">Daerah</option>';
+                    } elseif (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                        echo '<option value="formDaerah">Daerah</option>
+                        <option value="">-Pilih-</option>
+                        <option value="formKtani">Kelompok Tani</option>';
+                    } else {
+                        echo '<option value="">-Pilih-</option>
+                        <option value="formDaerah">Daerah</option>
+                        <option value="formKtani">Kelompok Tani</option>';
+                    }
+                    ?>
+                    </select>
+                    <?php
+                    if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                        echo '<form action="filter.php" method="post" id="formKtani">';
+                    }else {
+                        echo '<form action="filter.php" method="post" id="formKtani" style="display: none">';
+                    }
+                    ?>
+                        <h4>Berdasar Kelompok Tani</h4>
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
                             <?php
                             $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
                             if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
-                                $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_per_klp_tani.php?klp_tani='.$_POST['klptani']);
-                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php?klp_tani='.$_POST['klptani']);
+                                $lahancounter .= '?klptani='.$_POST['klptani'];
+                                $str_titik_all .= '?klptani='.$_POST['klptani'];
+
                                 $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
                                 $klp = $_POST['klptani'];
                                 echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
-                            }else{
-                                $lahancounter = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
-                                $str_titik_all = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
                             }
                             $str = "<option value=\"\">- pilih -</option>";
                             $stmt = $conn->prepare($strlistklp);
@@ -95,6 +118,40 @@ $str_titik_all = '';
                             ?>
                         </select>
                         <input class="btn btn-primary btn-lg" id="pilih_poktan" value="Pilih" type="submit">
+                        <a href="filter.php"><i class="fa fa-times fa-lg"></i></a>
+                    </form>
+                    <?php
+                    if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                        echo '<form action="filter.php" method="post" id="formDaerah">';
+                    }else {
+                        echo '<form action="filter.php" method="post" id="formDaerah" style="display: none">';
+                    }
+                    ?>
+                    <h4>Berdasar Daerah</h4>
+                        <label>pilih daerah </label>
+                        <select id="daerah" name="daerah">
+                            <?php
+                            $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
+                            if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                                $lahancounter .= '?daerah=' . $_POST['daerah'];
+                                $str_titik_all .= '?daerah=' . $_POST['daerah'];
+                                $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                                $desa = $_POST['daerah'];
+                                echo  '<option value="' . $_POST['klptani'] . '">' . tot_desa($strlistdesa) . '</option>';
+                            }
+                            $str = "<option value=\"\">- pilih -</option>";
+                            $stmt = $conn->prepare($strlistdesa);
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['Desa'] . '">' . $val['Desa'] . '</option>';
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                        <input class="btn btn-primary btn-lg" id="pilih_daerah" value="Pilih" type="submit">
+                        <a href="filter.php"><i class="fa fa-times fa-lg"></i></a>
                     </form>
                 </div>
 
@@ -114,6 +171,8 @@ $str_titik_all = '';
 
                                 //add points
                                 <?php
+                                $lahancounter = file_get_contents($lahancounter);
+                                $str_titik_all = file_get_contents($str_titik_all);
                                 $json = json_decode($str_titik_all, true);
                                 if (count($json) > 0) {
                                     foreach ($json as $key => $val) {
@@ -157,6 +216,9 @@ $str_titik_all = '';
 
                                 lahanPath.setMap(map);
 
+                                //calculate distance
+                                //var lengthInMeters = google.maps.geometry.spherical.computeLength(lahanPath.getPath());
+
                                 //calculate area
                                 function roundUp(num, precision) {
                                     precision = Math.pow(10, precision)
@@ -167,7 +229,7 @@ $str_titik_all = '';
 
                                 //add listener info
                                 google.maps.event.addListener(lahanPath,'click', function (event) {
-                                    infowindow.setContent(<?php if (isset($_POST['klptani']) and $_POST['klptani'] != ""){ echo "'".tot_klp_tani($strlistklp)."<br>' + "; } ?> "Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                                    infowindow.setContent(<?php if (isset($_POST['daerah']) and $_POST['daerah'] != ""){ echo "'".$_POST['daerah']."<br>' + "; } ?>"Luas Area : " + roundUp(lengthInMeters,2) + "m2");
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });
@@ -238,9 +300,8 @@ $str_titik_all = '';
                 <div class="clearfix"></div>
             </div>
 
-
-            <!-- script-for sticky-nav -->
             <script>
+                <!-- script-for sticky-nav -->
                 $(document).ready(function() {
                     var navoffeset=$(".header-main").offset().top;
                     $(window).scroll(function(){
@@ -253,8 +314,21 @@ $str_titik_all = '';
                     });
 
                 });
+
+                function pilihanGabungan() {
+                    var x = document.getElementById("pilihan").value;
+                    if(x == "formKtani") {
+                        document.getElementById("formKtani").style.display = "";
+                        document.getElementById("formDaerah").style.display = "none";
+                    }else if(x == "formDaerah"){
+                        document.getElementById("formKtani").style.display = "none";
+                        document.getElementById("formDaerah").style.display = "";
+                    } else {
+                        document.getElementById("formKtani").style.display = "none";
+                        document.getElementById("formDaerah").style.display = "none";
+                    }
+                }
             </script>
-            <!-- /script-for sticky-nav -->
             <!--inner block start here-->
             <div class="inner-block">
 
@@ -292,10 +366,6 @@ $str_titik_all = '';
 
         toggle = !toggle;
     });
-
-    function goAdd(id_lahan){
-        document.location = "titik_lahan_add.php?id_lahan="+id_lahan;
-    }
 </script>
 <!--js -->
 <script src="js/jquery.nicescroll.js"></script>
