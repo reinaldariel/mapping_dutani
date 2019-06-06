@@ -10,6 +10,9 @@ $desa='';
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
+$str_titik_all = $BASE_URL.'service/read_lahan_berdetail.php';
+$str_dtl_titik_all = $BASE_URL.'service/read_lahan_detail.php';
+$counter=0;
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -48,6 +51,74 @@ if(!isset($_SESSION['user'])){
             <div class="grid-form">
                 <div class="grid-form1">
                     <h2>Peta Persebaran Lahan Pertanian</h2>
+                    <form action="showall_lahan.php" method="post">
+                        <label>pilih kelompok </label>
+                        <select id="klptani" name="klptani">
+                            <?php
+                            $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
+                            if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                                if ($counter == 0) {
+                                    $str_titik_all .= '?klptani='.$_POST['klptani'];
+                                    $str_dtl_titik_all .= '?klptani='.$_POST['klptani'];
+                                }
+                                else{
+                                    $str_titik_all .= '&klptani='.$_POST['klptani'];
+                                    $str_dtl_titik_all .= '&klptani='.$_POST['klptani'];
+                                }
+
+                                $klp = $_POST['klptani'];
+                                $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
+                                echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
+                                $counter++;
+                            }
+                            $str = "<option value=\"\">- pilih -</option>";
+                            $stmt = $conn->prepare($strlistklp);
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['id'] . '">' . $val['nama'] . '</option>';
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                        <label>pilih daerah </label>
+                        <select id="daerah" name="daerah">
+                            <?php
+                            $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
+                            if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                                if ($counter == 0) {
+                                    $str_titik_all .= '?daerah=' . $_POST['daerah'];
+                                    $str_dtl_titik_all .= '?daerah=' . $_POST['daerah'];
+                                }
+                                else{
+                                    $str_titik_all .= '&daerah=' . $_POST['daerah'];
+                                    $str_dtl_titik_all .= '&daerah=' . $_POST['daerah'];
+                                }
+                                $desa = $_POST['daerah'];
+                                $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                                echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
+                                $counter++;
+                            }
+                            $str = "<option value=\"\">- pilih -</option>";
+                            $stmt = $conn->prepare($strlistdesa);
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['Desa'] . '">' . $val['Desa'] . '</option>';
+                            }
+                            echo $str;
+                            ?>
+                        </select>
+                        <input class="btn btn-primary btn-lg" id="pilih_daerah" value="Pilih" type="submit">
+                        <?php
+                        if ((isset($_POST['daerah'])) or (isset($_POST['klptani'])))
+                        {
+                            echo "<a href=\"showall_lahan.php\"><i class=\"fa fa-times fa-lg\"></i></a>";
+                        }
+                        ?>
+                    </form>
                 </div>
                 </header>
 
@@ -55,70 +126,76 @@ if(!isset($_SESSION['user'])){
 
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <script type="text/javascript">
+                        <?php
+                        $str_titik_all = file_get_contents($str_titik_all);
+                        $str_dtl_titik_all = file_get_contents($str_dtl_titik_all);
+                        $json = json_decode($str_titik_all, true);
+                        $json2 = json_decode($str_dtl_titik_all, true);
+                        if (count($json) > 0) {
+                            echo "
                         var locations = [
-                            <?php
-                            $str = file_get_contents($BASE_URL.'service/read_lahan_berdetail.php');
-                            $json = json_decode($str, true);
-                            $str = file_get_contents($BASE_URL.'service/read_lahan_detail.php');
-                            $json2 = json_decode($str, true);
-                            foreach ($json as $row){
+                        ";
+                            foreach ($json as $row) {
 
-                                $content="'<div id=\"content\">'+
+                                $content = "'<div id=\"content\">'+
                                 '<div id=\"siteNotice\">'+
                                 '</div>'+
-                                '<h4 id=\"firstHeading\" class=\"firstHeading\">".$row['ID_Lahan']."</h4>'+
-                                '<h6>".$row['nama']."</h6>'+
+                                '<h4 id=\"firstHeading\" class=\"firstHeading\">" . $row['ID_Lahan'] . "</h4>'+
+                                '<h6>" . $row['nama'] . "</h6>'+
                                 '<div id=\"bodyContent\"><p>'+
                                 '<ul>'+
-                                '<li> ".$row['desa']."' +
-                                '<li> ".$row['Nama_Kelompok_Tani']."' +
-                                '<li> <a href=\"detail_lahan.php?id_lahan=".$row['ID_Lahan']."\" target=\"_blank\">Detail</a>' +
+                                '<li> " . $row['desa'] . "' +
+                                '<li> " . $row['Nama_Kelompok_Tani'] . "' +
+                                '<li> <a href=\"detail_lahan.php?id_lahan=" . $row['ID_Lahan'] . "\" target=\"_blank\">Detail</a>' +
                                 '</ul></div></div>'";
 
-                                $lineloc ="[";
-                                foreach ($json2 as $value2){
+                                $lineloc = "[";
+                                foreach ($json2 as $value2) {
                                     if ($row['ID_Lahan'] == $value2['ID_Lahan'])
-                                        $lineloc .= "{lat:".$value2['lat'].", lng:".$value2['longt']."},";
+                                        $lineloc .= "{lat:" . $value2['lat'] . ", lng:" . $value2['longt'] . "},";
                                 }
-                                $lineloc = substr($lineloc, 0 , -1);
+                                $lineloc = substr($lineloc, 0, -1);
                                 $lineloc .= "]";
 
-                                echo "['".$row['ID_Lahan']."',".$row['lat'].",".$row['longt'].",'#".$row['col_hex']."',".$content.",".$lineloc."],";
+                                echo "['" . $row['ID_Lahan'] . "'," . $row['lat'] . "," . $row['longt'] . ",'#" . $row['col_hex'] . "'," . $content . "," . $lineloc . "],";
                             }
-                            ?>
+                            echo "   
                         ];
-                        var latLng = new google.maps.LatLng(locations[0][1], locations[0][2]);
+                        var latLng = new google.maps.LatLng(locations[0][1], locations[0][2]);";
+                        }else{
+                            echo "var latLng = new google.maps.LatLng(".$def_lat.", ".$def_long.");";
+                        }
+                        ?>
                         var map = new google.maps.Map(document.getElementById('map'), {
                             zoom: 16, //level zoom
                             scaleControl: true,
                             center:latLng,
                             mapTypeId: google.maps.MapTypeId.HYBRID
                         });
-
-                        var infowindow = new google.maps.InfoWindow();
-                        var line_locations, lahanPath, i;
-                        /* kode untuk menampilkan banyak marker */
-                        for (i = 0; i < <?php echo count($json)?>; i++) {
-                            line_locations = locations[i][5];
-                            lahanPath = new google.maps.Polygon({
-                                path: line_locations,
-                                geodesic: true,
-                                map:map,
-                                strokeColor: locations[i][3],
-                                strokeOpacity: 0.5,
-                                strokeWeight: 0.5,
-                                fillColor: locations[i][3],
-                                fillOpacity: 0.35
-                            });
-                            google.maps.event.addListener(lahanPath, 'click', (function(lahanPath, i) {
-                                return function() {
-                                    latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
-                                    infowindow.setContent(locations[i][4]);
-                                    infowindow.setPosition(latLng);
-                                    infowindow.open(map);
-                                }
-                            })(lahanPath, i));
-                        }
+                            var infowindow = new google.maps.InfoWindow();
+                            var line_locations, lahanPath, i;
+                            /* kode untuk menampilkan banyak marker */
+                            for (i = 0; i < <?php echo count($json)?>; i++) {
+                                line_locations = locations[i][5];
+                                lahanPath = new google.maps.Polygon({
+                                    path: line_locations,
+                                    geodesic: true,
+                                    map: map,
+                                    strokeColor: locations[i][3],
+                                    strokeOpacity: 0.5,
+                                    strokeWeight: 0.5,
+                                    fillColor: locations[i][3],
+                                    fillOpacity: 0.35
+                                });
+                                google.maps.event.addListener(lahanPath, 'click', (function (lahanPath, i) {
+                                    return function () {
+                                        latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+                                        infowindow.setContent(locations[i][4]);
+                                        infowindow.setPosition(latLng);
+                                        infowindow.open(map);
+                                    }
+                                })(lahanPath, i));
+                            }
                     </script>
                 </div>
 

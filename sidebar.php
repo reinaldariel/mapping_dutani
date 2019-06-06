@@ -11,13 +11,7 @@
             <?php if ($_SESSION['kategori']== "ADP"){
 //                echo '<li id="menu-academico" ><a href=""><i class="fa fa-search"></i><span>Pencarian</span><div class="clearfix"></div></a></li>';
                 echo '<li><a href="daftar_petani.php"><i class="fa fa-map-marker"></i> <span>Daftar Lahan Petani</span><div class="clearfix"></div></a></li>';
-                echo '<li><a href="#"><i class="fa fa-map-marker"></i> <span>Peta Persebaran Lahan > </span></span><div class="clearfix"></div></a>
-                                        <ul id="menu-academico-sub" >
-                                        <li id="menu-academico-avaliacoes" ><a href="showall_lahan.php">Semua</a></li>
-										   <li id="menu-academico-avaliacoes" ><a href="showall_lahan_desa.php">Daerah</a></li>
-											<li id="menu-academico-avaliacoes" ><a href="showall_lahan_klptani.php">Kelompok Tani</a></li>
-											</ul>
-                        </li>';
+                echo '<li><a href="showall_lahan.php"><i class="fa fa-map-marker"></i> <span>Peta Persebaran Lahan</span></span><div class="clearfix"></div></a></li>';
                 echo '<li><a href="#"><i class="fa fa-map-marker"></i> <span>Peta Gabungan Lahan > </span><div class="clearfix"></div></a>
                                         <ul id="menu-academico-sub" >
 										   <li id="menu-academico-avaliacoes" ><a href="filter_daerah.php">Daerah</a></li>
