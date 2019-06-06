@@ -118,7 +118,11 @@ $str_titik_all = $BASE_URL.'service/read_lahan_detail.php';
                             ?>
                         </select>
                         <input class="btn btn-primary btn-lg" id="pilih_poktan" value="Pilih" type="submit">
-                        <a href="filter.php"><i class="fa fa-times fa-lg"></i></a>
+                    <?php
+                    if (isset($_POST['klptani']) and $_POST['klptani'] != "") {
+                        echo '<a href="filter.php"><i class="fa fa-times fa-lg"></i></a>';
+                    }
+                    ?>
                     </form>
                     <?php
                     if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
@@ -151,7 +155,11 @@ $str_titik_all = $BASE_URL.'service/read_lahan_detail.php';
                             ?>
                         </select>
                         <input class="btn btn-primary btn-lg" id="pilih_daerah" value="Pilih" type="submit">
-                        <a href="filter.php"><i class="fa fa-times fa-lg"></i></a>
+                    <?php
+                    if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                        echo '<a href="filter.php"><i class="fa fa-times fa-lg"></i></a>';
+                    }
+                    ?>
                     </form>
                 </div>
 
@@ -229,7 +237,7 @@ $str_titik_all = $BASE_URL.'service/read_lahan_detail.php';
 
                                 //add listener info
                                 google.maps.event.addListener(lahanPath,'click', function (event) {
-                                    infowindow.setContent(<?php if (isset($_POST['daerah']) and $_POST['daerah'] != ""){ echo "'".$_POST['daerah']."<br>' + "; } ?>"Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                                    infowindow.setContent(<?php if (isset($_POST['daerah']) and $_POST['daerah'] != ""){ echo "'".$_POST['daerah']."<br>' + "; } elseif (isset($_POST['klptani']) and $_POST['klptani'] != ""){ echo "'".$_POST['klptani']."<br>' + "; }  ?>"Luas Area : " + roundUp(lengthInMeters,2) + "m2");
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });
