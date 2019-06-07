@@ -62,7 +62,7 @@ try {
     $sql = "INSERT INTO `master_peta_lahan_foto` (`id_foto`, `ID_Lahan`, `foto`) VALUES (NULL, '".$id_lahan."', '".$namaimage."');";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    echo '<script>alert("Berhasil menambah foto"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'");</script>';
+    echo '<script>alert("Berhasil menambah foto"); window.location.assign("'.$BASE_URL.'lahan_foto_add.php?id='.$id_lahan.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

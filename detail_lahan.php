@@ -79,7 +79,7 @@ $id = $_GET['id_lahan'];
                                             <td>ID Lahan </td> <td> : ".$value['ID_Lahan']."</td>
                                         </tr>
                                         <tr>
-                                            <td>Luas lahan </td> <td> : ".$value['luas_lahan']."</td>
+                                            <td>Luas lahan </td> <td> : ".$value['luas_lahan']." m2</td>
                                         </tr>
                                         <tr>
                                             <td>Jenis Lahan </td> <td> : ".$value['jenis_lahan']."</td>
@@ -246,7 +246,7 @@ $id = $_GET['id_lahan'];
                                 <td>Nama Tanaman </td> <td> : ".$value['Nama_Tanaman']."</td>
                             </tr>
                             <tr>
-                                <td>Kebutuhan Benih </td> <td> : ".$value['kebutuhan_benih']."</td>
+                                <td>Kebutuhan Benih </td> <td> : ".$value['kebutuhan_benih']." kg</td>
                             </tr>
                             <tr>
                                 <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']."</td>
@@ -261,7 +261,7 @@ $id = $_GET['id_lahan'];
                                 <td>Bulan Panen </td> <td> : ".$bpanen."</td>
                             </tr>
                             <tr>
-                                <td>Rata - rata hasil panen </td> <td> : ".$value['rata_hasil_panen']."</td>
+                                <td>Rata - rata hasil panen </td> <td> : ".$value['rata_hasil_panen']." kg</td>
                             </tr>
                             </tbody>
                         </table>

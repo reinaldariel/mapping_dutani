@@ -87,7 +87,7 @@ if($_SESSION['kategori'] == 'PET'){
                                 $strlistdesa = "SELECT DISTINCT Desa_Kelurahan as desa from master_petani where Desa_Kelurahan !=''";
                                 if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
                                     $desa = $_POST['daerah'];
-                                    $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                                    $strlistdesa .= " and Desa_Kelurahan != '".$_POST['daerah']."'";
                                     echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
                                 }
                                 $str = "<option value=\"\">- pilih -</option>";
