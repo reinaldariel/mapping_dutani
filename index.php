@@ -63,7 +63,72 @@ if(!isset($_SESSION['user'])){
                                 $counter++;
                             }
                         }
-                    } ?>
+                    }elseif($_SESSION['kategori'] == "ADP"){
+                        echo '
+                        <form action="index.php" method="post">
+                        <label>pilih kelompok </label>
+                        <select id="klptani" name="klptani">';
+                            $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
+                            if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                                if ($counter == 0) {
+                                    $str_titik_all .= '?klptani='.$_POST['klptani'];
+                                    $str_dtl_titik_all .= '?klptani='.$_POST['klptani'];
+                                }
+                                else{
+                                    $str_titik_all .= '&klptani='.$_POST['klptani'];
+                                    $str_dtl_titik_all .= '&klptani='.$_POST['klptani'];
+                                }
+                                $klp = $_POST['klptani'];
+                                $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
+                                echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
+                                $counter++;
+                            }
+                            $str = "<option value=\"\">- pilih -</option>";
+                            $stmt = $conn->prepare($strlistklp);
+                            $stmt->execute();
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $val) {
+                                $str .= '<option value="' . $val['id'] . '">' . $val['nama'] . '</option>';
+                            }
+                            echo $str.
+                    '</select>
+                    <label>pilih daerah </label>
+                    <select id="daerah" name="daerah">';
+
+                        $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
+                        if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                            if ($counter == 0) {
+                                $str_titik_all .= '?daerah=' . $_POST['daerah'];
+                                $str_dtl_titik_all .= '?daerah=' . $_POST['daerah'];
+                            }
+                            else{
+                                $str_titik_all .= '&daerah=' . $_POST['daerah'];
+                                $str_dtl_titik_all .= '&daerah=' . $_POST['daerah'];
+                            }
+                            $desa = $_POST['daerah'];
+                            $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                            echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
+                            $counter++;
+                        }
+                        $str = "<option value=\"\">- pilih -</option>";
+                        $stmt = $conn->prepare($strlistdesa);
+                        $stmt->execute();
+                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                        $result = $stmt->fetchAll();
+                        foreach ($result as $val) {
+                            $str .= '<option value="' . $val['Desa'] . '">' . $val['Desa'] . '</option>';
+                        }
+                        echo $str.'
+                    </select>
+                    <input class="btn btn-primary btn-lg" id="pilih_daerah" value="Pilih" type="submit">';
+                    if ((isset($_POST['daerah'])) or (isset($_POST['klptani'])))
+                    {
+                        echo "<a href=\"index.php\"><i class=\"fa fa-times fa-lg\"></i></a>";
+                    }
+                    echo'</form>';
+                        }
+                        ?>
                 </div>
                 </header>
 
@@ -71,11 +136,17 @@ if(!isset($_SESSION['user'])){
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <?php
                     if($_SESSION['kategori'] == "ADP") {
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User not in('') AND l.ID_Lahan not in('')";
+                        $list = "select l.ID_Lahan, p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User not in('') AND l.ID_Lahan not in('')";
+                        if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
+                            $list .= " and l.Desa = '".$_POST['daerah']."'";
+                        }
+                        if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
+                            $list .= " and t.ID_Kelompok_Tani = '".$_POST['klptani']."'";
+                        }
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }else{
-                        $list = "select l.ID_Lahan as id_lahan,p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa, tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
+                        $list = "select l.ID_Lahan, p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa, tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
                         $stmt = $conn->prepare($list);
                         $stmt->execute();
                     }
@@ -83,19 +154,20 @@ if(!isset($_SESSION['user'])){
                     <script type="text/javascript">
                         var locations = [
                             <?php
-                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                            $json = $stmt->fetchAll();
+                            foreach ($json as $row){
                                 $content="'<div id=\"content\">'+
                                 '<div id=\"siteNotice\">'+
                                 '</div>'+
-                                '<h4 id=\"firstHeading\" class=\"firstHeading\">".$row['id_lahan']."</h4>'+
+                                '<h4 id=\"firstHeading\" class=\"firstHeading\">".$row['ID_Lahan']."</h4>'+
                                 '<h6>".$row['nama']."</h6>'+
                                 '<div id=\"bodyContent\"><p>'+
                                 '<ul>'+
                                 '<li> ".$row['desa']."' +
                                 '<li> ".$row['Nama_Kelompok_Tani']."' +
-                                '<li> <a href=\"detail_lahan.php?id_lahan=".$row['id_lahan']."\" target=\"_blank\">Detail</a>' +
+                                '<li> <a href=\"detail_lahan.php?id_lahan=".$row['ID_Lahan']."\" target=\"_blank\">Detail</a>' +
                                 '</ul></div></div>'";
-                            echo "['".$row['id_lahan']."',".$row['latitude'].",".$row['longitude'].",".$content."],";
+                            echo "['".$row['ID_Lahan']."',".$row['latitude'].",".$row['longitude'].",".$content."],";
                             }
                             ?>
 
