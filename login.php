@@ -30,7 +30,7 @@ if(isset($_SESSION['user'])){
 	<div class="main-wthree">
 	<div class="container">
 	<div class="sin-w3-agile">
-		<h2>Login Administrator</h2>
+		<h2>Login Mapping</h2>
 		<form action="service/login.php" method="post">
 			<div class="username">
 				<span class="username">Username:</span>
