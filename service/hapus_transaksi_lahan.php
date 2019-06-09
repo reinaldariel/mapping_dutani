@@ -8,9 +8,8 @@ $stmt = $conn->prepare("SELECT ID_Lahan FROM trans_lahan WHERE nomor = ?");
 $stmt->bindParam(1, $id_trans);
 $stmt->execute();
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
-while($id_lahan = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $id_lahan = $id_lahan['ID_Lahan'];
-}
+$id_lahan = $stmt->fetchAll();
+$id_lahan = $id_lahan[0]['ID_Lahan'];
 
 try {
     $stmt = $conn->prepare("UPDATE `trans_lahan` SET `status_aktif` = '0' WHERE `trans_lahan`.`nomor` = ?;");
