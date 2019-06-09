@@ -5,10 +5,10 @@ $conn = $database->getConnection();
 $str = "select l.ID_Lahan, p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa, tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User not in('') AND l.ID_Lahan not in('')";
 
 if (isset($_GET['daerah']) and $_GET['daerah'] != ""){
-    $list .= " and l.Desa = '".$_GET['daerah']."'";
+    $str .= " and l.Desa = '".$_GET['daerah']."'";
 }
 if (isset($_GET['klptani']) and $_GET['klptani'] != ""){
-    $list .= " and t.ID_Kelompok_Tani = '".$_GET['klptani']."'";
+    $str .= " and t.ID_Kelompok_Tani = '".$_GET['klptani']."'";
 }
 
 try {
