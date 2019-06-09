@@ -7,7 +7,12 @@ $lat = $_POST['lat'];
 $longt = $_POST['longt'];
 $nama_petani = $_POST['nama_petani'];
 $nama_lahan = $_POST['nama_lahan'];
-$luas_lahan = $_POST['luas_lahan'];
+if (isset($_POST['luas_lahan']) and $_POST['luas_lahan'] != "") {
+    $luas_lahan = $_POST['luas_lahan'];
+}
+else{
+    $luas_lahan = 0;
+}
 $jenis_lahan = $_POST['jenis_lahan'];
 $provinsi = $_POST['provinsi'];
 $Kabupaten = $_POST['Kabupaten'];
@@ -20,7 +25,7 @@ $status_lahan = $_POST['status_lahan'];
 
 try {
     $sql = "INSERT INTO `master_peta_lahan` (`ID_Lahan`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`) VALUES (NULL, '".$nama_lahan."', '".$lat."', '".$longt."', ".$luas_lahan.", '".$jenis_lahan."', '".$desa."', '".$Kecamatan."', '".$Kabupaten."', '".$provinsi."', '".$status_organik."');";
-    $stmt = $conn->prepare($sql);
+        $stmt = $conn->prepare($sql);
     $stmt->execute();
 
     $str = file_get_contents($BASE_URL.'service/read_lahan_latest.php');

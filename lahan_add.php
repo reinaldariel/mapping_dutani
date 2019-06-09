@@ -88,7 +88,7 @@ if ($idp == $_SESSION['user']){
                                         </td>
                                         <td>
                                             <label> : </label>
-                                            <input type="text" value="" name="nama_lahan" id="nama_lahan" >
+                                            <input type="text" value="" name="nama_lahan" id="nama_lahan" required>
                                         </td>
                                     </tr>
                                     <tr>
@@ -97,7 +97,7 @@ if ($idp == $_SESSION['user']){
                                         </td>
                                         <td>
                                             <label> : </label>
-                                            <input type="number" value="" name="luas_lahan" id="luas_lahan">
+                                            <input type="number" value=0 name="luas_lahan" id="luas_lahan">
                                         </td>
                                     </tr>
                                     <tr>

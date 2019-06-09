@@ -66,8 +66,8 @@ $id = $_GET['id'];
                         $jml_lahan_tercatat = count($json);
 
                         $str = file_get_contents($BASE_URL.'service/read_one_petani.php?id_user='.$id);
-                        $json = json_decode($str, true);
-                        foreach ($json as $val) {
+                        $json2 = json_decode($str, true);
+                        foreach ($json2 as $val) {
                             echo "<div class='col-md-3'> Lahan milik </div><div class='col-md-3'> : " . $val['Nama_Petani'] . "</div><br>";
                             echo "<div class='col-md-3'> Jumlah lahan </div><div class='col-md-3'> : ".$val['jml_lahan']."</div><br>";
                             echo "<div class='col-md-3'> Jumlah lahan tercatat </div><div class='col-md-3'> : ".$jml_lahan_tercatat."</div><br>";
@@ -87,9 +87,7 @@ $id = $_GET['id'];
                             <div id="map" style="width: auto; height: 450px;"></div>
                             <script type="text/javascript">
                                 <?php
-                                $str = file_get_contents($BASE_URL.'service/read_lahan_one_petani.php?id_user='.$id);
-                                $json = json_decode($str, true);
-                                if (count($json) > 0){
+                                if ($jml_lahan_tercatat > 0){
                                 echo "
                                 var latLng=new google.maps.LatLng(".$json[0]['Koordinat_X'].",".$json[0]['Koordinat_Y'].");
                                 ";
