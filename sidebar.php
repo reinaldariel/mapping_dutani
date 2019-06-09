@@ -17,7 +17,7 @@
                 echo '<li><a href="daftar_lahan_per_petani.php?id='.$_SESSION['user'].'"><i class="fa fa-map-marker"></i> <span>Lahan</span><div class="clearfix"></div></a></li>';
             }
             ?>
-            <li><a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span><div class="clearfix"></div></a></li>
+            <li><a href="service/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span><div class="clearfix"></div></a></li>
         </ul>
     </div>
 </div>

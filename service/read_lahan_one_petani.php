@@ -5,7 +5,15 @@ $conn = $database->getConnection();
 $id_user = $_GET['id_user'];
 
 try {
-    $stmt = $conn->prepare("SELECT l.* FROM trans_lahan tl, master_peta_lahan l WHERE tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = ? and tl.status_aktif = 1");
+    $stmt = $conn->prepare("SELECT l.*, p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude, tl.ID_User as id_user, t.Nama_Kelompok_Tani 
+FROM trans_lahan tl, master_peta_lahan l, master_petani p, trans_ang_petani tp, master_kel_tani t 
+WHERE tl.ID_Lahan = l.ID_Lahan 
+AND tl.ID_User = ?
+and tl.status_aktif = 1
+AND t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani 
+AND p.ID_User = tp.ID_User 
+AND tl.ID_User = p.ID_User 
+AND l.ID_Lahan not in('')");
     $stmt->bindParam(1, $id_user);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);

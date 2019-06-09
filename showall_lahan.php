@@ -55,7 +55,7 @@ $counter=0;
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">
                             <?php
-                            $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
+                            $strlistklp = $BASE_URL.'service/read_klptani.php';
                             if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
                                 if ($counter == 0) {
                                     $str_titik_all .= '?klptani='.$_POST['klptani'];
@@ -67,17 +67,15 @@ $counter=0;
                                 }
 
                                 $klp = $_POST['klptani'];
-                                $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
+                                $strlistklp .= "?klptani=".$klp;
                                 echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
                                 $counter++;
                             }
                             $str = "<option value=\"\">- pilih -</option>";
-                            $stmt = $conn->prepare($strlistklp);
-                            $stmt->execute();
-                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                            $result = $stmt->fetchAll();
-                            foreach ($result as $val) {
-                                $str .= '<option value="' . $val['id'] . '">' . $val['nama'] . '</option>';
+                            $strlistklp = file_get_contents($strlistklp);
+                            $json = json_decode($strlistklp, true);
+                            foreach ($json as $val) {
+                                $str .= '<option value="' . $val['id'] . '">' . $val['nama_kelompok_tani'] . '</option>';
                             }
                             echo $str;
                             ?>
@@ -85,7 +83,7 @@ $counter=0;
                         <label>pilih daerah </label>
                         <select id="daerah" name="daerah">
                             <?php
-                            $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
+                            $strlistdesa = $BASE_URL.'service/read_kelurahan.php';
                             if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
                                 if ($counter == 0) {
                                     $str_titik_all .= '?daerah=' . $_POST['daerah'];
@@ -96,16 +94,14 @@ $counter=0;
                                     $str_dtl_titik_all .= '&daerah=' . $_POST['daerah'];
                                 }
                                 $desa = $_POST['daerah'];
-                                $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                                $strlistdesa .= "?desa=".$_POST["daerah"];
                                 echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
                                 $counter++;
                             }
                             $str = "<option value=\"\">- pilih -</option>";
-                            $stmt = $conn->prepare($strlistdesa);
-                            $stmt->execute();
-                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                            $result = $stmt->fetchAll();
-                            foreach ($result as $val) {
+                            $strlistdesa = file_get_contents($strlistdesa);
+                            $json = json_decode($strlistdesa, true);
+                            foreach ($json as $val) {
                                 $str .= '<option value="' . $val['Desa'] . '">' . $val['Desa'] . '</option>';
                             }
                             echo $str;

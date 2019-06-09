@@ -11,6 +11,8 @@ $json='';
 if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
+$str_titik_all = $BASE_URL.'service/read_lahan.php';
+$counter = 0;
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -68,55 +70,46 @@ if(!isset($_SESSION['user'])){
                         <form action="index.php" method="post">
                         <label>pilih kelompok </label>
                         <select id="klptani" name="klptani">';
-                            $strlistklp = "SELECT DISTINCT tp.ID_Kelompok_Tani as id, k.Nama_Kelompok_Tani as nama from master_kel_tani k, trans_ang_petani tp, master_petani p, trans_lahan tl, master_peta_lahan l where k.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND tp.ID_User = p.ID_User AND p.ID_User = tl.ID_User AND tl.ID_Lahan = l.ID_Lahan";
+                            $strlistklp = $BASE_URL.'service/read_klptani.php';
                             if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
                                 if ($counter == 0) {
                                     $str_titik_all .= '?klptani='.$_POST['klptani'];
-                                    $str_dtl_titik_all .= '?klptani='.$_POST['klptani'];
                                 }
                                 else{
                                     $str_titik_all .= '&klptani='.$_POST['klptani'];
-                                    $str_dtl_titik_all .= '&klptani='.$_POST['klptani'];
                                 }
                                 $klp = $_POST['klptani'];
-                                $strlistklp .= " and tp.ID_Kelompok_Tani != '".$_POST['klptani']."'";
+                                $strlistklp .= "?klptani=".$klp;
                                 echo  '<option value="' . $_POST['klptani'] . '">' . tot_klp_tani($strlistklp) . '</option>';
                                 $counter++;
                             }
                             $str = "<option value=\"\">- pilih -</option>";
-                            $stmt = $conn->prepare($strlistklp);
-                            $stmt->execute();
-                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                            $result = $stmt->fetchAll();
-                            foreach ($result as $val) {
-                                $str .= '<option value="' . $val['id'] . '">' . $val['nama'] . '</option>';
+                            $strlistklp = file_get_contents($strlistklp);
+                            $json = json_decode($strlistklp, true);
+                            foreach ($json as $val) {
+                                $str .= '<option value="' . $val['id'] . '">' . $val['nama_kelompok_tani'] . '</option>';
                             }
                             echo $str.
                     '</select>
                     <label>pilih daerah </label>
                     <select id="daerah" name="daerah">';
-
-                        $strlistdesa = "SELECT DISTINCT Desa from master_peta_lahan";
+                            $strlistdesa = $BASE_URL.'service/read_kelurahan.php';
                         if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
                             if ($counter == 0) {
                                 $str_titik_all .= '?daerah=' . $_POST['daerah'];
-                                $str_dtl_titik_all .= '?daerah=' . $_POST['daerah'];
                             }
                             else{
                                 $str_titik_all .= '&daerah=' . $_POST['daerah'];
-                                $str_dtl_titik_all .= '&daerah=' . $_POST['daerah'];
                             }
                             $desa = $_POST['daerah'];
-                            $strlistdesa .= " WHERE Desa != '".$_POST['daerah']."'";
+                            $strlistdesa .= "?desa=".$_POST["daerah"];
                             echo '<option value="'.$_POST["daerah"].'">'.$_POST["daerah"].'</option>';
                             $counter++;
                         }
                         $str = "<option value=\"\">- pilih -</option>";
-                        $stmt = $conn->prepare($strlistdesa);
-                        $stmt->execute();
-                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                        $result = $stmt->fetchAll();
-                        foreach ($result as $val) {
+                        $strlistdesa = file_get_contents($strlistdesa);
+                        $json = json_decode($strlistdesa, true);
+                        foreach ($json as $val) {
                             $str .= '<option value="' . $val['Desa'] . '">' . $val['Desa'] . '</option>';
                         }
                         echo $str.'
@@ -136,25 +129,17 @@ if(!isset($_SESSION['user'])){
                     <div id="map" style="width: auto; height: 450px;"></div>
                     <?php
                     if($_SESSION['kategori'] == "ADP") {
-                        $list = "select l.ID_Lahan, p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa,tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User not in('') AND l.ID_Lahan not in('')";
-                        if (isset($_POST['daerah']) and $_POST['daerah'] != ""){
-                            $list .= " and l.Desa = '".$_POST['daerah']."'";
-                        }
-                        if (isset($_POST['klptani']) and $_POST['klptani'] != ""){
-                            $list .= " and t.ID_Kelompok_Tani = '".$_POST['klptani']."'";
-                        }
-                        $stmt = $conn->prepare($list);
-                        $stmt->execute();
+                        $str_titik_all = file_get_contents($str_titik_all);
+                        $json = json_decode($str_titik_all, true);
                     }else{
-                        $list = "select l.ID_Lahan, p.Nama_Petani as nama,l.Koordinat_Y as longitude,l.Koordinat_X as latitude,l.Desa as desa, tl.ID_User as id_user, t.Nama_Kelompok_Tani from master_petani p, master_peta_lahan l, trans_lahan tl, trans_ang_petani tp, master_kel_tani t where t.ID_Kelompok_Tani = tp.ID_Kelompok_Tani AND p.ID_User = tp.ID_User AND tl.ID_User = p.ID_User AND tl.ID_Lahan = l.ID_Lahan AND tl.ID_User = '".$_SESSION['user']."' AND l.ID_Lahan not in('')";
-                        $stmt = $conn->prepare($list);
-                        $stmt->execute();
+                        $str_titik_all = $BASE_URL.'service/read_lahan_one_petani.php?id_user='.$_SESSION['user'];
+                        $str_titik_all = file_get_contents($str_titik_all);
+                        $json = json_decode($str_titik_all, true);
                     }
                     ?>
                     <script type="text/javascript">
                         var locations = [
                             <?php
-                            $json = $stmt->fetchAll();
                             foreach ($json as $row){
                                 $content="'<div id=\"content\">'+
                                 '<div id=\"siteNotice\">'+
@@ -163,7 +148,7 @@ if(!isset($_SESSION['user'])){
                                 '<h6>".$row['nama']."</h6>'+
                                 '<div id=\"bodyContent\"><p>'+
                                 '<ul>'+
-                                '<li> ".$row['desa']."' +
+                                '<li> ".$row['Desa']."' +
                                 '<li> ".$row['Nama_Kelompok_Tani']."' +
                                 '<li> <a href=\"detail_lahan.php?id_lahan=".$row['ID_Lahan']."\" target=\"_blank\">Detail</a>' +
                                 '</ul></div></div>'";
@@ -185,7 +170,7 @@ if(!isset($_SESSION['user'])){
 
                         var marker, i;
                         /* kode untuk menampilkan banyak marker */
-                        for (i = 0; i < <?php echo $stmt->rowCount()?>; i++) {
+                        for (i = 0; i < <?php echo count($json); ?>; i++) {
                             marker = new google.maps.Marker({
                                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                                 map: map,
@@ -218,7 +203,7 @@ if(!isset($_SESSION['user'])){
                     </div>
                     <div class="four-text">
                         <h3>Lahan Pertanian</h3>
-                        <h4> <?php echo $stmt->rowCount(); ?> </h4>
+                        <h4> <?php echo count($json); ?> </h4>
 
                     </div>
 

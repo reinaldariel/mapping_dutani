@@ -71,6 +71,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                 <td><label> : &nbsp</label></td>
                                 <td>
                                     <select name="ID_User" id="ID_User" required>
+                                        <option>-Pilih-</option>
                                         <?php
                                         if ($_SESSION['kategori'] == "PET"){
                                             echo '<option value="'.$iduser.'">'.$namapetani.'</option>';
