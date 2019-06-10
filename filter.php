@@ -229,11 +229,11 @@ $str_titik_all = $BASE_URL.'service/read_lahan_detail.php';
                                     return Math.ceil(num * precision) / precision
                                 }
 
-                                var lengthInMeters = google.maps.geometry.spherical.computeArea(lahanPath.getPath());
+                                var areaInMeters = google.maps.geometry.spherical.computeArea(lahanPath.getPath());
 
                                 //add listener info
                                 google.maps.event.addListener(lahanPath,'click', function (event) {
-                                    infowindow.setContent(<?php if (isset($_POST['daerah']) and $_POST['daerah'] != ""){ echo "'".$_POST['daerah']."<br>' + "; } elseif (isset($_POST['klptani']) and $_POST['klptani'] != ""){ echo "'".$_POST['klptani']."<br>' + "; }  ?>"Luas Area : " + roundUp(lengthInMeters,2) + "m2");
+                                    infowindow.setContent(<?php if (isset($_POST['daerah']) and $_POST['daerah'] != ""){ echo "'".$_POST['daerah']."<br>' + "; } elseif (isset($_POST['klptani']) and $_POST['klptani'] != ""){ echo "'".$_POST['klptani']."<br>' + "; }  ?>"Luas Area : " + roundUp(areaInMeters,2) + "m2");
                                     infowindow.setPosition(event.latLng);
                                     infowindow.open(map,lahanPath);
                                 });
