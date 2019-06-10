@@ -90,12 +90,24 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                 <td><label> : </label>
                                 </td>
                                 <td>
-                                    <select id="status_lahan" name="status_lahan" required>
-                                        <option value="<?php echo $json[0]['status_lahan'];?>" selected> <?php echo $json[0]['status_lahan'];?> </option>
-                                        <option value="milik"> milik </option>
-                                        <option value="sewa"> sewa </option>
-                                        <option value="garap"> garap </option>
-                                    </select></td>
+                                    <?php
+                                    if ($json[0]['status_lahan'] == 'milik'){
+                                    echo '<select id="status_lahan" name="status_lahan" disabled>
+                                    <option value="'.$json[0]["status_lahan"].'" selected> '.$json[0]["status_lahan"].'</option> </select>
+                                    <input type="hidden" value="milik" name="status_lahan" id="status_lahan">';
+                                    }else{
+                                    echo '<select id="status_lahan" name="status_lahan" required>';
+                                        if ($json[0]['status_lahan'] == 'sewa'){
+                                        echo '<option value="sewa" selected> sewa </option>
+                                        <option value = "garap" > garap </option >';
+                                    }elseif ($json[0]['status_lahan'] == 'garap') {
+                                            echo '<option value = "garap" selected> garap </option >
+                                            <option value = "sewa" > sewa </option >';
+                                            }
+                                    echo '</select>';
+                                    }
+                                    ?>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

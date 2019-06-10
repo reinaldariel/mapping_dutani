@@ -101,7 +101,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                 <td>
                                     <select id="status_lahan" name="status_lahan" required>
                                         <option value="" disabled selected> Status Lahan : </option>
-                                        <option value="milik"> milik </option>
+<!--                                        <option value="milik"> milik </option>-->
                                         <option value="sewa"> sewa </option>
                                         <option value="garap"> garap </option>
                                     </select></td>

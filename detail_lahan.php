@@ -125,7 +125,7 @@ $id = $_GET['id_lahan'];
                             if($value['status_lahan'] == 'milik'){
                                 echo "
                                     <tr>
-                                    <td>Pemilik Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
+                                    <td>Pemilik Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."'>Ubah</a></td>
                                     </tr>
                                     ";
                             }

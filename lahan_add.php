@@ -64,24 +64,25 @@ if ($idp == $_SESSION['user']){
                                     <tbody>
                                     <tr>
                                         <td>
-                                            <label>Nama Petani </label>
+                                            <label>Petani Pemilik </label>
                                         </td>
                                         <td>
                                             <label> : </label>
                                             <input type="text" value="<?php echo $nama; ?>" name="nama_petani" id="nama_petani">
                                             <input type="hidden" value="<?php echo $idp; ?>" name="ID_User" id="ID_User">
+                                            <input type="hidden" value="milik" name="status_lahan" id="status_lahan">
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td><label>Status Lahan </label></td>
-                                        <td><label> : </label>
-                                        <select id="status_lahan" name="status_lahan" required>
-                                                <option value="" disabled selected> Status Lahan : </option>
-                                                <option value="milik"> milik </option>
-                                                <option value="sewa"> sewa </option>
-                                                <option value="garap"> garap </option>
-                                            </select></td>
-                                    </tr>
+<!--                                    <tr>-->
+<!--                                        <td><label>Status Lahan </label></td>-->
+<!--                                        <td><label> : </label>-->
+<!--                                        <select id="status_lahan" name="status_lahan" required>-->
+<!--                                                <option value="" disabled selected> Status Lahan : </option>-->
+<!--                                                <option value="milik"> milik </option>-->
+<!--                                                <option value="sewa"> sewa </option>-->
+<!--                                                <option value="garap"> garap </option>-->
+<!--                                            </select></td>-->
+<!--                                    </tr>-->
                                     <tr>
                                         <td>
                                             <label>Nama Lahan</label>
