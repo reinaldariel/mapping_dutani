@@ -13,7 +13,6 @@ $database = new Database();
 $conn = $database->getConnection();
 
 //init
-$str_titik_all = '';
 $lahancounter = $BASE_URL.'service/read_lahan_berdetail.php';
 $str_titik_all = $BASE_URL.'service/read_lahan_detail.php';
 ?>
