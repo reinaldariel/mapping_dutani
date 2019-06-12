@@ -228,7 +228,7 @@ $str_titik_all = '';
                             }
                             else { ?>
                                 <tr>
-                                    <td colspan="8">Belum ada lahan tercatat</td>
+                                    <td colspan="8">Belum ada detail titik lahan tercatat</td>
                                 </tr>
                             <?php } ?>
                             </tbody>
