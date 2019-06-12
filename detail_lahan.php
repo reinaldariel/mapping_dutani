@@ -249,10 +249,7 @@ $id = $_GET['id_lahan'];
                                 <td>Kebutuhan Benih </td> <td> : ".$value['kebutuhan_benih']." kg</td>
                             </tr>
                             <tr>
-                                <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']."</td>
-                            </tr>
-                            <tr>
-                                <td>Satuan Saprotan </td> <td> : ".$value['satuan_saprotan']."</td>
+                                <td>Kebutuhan Saprotan </td> <td> : ".$value['kebutuhan_saprotan']." ".$value['satuan_saprotan']."</td>
                             </tr>
                             <tr>
                                 <td>Bulan Menanam </td> <td> : ".$btanam."</td>
