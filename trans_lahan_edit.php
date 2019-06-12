@@ -61,7 +61,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
                     <form action="service/update_transaksi_lahan.php" method="post" enctype="multipart/form-data">
                         <h4>Ubah data kepemilikan lahan <?php echo $namalahan; ?></h4>
-                        <input type="hidden" value="<?php echo $idl; ?>"; name="nomor" id="nomor">
+                        <input type="hidden" value="<?php echo $idl; ?>" name="nomor" id="nomor">
                         <BR>
                         <table>
                             <tbody>
@@ -72,6 +72,14 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                                     <select name="ID_User" id="ID_User" required>
                                         <?php
                                             echo '<option value="'.$json[0]['ID_User'].'">'.$json[0]['Nama_Petani'].'</option>';
+                                        if ($_SESSION['kategori'] == "PET"){
+                                            echo '<option value="'.$_SESSION['user'].'">'.$_SESSION['nama'].'</option>';
+                                        }
+                                        $strpetani = file_get_contents($BASE_URL.'service/read_semua_petani.php');
+                                        $strpetani = json_decode($strpetani, true);
+                                        foreach ($strpetani as $value) {
+                                            echo '<option value="'.$value['ID_User'].'">'.$value['Nama_Petani'].'</option>';
+                                        }
                                         ?>
                                     </select>
                                 </td>
