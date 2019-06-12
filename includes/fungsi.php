@@ -36,7 +36,7 @@
         if ($_SESSION['kategori'] != 'PET'){
         $database = new Database();
         $conn = $database->getConnection();
-	    $list="SELECT DISTINCT tl.ID_User FROM master_petani p, trans_lahan tl, trans_ang_petani tp, master_peta_lahan l where p.ID_User = tl.ID_User and tl.ID_Lahan = l.ID_Lahan and p.ID_User = tp.ID_User";
+	    $list="SELECT DISTINCT tl.ID_User FROM master_petani p, trans_lahan tl, trans_ang_petani tp, master_peta_lahan l where p.ID_User = tl.ID_User and tl.ID_Lahan = l.ID_Lahan and p.ID_User = tp.ID_User and tl.status_aktif = 1";
 		if(!empty($klptani)){
 		$list="".$list." and tp.ID_Kelompok_Tani ='$klptani'";
 		}
