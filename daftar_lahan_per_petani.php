@@ -55,6 +55,9 @@ $id = $_GET['id'];
         <div class="mother-grid-inner">
                <!--grid-->
             <div class="grid-form">
+                <div class="grid-form1" style="padding-bottom: 5px; padding-top: 5px;margin-bottom: 0;">
+                    <a href="<?php echo $BASE_URL."daftar_petani.php" ?>" style="color:#191919;"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i> Daftar Petani</a>
+                </div>
                 <div class="grid-form1">
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
 <!--                    <table>-->
@@ -171,7 +174,7 @@ $id = $_GET['id'];
                                     $tbl_cont .= "<td>" . $val['jenis_lahan'] . "</td>";
                                     $tbl_cont .= "<td>" . $val['Desa'] . ", " . $val['Kecamatan'] . ", " . $val['Kabupaten'] . ", " . $val['Provinsi'] . "</td>";
                                     
-                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'><a href='service/hapus_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Hapus</a></button></div> </td></tr>";
+                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."&id_petani=".$id."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'><a href='service/hapus_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Hapus</a></button></div> </td></tr>";
                                 }
                             }
                             else {

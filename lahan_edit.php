@@ -9,6 +9,7 @@ if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
 $idl = $_GET['id_lahan'];
+$idp = $_GET['id_petani'];
 $str = file_get_contents($BASE_URL.'service/read_one_lahan.php?id_lahan='.$idl);
 $json = json_decode($str, true);
 ?>
@@ -44,6 +45,9 @@ $json = json_decode($str, true);
     <div class="left-content">
         <div class="mother-grid-inner">
             <div class="grid-form">
+                <div class="grid-form1" style="padding-bottom: 5px; padding-top: 5px;margin-bottom: 0;">
+                    <a href="<?php echo $BASE_URL."detail_lahan.php?id_lahan=".$idl."&id_petani=".$idp; ?>" style="color:#191919;"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i> Detail Lahan</a>
+                </div>
                 <div class="grid-form1">
                     <h2>Ubah Lahan Pertanian</h2>
 

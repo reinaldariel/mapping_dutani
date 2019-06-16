@@ -52,6 +52,9 @@ if ($idp == $_SESSION['user']){
     <div class="left-content">
         <div class="mother-grid-inner">
             <div class="grid-form">
+                <div class="grid-form1" style="padding-bottom: 5px; padding-top: 5px;margin-bottom: 0;">
+                    <a href="<?php echo $BASE_URL."daftar_lahan_per_petani.php?id=".$idp; ?>" style="color:#191919;"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i> Detail Lahan</a>
+                </div>
                 <div class="grid-form1">
                     <h2>Tambah Lahan Pertanian</h2>
 

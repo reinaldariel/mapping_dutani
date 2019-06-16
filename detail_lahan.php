@@ -6,6 +6,7 @@ if(!isset($_SESSION['user'])){
     echo "<script>location.href='login.php'</script>";
 }
 $id = $_GET['id_lahan'];
+$idp = $_GET['id_petani'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -57,8 +58,10 @@ $id = $_GET['id_lahan'];
         <div class="mother-grid-inner">
             <div class="agile-grids">
                 <div class="grid-form">
-                    <div class="grid-form1">
-
+                    <div class="grid-form1" style="padding-bottom: 5px; padding-top: 5px;margin-bottom: 0;">
+                    <a href="<?php echo $BASE_URL."daftar_lahan_per_petani.php?id=".$idp; ?>" style="color:#191919;"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i> Daftar Lahan Petani</a>
+                    </div>
+                        <div class="grid-form1">
                             <?php
                             $lat="";
                             $long="";
@@ -70,9 +73,9 @@ $id = $_GET['id_lahan'];
                                     $lat=$value['lat'];
                                     $long=$value['longt'];
                                     $nama_lahan=$value['nama_lahan'];
-                                    echo "<h2>".$value['nama_lahan']."</h2>
+                                    echo "<h1>".$value['nama_lahan']."</h1>
                                     <h4>Keterangan Lahan</h4>
-                                    <button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id."' style='color: white'>Ubah</a></button>
+                                    <button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id."&id_petani=".$idp."' style='color: white'>Ubah</a></button>
                                     <table style=\"border: none\">
                                     <tbody>
                                         <tr>
@@ -115,7 +118,7 @@ $id = $_GET['id_lahan'];
                         <br>
                         <?php
                         echo "<h4>Kepemilikan Lahan</h4>
-<a href='./trans_lahan_add.php?id=".$id."' class='btn btn-success'>Tambah</a>
+<a href='./trans_lahan_add.php?id=".$id."&idp=".$idp."' class='btn btn-success'>Tambah</a>
                             <table style=\"border: none\">
                                     <tbody>
                             ";
@@ -125,21 +128,21 @@ $id = $_GET['id_lahan'];
                             if($value['status_lahan'] == 'milik'){
                                 echo "
                                     <tr>
-                                    <td>Pemilik Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."'>Ubah</a></td>
+                                    <td>Pemilik Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a></td>
                                     </tr>
                                     ";
                             }
                             elseif($value['status_lahan'] == 'sewa'){
                                 echo "
                                     <tr>
-                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
+                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
                                     </tr>
                                     ";
                             }
                             elseif($value['status_lahan'] == 'garap'){
                                 echo "
                                     <tr>
-                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
+                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
                                     </tr>
                                     ";
                             }
@@ -148,7 +151,7 @@ $id = $_GET['id_lahan'];
                         ?>
                         <br>
                         <h4>Tanaman</h4>
-                        <a href="./lahan_tanaman_add.php?id=<?php echo $id;?>" class="btn btn-success">Tambah penanaman</a>
+                        <a href="./lahan_tanaman_add.php?id=<?php echo $id;?>&idp=<?php echo $idp;?>" class="btn btn-success">Tambah penanaman</a>
                             <?php
                             $cntr=1;
                             $str = file_get_contents($BASE_URL.'service/read_tanaman_per_lahan.php?id_lahan='.$id);
@@ -276,7 +279,7 @@ $id = $_GET['id_lahan'];
 
                         <br>
                         <h4>Foto</h4>
-                        <a href="./lahan_foto_add.php?id=<?php echo $id;?>" class="btn btn-success">Detail Foto</a>
+                        <a href="./lahan_foto_add.php?id=<?php echo $id;?>&idp=<?php echo $idp;?>" class="btn btn-success">Detail Foto</a>
                         <table style="border: none">
                             <tbody>
                             <tr>
@@ -304,7 +307,7 @@ $id = $_GET['id_lahan'];
                         </table>
                         <br>
                         <h4>Lokasi</h4>
-                        <a href="./detail_titik_lahan.php?id_lahan=<?php echo $id;?>" class="btn btn-success">Detail Titik Lahan</a>
+                        <a href="./detail_titik_lahan.php?id_lahan=<?php echo $id;?>&idp=<?php echo $idp;?>" class="btn btn-success">Detail Titik Lahan</a>
                         <div id="map" style="width: auto; height: 450px;"></div>
                     </div>
                 </div>

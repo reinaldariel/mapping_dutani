@@ -60,6 +60,9 @@ $str_titik_all = '';
         <div class="mother-grid-inner">
                <!--grid-->
             <div class="grid-form">
+                <div class="grid-form1" style="padding-bottom: 5px; padding-top: 5px;margin-bottom: 0;">
+                    <a href="<?php echo $BASE_URL."detail_lahan.php?id_lahan=".$_GET['id_lahan']."&id_petani=".$_GET['idp']; ?>" style="color:#191919;"><i class="fa fa-caret-square-o-left" aria-hidden="true"></i> Detail Lahan</a>
+                </div>
                 <div class="grid-form1">
                     <h2>Pemetaan Lokasi Lahan Pertanian</h2>
                     <h4>Detil Titik Lahan Pertanian</h4>
@@ -74,14 +77,13 @@ $str_titik_all = '';
 
                         $str = file_get_contents($BASE_URL.'service/read_one_petani_berdasar_lahan.php?id_lahan='.$_GET['id_lahan']);
                         $json = json_decode($str, true);
-                        foreach ($json as $head) {
-                            $counter = 0;
-                            foreach ($head as $key => $val) {
-                                if ($counter == 1) {
-                                    echo "<p>Lahan milik : </p>" . $val . "<br><br>";
-                                }
-                                $counter++;
-                            }
+                        foreach ($json as $val) {
+                            if ($val['status_lahan'] == 'milik')
+                                    echo "<p>Lahan milik : </p>" . $val['Nama_Petani'] . "<br><br>";
+                            elseif ($val['status_lahan'] == 'sewa')
+                                echo "<p>Penyewa Lahan : </p>" . $val['Nama_Petani'] . "<br><br>";
+                            else
+                                echo "<p>Penggarap Lahan : </p>" . $val['Nama_Petani'] . "<br><br>";
                         }
                      ?>
                 </div>
@@ -193,11 +195,10 @@ $str_titik_all = '';
 
             <div class="agile-grids">
                 <!-- tables -->
-
                 <div class="grid-form">
                     <div class="grid-form1">
                         <h4>Data Titik Lahan Petani</h4>
-                        <button type="button" class="btn btn-success" name="titik_lahan_add" id="titik_lahan_add" onclick="goAdd(<?php echo $_GET['id_lahan']; ?>)"> + Tambah Titik</button>
+                        <button type="button" class="btn btn-success" name="titik_lahan_add" id="titik_lahan_add" onclick="goAdd(<?php echo $_GET['id_lahan']; ?>,'<?php echo $_GET['idp']; ?>')"> + Tambah Titik</button>
                         <table id="table" class="table table-striped table-hover">
                             <thead>
                             <tr>
@@ -218,7 +219,7 @@ $str_titik_all = '';
                                         <td><?php echo $val['longt']?></td>
                                         <td>
                                         <center>
-                                            <a href="titik_lahan_add.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail'];?>" class="btn btn-warning">Ubah</a>
+                                            <a href="titik_lahan_add.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail'];?>&idp=<?php echo $_GET['idp'];?>" class="btn btn-warning">Ubah</a>
                                             <a href="service/hapus_titik_lahan.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail']; ?>" class="btn btn-danger">Hapus</a>
                                         </center>
                                         </td>
@@ -293,8 +294,8 @@ $str_titik_all = '';
         toggle = !toggle;
     });
 
-    function goAdd(id_lahan){
-        document.location = "titik_lahan_add.php?id_lahan="+id_lahan;
+    function goAdd(id_lahan,idp){
+        document.location = "titik_lahan_add.php?id_lahan="+id_lahan+"&idp="+idp;
     }
 
     function goUpdatePosisi(){
@@ -309,37 +310,37 @@ $str_titik_all = '';
 <!-- /Bootstrap Core JavaScript -->
 
 <script type="text/javascript">
-    //$('tbody').sortable();
-    $('tbody').sortable({
-        disabled: false,
-        axis: 'y',
-        items: "> tr:not(:first)",
-        forceHelperSize: true,
-        start: function(event, ui) {
-            ui.item.data('originIndex', ui.item.index());
-            //alert("Posisi Awal " + ui.item.index());
-        },
-        update: function (event, ui) {
-            var originIndex = ui.item.data('originIndex');
-            var Newpos = ui.item.index();
-            var MovedItem
-            var RefID = $('tr').find('td:first').html();
-            //alert("New Position " + Newpos + "..... RefID: " + RefID + "Old Pos " + originIndex);
-            $.ajax({
-                url:"service/update_posisi_titik.php",
-                type:'post',
-                data:{
-                    id_indeks_start:originIndex,
-                    id_indeks_end:Newpos,
-                    id_lahan:<?php echo $_GET['id_lahan']?>
-                },
-                success:function(){
-                    alert('Lahan sudah berhasil diubah!');
-                    document.location.reload();
-                }
-            })
-        }
-    }).disableSelection();
+//    //$('tbody').sortable();
+//    $('tbody').sortable({
+//        disabled: false,
+//        axis: 'y',
+//        items: "> tr:not(:first)",
+//        forceHelperSize: true,
+//        start: function(event, ui) {
+//            ui.item.data('originIndex', ui.item.index());
+//            //alert("Posisi Awal " + ui.item.index());
+//        },
+//        update: function (event, ui) {
+//            var originIndex = ui.item.data('originIndex');
+//            var Newpos = ui.item.index();
+//            var MovedItem
+//            var RefID = $('tr').find('td:first').html();
+//            //alert("New Position " + Newpos + "..... RefID: " + RefID + "Old Pos " + originIndex);
+//            $.ajax({
+//                url:"service/update_posisi_titik.php",
+//                type:'post',
+//                data:{
+//                    id_indeks_start:originIndex,
+//                    id_indeks_end:Newpos,
+//                    id_lahan:<?php //echo $_GET['id_lahan']?>
+//                },
+//                success:function(){
+//                    alert('Lahan sudah berhasil diubah!');
+//                    document.location.reload();
+//                }
+//            })
+//        }
+//    }).disableSelection();
 </script>
 </body>
 </html>
