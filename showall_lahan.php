@@ -142,7 +142,7 @@ $counter=0;
                                 '<ul>'+
                                 '<li> " . $row['desa'] . "' +
                                 '<li> " . $row['Nama_Kelompok_Tani'] . "' +
-                                '<li> <a href=\"detail_lahan.php?id_lahan=" . $row['ID_Lahan'] . "\" target=\"_blank\">Detail</a>' +
+                                '<li> <a href=\"detail_lahan.php?id_lahan=" . $row['ID_Lahan'] . "&id_petani=".$row['id_user']."\" target=\"_blank\">Detail</a>' +
                                 '</ul></div></div>'";
 
                                 $lineloc = "[";
