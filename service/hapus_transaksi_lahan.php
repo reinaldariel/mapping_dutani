@@ -2,6 +2,7 @@
 include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
+$idp = $_GET['idp'];
 $id_trans = $_GET['id_trans'];
 $id_lahan = '';
 $stmt = $conn->prepare("SELECT ID_Lahan FROM trans_lahan WHERE nomor = ?");
@@ -17,7 +18,7 @@ try {
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();
-    echo '<script>alert("Berhasil menghapus status kepemilikan lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'");</script>';
+    echo '<script>alert("Berhasil menghapus status kepemilikan lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'&id_petani='.$idp.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

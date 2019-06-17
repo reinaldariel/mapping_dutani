@@ -3,6 +3,7 @@ include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
 
+$idp = $_POST['id_pelaku'];
 $id_indeks_start = $_POST['id_indeks_start']+1;
 $id_indeks_end = $_POST['id_indeks_end']+1;
 $id_lahan = $_POST['id_lahan'];
@@ -34,7 +35,7 @@ try {
     $stmt->bindParam(2, $result[0]['id_detail']);
     $stmt->execute();
 
-    echo '<script>alert("Berhasil mengubah posisi titik lahan"); window.location.assign("'.$BASE_URL.'detail_titik_lahan.php?id_lahan='.$id_lahan.'");</script>';
+    echo '<script>alert("Berhasil mengubah posisi titik lahan"); window.location.assign("'.$BASE_URL.'detail_titik_lahan.php?id_lahan='.$id_lahan.'&idp='.$idp.'");</script>';
     // echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
     // echo "<meta http-equiv='refresh' content='1;url=../detail_titik_lahan.php?id_lahan=".$id_lahan."'>";
 

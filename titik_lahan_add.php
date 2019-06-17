@@ -282,6 +282,7 @@ $titik_long = 0;
                             <button type="submit" class="btn btn-primary" id="simpan_tanah" onclick="goAdd()">Simpan</button>
                             <input type="hidden" value="<?php echo isset($_GET['id_lahan'])? $_GET['id_lahan']: 0 ?>" name="id_lahan" id="id_lahan" class="form-control">
                             <input type="hidden" value="<?php echo isset($_GET['id_detail'])? $_GET['id_detail']: 0 ?>" name="id_detail" id="id_detail" class="form-control">
+                            <input type="hidden" value="<?php echo $_GET['idp']; ?>" name="id_pelaku" id="id_pelaku">
                         </div>
                     </div>
                 </form>

@@ -68,6 +68,7 @@ $json = json_decode($str, true);
                                             <label> : </label>
                                             <input type="text" value="<?php echo $json[0]['nama_lahan']; ?>" name="nama_lahan" id="nama_lahan" >
                                             <input type="hidden" value="<?php echo $idl ?>" name="id_lahan" id="id_lahan" >
+                                            <input type="hidden" value="<?php echo $idp ?>" name="id_pelaku" id="id_pelaku" >
                                         </td>
                                     </tr>
                                     <tr>

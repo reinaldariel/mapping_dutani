@@ -6,7 +6,7 @@ $conn = $database->getConnection();
 $nomor = $_POST['nomor'];
 $status_lahan = $_POST['status_lahan'];
 $tanggal = $_POST['tanggal'];
-
+$idp = $_POST['id_pelaku'];
 $id_lahan = '';
 $stmt = $conn->prepare("SELECT ID_Lahan FROM trans_lahan WHERE nomor = ?");
 $stmt->bindParam(1, $id_trans);
@@ -21,7 +21,7 @@ try {
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
-    echo '<script>alert("Berhasil mengubah kepemilikan lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'");</script>';
+    echo '<script>alert("Berhasil mengubah kepemilikan lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'&id_petani='.$idp.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

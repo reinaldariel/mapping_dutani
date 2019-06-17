@@ -138,7 +138,7 @@ switch ($json[0]['bulan_akhir']) {
                         <h4>Ubah data penanaman lahan <?php echo $json[0]['nama_lahan']; ?></h4>
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_detail_tanaman" id="id_detail_tanaman">
                         <input type="hidden" value="<?php echo $json[0]['ID_Lahan']; ?>" name="id_lahan" id="id_lahan">
-
+                        <input type="hidden" value="<?php echo $idp; ?>" name="id_pelaku" id="id_pelaku">
                         <table>
                             <tbody>
                             <tr>

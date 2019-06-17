@@ -3,6 +3,7 @@ include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
 
+$idp = $_POST['id_pelaku'];
 $id_lahan = $_POST['id_lahan'];
 $id_detail = $_POST['id_detail'];
 $lat = $_POST['lat'];
@@ -41,7 +42,7 @@ try {
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();
     echo json_encode($result);
-    echo '<script>alert("Berhasil menambah titik lahan"); window.location.assign("'.$BASE_URL.'detail_titik_lahan.php?id_lahan='.$id_lahan.'");</script>';
+    echo '<script>alert("Berhasil menambah titik lahan"); window.location.assign("'.$BASE_URL.'detail_titik_lahan.php?id_lahan='.$id_lahan.'&idp='.$idp.'");</script>';
 //    echo "<div class='box box-primary row callout callout-info' style='text-align: right'><h4>Sukses!</h4></div>";
 //    echo "<meta http-equiv='refresh' content='1;url=../detail_titik_lahan.php?id_lahan=".$id_lahan."'>";
 } catch (PDOException $e) {

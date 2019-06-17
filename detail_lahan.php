@@ -49,7 +49,12 @@ $idp = $_GET['id_petani'];
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-
+    <!-- alert -->
+    <script src="js/alertify.min.js"></script>
+    <!-- alert style -->
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <!-- alert theme -->
+    <link rel="stylesheet" href="css/themes/default.min.css" />
 </head>
 <body>
 <div class="page-container">
@@ -135,14 +140,14 @@ $idp = $_GET['id_petani'];
                             elseif($value['status_lahan'] == 'sewa'){
                                 echo "
                                     <tr>
-                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
+                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."&idp=".$idp."'>Hapus</a></td>
                                     </tr>
                                     ";
                             }
                             elseif($value['status_lahan'] == 'garap'){
                                 echo "
                                     <tr>
-                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."'>Hapus</a></td>
+                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."&idp=".$idp."'>Hapus</a></td>
                                     </tr>
                                     ";
                             }
@@ -242,7 +247,7 @@ $idp = $_GET['id_petani'];
                                     }
                                    echo "
                          <h5>Penanaman ".$cntr."</h5>  
-                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."' class='btn btn-warning'>Ubah</a><button type='button' class='btn btn-danger'><a href='service/hapus_penanaman.php?id_penanaman=".$value['id_detail_tanaman']."' style='color: white'>Hapus</a></button>
+                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."&idp=".$idp."' class='btn btn-warning'>Ubah</a><button type='button' class='btn btn-danger'><a href='service/hapus_penanaman.php?id_penanaman=".$value['id_detail_tanaman']."&idp=".$idp."' style='color: white'>Hapus</a></button>
                         <table>
                             <tbody>
                             <tr>

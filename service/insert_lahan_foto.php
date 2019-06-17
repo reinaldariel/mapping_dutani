@@ -3,6 +3,7 @@ include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
 
+$idp = $_POST['id_pelaku'];
 $ID_User = $_POST['ID_User'];
 $id_lahan = $_POST['id_lahan'];
 
@@ -62,7 +63,7 @@ try {
     $sql = "INSERT INTO `master_peta_lahan_foto` (`id_foto`, `ID_Lahan`, `foto`) VALUES (NULL, '".$id_lahan."', '".$namaimage."');";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    echo '<script>alert("Berhasil menambah foto"); window.location.assign("'.$BASE_URL.'lahan_foto_add.php?id='.$id_lahan.'");</script>';
+    echo '<script>alert("Berhasil menambah foto"); window.location.assign("'.$BASE_URL.'lahan_foto_add.php?id='.$id_lahan.'&idp='.$idp.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

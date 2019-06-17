@@ -2,6 +2,7 @@
 include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
+$idp = $_GET['idp'];
 $id_foto = $_GET['id_foto'];
 $id_lahan = '';
 
@@ -18,7 +19,7 @@ try {
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $result = $stmt->fetchAll();
-    echo '<script>alert("Foto berhasil dihapus"); window.location.assign("'.$BASE_URL.'lahan_foto_add.php?id='.$id_lahan.'");</script>';
+    echo '<script>alert("Foto berhasil dihapus"); window.location.assign("'.$BASE_URL.'lahan_foto_add.php?id='.$id_lahan.'&idp='.$idp.'");</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

@@ -3,6 +3,7 @@ include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
 
+$idp = $_POST['id_pelaku'];
 $id_lahan = $_POST['id_lahan'];
 $id_user = $_POST['ID_User'];
 $status_lahan = $_POST['status_lahan'];
@@ -19,7 +20,7 @@ try {
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
-    echo '<script>alert("Berhasil menambah kepemilikan lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'");;</script>';
+    echo '<script>alert("Berhasil menambah kepemilikan lahan"); window.location.assign("'.$BASE_URL.'detail_lahan.php?id_lahan='.$id_lahan.'&id_petani='.$idp.'");;</script>';
 } catch (PDOException $e) {
     echo "Error. ". $e->getMessage();
 }

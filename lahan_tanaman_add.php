@@ -62,6 +62,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                     <form action="service/insert_lahan_tanaman.php" method="post" enctype="multipart/form-data">
                         <h4>Tambah data penanaman lahan <?php echo $namalahan; ?></h4>
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_lahan" id="id_lahan">
+                        <input type="hidden" value="<?php echo $idp; ?>" name="id_pelaku" id="id_pelaku">
 <table>
     <tbody>
     <tr>

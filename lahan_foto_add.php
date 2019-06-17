@@ -84,6 +84,7 @@ $jmlfoto = count($json);
                     <form action="service/insert_lahan_foto.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" value="<?php echo $_SESSION['user']; ?>" name="ID_User" id="ID_User">
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_lahan" id="id_lahan">
+                        <input type="hidden" value="<?php echo $idp; ?>" name="id_pelaku" id="id_pelaku">
 
                         <table style="border: none">
                             <tbody>
@@ -98,7 +99,7 @@ $jmlfoto = count($json);
 <td><img id='myImg".$fotocounter."' src='images/foto_lahan/".$value['foto']."' alt='".$value['foto']."' style='width:100%;max-width:100px'>
 </td>
 <td>
-<a href='./service/hapus_foto.php?id_foto=".$value['id_foto']."' class=\"btn btn-danger\">Hapus Foto</a>
+<a href='./service/hapus_foto.php?id_foto=".$value['id_foto']."&idp=".$idp."' class=\"btn btn-danger\">Hapus Foto</a>
 </td></tr>
 ";
                                         $fotocounter++;

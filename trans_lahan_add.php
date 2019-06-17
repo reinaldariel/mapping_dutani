@@ -49,6 +49,12 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         crossorigin="anonymous"></script>
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+    <!-- alert -->
+    <script src="js/alertify.min.js"></script>
+    <!-- alert style -->
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <!-- alert theme -->
+    <link rel="stylesheet" href="css/themes/default.min.css" />
     <!-- //lined-icons -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
 </head>
@@ -68,6 +74,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                         <h4>Tambah data kepemilikan lahan <?php echo $namalahan; ?></h4>
                         <BR>
                         <input type="hidden" value="<?php echo $idl; ?>" name="id_lahan" id="id_lahan">
+                        <input type="hidden" value="<?php echo $idp; ?>" name="id_pelaku" id="id_pelaku">
                         <table>
                             <tbody>
                             <tr>
