@@ -46,7 +46,12 @@ $id = $_GET['id'];
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false" type="text/javascript"></script>
-
+    <!-- alert -->
+    <script src="js/alertify.min.js"></script>
+    <!-- alert style -->
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <!-- alert theme -->
+    <link rel="stylesheet" href="css/themes/default.min.css" />
 </head>
 <body>
 <div class="page-container">
@@ -174,7 +179,7 @@ $id = $_GET['id'];
                                     $tbl_cont .= "<td>" . $val['jenis_lahan'] . "</td>";
                                     $tbl_cont .= "<td>" . $val['Desa'] . ", " . $val['Kecamatan'] . ", " . $val['Kabupaten'] . ", " . $val['Provinsi'] . "</td>";
                                     
-                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."&id_petani=".$id."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' class='btn btn-danger'><a href='service/hapus_lahan.php?id_lahan=".$id_lhn."' style='color: white'>Hapus</a></button></div> </td></tr>";
+                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."&id_petani=".$id."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' onclick='modalHapusLahan(".$id_lhn.",".$id.")' class='btn btn-danger'>Hapus</button></div> </td></tr>";
                                 }
                             }
                             else {
@@ -225,6 +230,15 @@ $id = $_GET['id'];
     <div class="clearfix"></div>
 </div>
 <script>
+    function modalHapusLahan(idl,idp) {
+        alertify.confirm("Hapus lahan dengan id : "+idl,
+            function(){
+                window.location.assign("./service/hapus_lahan.php?id_lahan="+idl+"&idp="+idp);
+            },
+            function(){
+                alertify.error('Batal');
+            }).setHeader('Dutatani Mapping');
+    }
     var toggle = true;
 
     $(".sidebar-icon").click(function() {

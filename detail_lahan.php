@@ -140,14 +140,14 @@ $idp = $_GET['id_petani'];
                             elseif($value['status_lahan'] == 'sewa'){
                                 echo "
                                     <tr>
-                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."&idp=".$idp."'>Hapus</a></td>
+                                    <td>Penyewa Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a onclick='modalHapusTransL(\"".$value['nomor']."\",\"".$idp."\")'>Hapus</a></td>
                                     </tr>
                                     ";
                             }
                             elseif($value['status_lahan'] == 'garap'){
                                 echo "
                                     <tr>
-                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a href='./service/hapus_transaksi_lahan.php?id_trans=".$value['nomor']."&idp=".$idp."'>Hapus</a></td>
+                                    <td>Penggarap Lahan</td> <td> : ".$value['nama_petani'].", <a href='../dutatani/si_petani/Detail_Petani.php?id=".$value['ID_User']."'>Detail</a>, <a href='./trans_lahan_edit.php?id=".$value['nomor']."&idp=".$idp."'>Ubah</a> , <a onclick='modalHapusTransL(\"".$value['nomor']."\",\"".$idp."\")'>Hapus</a></td>
                                     </tr>
                                     ";
                             }
@@ -247,7 +247,7 @@ $idp = $_GET['id_petani'];
                                     }
                                    echo "
                          <h5>Penanaman ".$cntr."</h5>  
-                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."&idp=".$idp."' class='btn btn-warning'>Ubah</a><button type='button' class='btn btn-danger'><a href='service/hapus_penanaman.php?id_penanaman=".$value['id_detail_tanaman']."&idp=".$idp."' style='color: white'>Hapus</a></button>
+                          <a href='./lahan_tanaman_edit.php?id=".$value['id_detail_tanaman']."&idp=".$idp."' class='btn btn-warning'>Ubah</a><button onclick='modalHapusPenanaman(".$value['id_detail_tanaman'].",".$idp.")' type='button' class='btn btn-danger'>Hapus</button>
                         <table>
                             <tbody>
                             <tr>
@@ -467,6 +467,24 @@ $idp = $_GET['id_petani'];
     });
 </script>
 <script>
+    function modalHapusTransL(idt,idp) {
+        alertify.confirm("Apakah anda akan menghapus kepemilikan lahan dengan id : "+idt,
+            function(){
+                window.location.assign("./service/hapus_transaksi_lahan.php?id_trans="+idt+"&idp="+idp);
+            },
+            function(){
+                alertify.error('Batal');
+            }).setHeader('Dutatani Mapping');
+    }
+    function modalHapusPenanaman(idpen,idp) {
+        alertify.confirm("Hapus penanaman lahan dengan id : "+idpen,
+            function(){
+                window.location.assign("./service/hapus_penanaman.php?id_penanaman="+idpen+"&idp="+idp);
+            },
+            function(){
+                alertify.error('Batal');
+            }).setHeader('Dutatani Mapping');
+    }
     // Get the modal
     var modal = document.getElementById('myModal');
 

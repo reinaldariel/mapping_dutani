@@ -65,7 +65,12 @@ $jmlfoto = count($json);
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-
+    <!-- alert -->
+    <script src="js/alertify.min.js"></script>
+    <!-- alert style -->
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <!-- alert theme -->
+    <link rel="stylesheet" href="css/themes/default.min.css" />
 </head>
 <body>
 <div class="page-container">
@@ -99,7 +104,7 @@ $jmlfoto = count($json);
 <td><img id='myImg".$fotocounter."' src='images/foto_lahan/".$value['foto']."' alt='".$value['foto']."' style='width:100%;max-width:100px'>
 </td>
 <td>
-<a href='./service/hapus_foto.php?id_foto=".$value['id_foto']."&idp=".$idp."' class=\"btn btn-danger\">Hapus Foto</a>
+<button onclick='modalHapusFoto(".$value['id_foto'].",".$idp.")' type='button' class='btn btn-danger'>Hapus Foto</button>
 </td></tr>
 ";
                                         $fotocounter++;
@@ -269,6 +274,15 @@ $jmlfoto = count($json);
     });
 </script>
 <script>
+    function modalHapusFoto(idf,idp) {
+        alertify.confirm("Hapus foto lahan dengan id : "+idf,
+            function(){
+                window.location.assign("./service/hapus_foto.php?id_foto="+idf+"&idp="+idp);
+            },
+            function(){
+                alertify.error('Batal');
+            }).setHeader('Dutatani Mapping');
+    }
     // Get the modal
     var modal = document.getElementById('myModal');
 

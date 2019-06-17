@@ -3,15 +3,7 @@ include_once '../includes/config2.php';
 $database = new Database();
 $conn = $database->getConnection();
 $id_lahan = $_GET['id_lahan'];
-$id_petani = '';
-$stmt = $conn->prepare("SELECT ID_User FROM trans_lahan WHERE ID_Lahan = ?");
-$stmt->bindParam(1, $id_lahan);
-$stmt->execute();
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-while($id_petani = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $id_petani = $id_petani['ID_User'];
-}
-
+$id_petani = $_GET['idp'];
 
 try {
     //hapus kepemilikan lahan

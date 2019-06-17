@@ -52,6 +52,12 @@ $str_titik_all = '';
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL_3NhGIUmaXLbudR1lQLHUSLPi6_lzGI&sensor=false&libraries=geometry" type="text/javascript"></script>
     <!-- //lined-icons -->
+    <!-- alert -->
+    <script src="js/alertify.min.js"></script>
+    <!-- alert style -->
+    <link rel="stylesheet" href="css/alertify.min.css" />
+    <!-- alert theme -->
+    <link rel="stylesheet" href="css/themes/default.min.css" />
 </head>
 <body>
 <div class="page-container">
@@ -220,7 +226,7 @@ $str_titik_all = '';
                                         <td>
                                         <center>
                                             <a href="titik_lahan_add.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail'];?>&idp=<?php echo $_GET['idp'];?>" class="btn btn-warning">Ubah</a>
-                                            <a href="service/hapus_titik_lahan.php?id_lahan=<?php echo $val['id_lahan'];?>&id_detail=<?php echo $val['id_detail']; ?>" class="btn btn-danger">Hapus</a>
+                                            <button onclick='modalHapusDetilTitikL("<?php echo $val['id_lahan'];?>","<?php echo $val['id_detail']; ?>","<?php echo $_GET['idp'];?>")' type='button' class='btn btn-danger'>Hapus</button>
                                         </center>
                                         </td>
                                     </tr>
@@ -275,6 +281,15 @@ $str_titik_all = '';
     <div class="clearfix"></div>
 </div>
 <script>
+    function modalHapusDetilTitikL(idl,idt,idp) {
+        alertify.confirm("Hapus titik lahan dengan id : "+idt,
+            function(){
+                window.location.assign("./service/hapus_titik_lahan.php?id_lahan="+idl+"&id_detail="+idt+"&idp="+idp);
+            },
+            function(){
+                alertify.error('Batal');
+            }).setHeader('Dutatani Mapping');
+    }
     var toggle = true;
 
     $(".sidebar-icon").click(function() {
