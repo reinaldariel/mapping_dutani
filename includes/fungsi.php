@@ -55,7 +55,7 @@
         $database = new Database();
         $conn = $database->getConnection();
         if ($_SESSION['kategori'] == "PET"){
-            $list = "SELECT DISTINCT tp.ID_Kelompok_Tani FROM master_petani p, trans_lahan tl, trans_ang_petani tp, master_peta_lahan l where p.ID_User = tl.ID_User and tl.ID_Lahan = l.ID_Lahan and p.ID_User = tp.ID_User and p.ID_User = '".$_SESSION['user']."'";
+            $list = "SELECT DISTINCT l.ID_Kelompok_Tani FROM trans_lahan tl, master_peta_lahan l where tl.ID_Lahan = l.ID_Lahan and tl.ID_User = '".$_SESSION['user']."'";
             $stmt = $conn->prepare($list);
             $stmt->execute();
             return $stmt->rowCount();
@@ -72,7 +72,7 @@
                     return $val['Nama_Kelompok_Tani'];
                 }
             } else {
-                $list = "SELECT DISTINCT tp.ID_Kelompok_Tani FROM master_petani p, trans_lahan tl, trans_ang_petani tp, master_peta_lahan l where p.ID_User = tl.ID_User and tl.ID_Lahan = l.ID_Lahan and p.ID_User = tp.ID_User";
+                $list = "SELECT DISTINCT l.ID_Kelompok_Tani FROM trans_lahan tl, master_peta_lahan l where tl.ID_Lahan = l.ID_Lahan";
                 if (!empty($json)) {
                     $list .= " and tl.ID_Lahan in (";
                     foreach ($json as $val) {

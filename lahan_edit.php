@@ -62,6 +62,26 @@ $json = json_decode($str, true);
                                     <tbody>
                                     <tr>
                                         <td>
+                                            <label>Kelompok Tani</label>
+                                        </td>
+                                        <td>
+                                            <label> : </label>
+                                            <select id="klptani" name="klptani">
+                                                <?php
+                                                $strlistklp = $BASE_URL.'service/read_klptani.php?idp='.$idp;
+                                                $str = "<option value=\"\">- pilih -</option>";
+                                                $strlistklp = file_get_contents($strlistklp);
+                                                $json = json_decode($strlistklp, true);
+                                                foreach ($json as $val) {
+                                                    $str .= '<option value="' . $val['id'] . '">' . $val['nama_kelompok_tani'] . '</option>';
+                                                }
+                                                echo $str;
+                                                ?>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             <label>Nama Lahan</label>
                                         </td>
                                         <td>

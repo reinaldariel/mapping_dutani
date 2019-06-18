@@ -80,6 +80,7 @@ $idp = $_GET['id_petani'];
                                     $nama_lahan=$value['nama_lahan'];
                                     echo "<h1>".$value['nama_lahan']."</h1>
                                     <h4>Keterangan Lahan</h4>
+                                    <p>Lahan ini termasuk lahan dalam daerah kelompok tani ".$value['Nama_Kelompok_Tani']."</p> 
                                     <button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id."&id_petani=".$idp."' style='color: white'>Ubah</a></button>
                                     <table style=\"border: none\">
                                     <tbody>
