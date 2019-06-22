@@ -10,7 +10,7 @@ and p.ID_User = tl.ID_User
 and l.ID_Kelompok_Tani = k.ID_Kelompok_Tani 
 and tl.status_aktif = 1 
 and tl.status_lahan = 'milik'
-ORDER BY l.ID_Lahan";
+ORDER BY d.ID_Detail";
 try {
 
     if (isset($_GET['klptani'])) {
