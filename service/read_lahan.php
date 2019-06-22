@@ -10,7 +10,8 @@ AND tl.ID_Lahan = l.ID_Lahan
 AND tl.ID_User not in('') 
 AND l.ID_Lahan not in('') 
 AND tl.status_aktif = 1
-and tl.status_lahan = 'milik'";
+and tl.status_lahan = 'milik'
+ORDER BY l.ID_Lahan";
 
 if (isset($_GET['daerah']) and $_GET['daerah'] != ""){
     $str .= " and l.Desa = '".$_GET['daerah']."'";

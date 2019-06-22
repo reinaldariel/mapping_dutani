@@ -12,7 +12,8 @@ AND tl.ID_User = ?
 and tl.status_aktif = 1
 AND t.ID_Kelompok_Tani = l.ID_Kelompok_Tani
 AND tl.ID_User = p.ID_User 
-AND l.ID_Lahan not in('')");
+AND l.ID_Lahan not in('')
+ORDER BY l.ID_Lahan");
     $stmt->bindParam(1, $id_user);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
