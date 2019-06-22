@@ -5,6 +5,7 @@ $conn = $database->getConnection();
 
 $idp = $_POST['id_pelaku'];
 $id_lahan = $_POST['id_lahan'];
+$klptani = $_POST['klptani'];
 $lat = $_POST['lat'];
 $longt = $_POST['longt'];
 $nama_lahan = $_POST['nama_lahan'];
@@ -16,7 +17,7 @@ $Kecamatan = $_POST['Kecamatan'];
 $desa = $_POST['Desa_Kelurahan'];
 $status_organik = $_POST['status_organik'];
 try {
-    $sql = "UPDATE `master_peta_lahan` SET `nama_lahan` = '".$nama_lahan."', `Koordinat_X` = '".$lat."', `Koordinat_Y` = '".$longt."', `luas_lahan` = ".$luas_lahan.", `jenis_lahan` = '".$jenis_lahan."', `Desa` = '".$desa."', `Kecamatan` = '".$Kecamatan."', `Kabupaten` = '".$Kabupaten."', `Provinsi` = '".$provinsi."', `status_organik` = '".$status_organik."' WHERE `master_peta_lahan`.`ID_Lahan` = '".$id_lahan."';";
+    $sql = "UPDATE `master_peta_lahan` SET `nama_lahan` = '".$nama_lahan."', `Koordinat_X` = '".$lat."', `Koordinat_Y` = '".$longt."', `luas_lahan` = ".$luas_lahan.", `jenis_lahan` = '".$jenis_lahan."', `Desa` = '".$desa."', `Kecamatan` = '".$Kecamatan."', `Kabupaten` = '".$Kabupaten."', `Provinsi` = '".$provinsi."', `status_organik` = '".$status_organik."', `ID_Kelompok_Tani` = '".$klptani."' WHERE `master_peta_lahan`.`ID_Lahan` = '".$id_lahan."';";
 //    $stmt->bindParam(1, $id_lahan);
     $stmt = $conn->prepare($sql);
     $stmt->execute();

@@ -6,6 +6,7 @@ $conn = $database->getConnection();
 $lat = $_POST['lat'];
 $longt = $_POST['longt'];
 $nama_petani = $_POST['nama_petani'];
+$klptani = $_POST['klptani'];
 $nama_lahan = $_POST['nama_lahan'];
 if (isset($_POST['luas_lahan']) and $_POST['luas_lahan'] != "") {
     $luas_lahan = $_POST['luas_lahan'];
@@ -24,7 +25,7 @@ $id_user = $_POST['ID_User'];
 $status_lahan = $_POST['status_lahan'];
 
 try {
-    $sql = "INSERT INTO `master_peta_lahan` (`ID_Lahan`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`) VALUES (NULL, '".$nama_lahan."', '".$lat."', '".$longt."', ".$luas_lahan.", '".$jenis_lahan."', '".$desa."', '".$Kecamatan."', '".$Kabupaten."', '".$provinsi."', '".$status_organik."');";
+    $sql = "INSERT INTO `master_peta_lahan` (`ID_Lahan`, `nama_lahan`, `Koordinat_X`, `Koordinat_Y`, `luas_lahan`, `jenis_lahan`, `Desa`, `Kecamatan`, `Kabupaten`, `Provinsi`, `status_organik`, `ID_Kelompok_tani`) VALUES (NULL, '".$nama_lahan."', '".$lat."', '".$longt."', ".$luas_lahan.", '".$jenis_lahan."', '".$desa."', '".$Kecamatan."', '".$Kabupaten."', '".$provinsi."', '".$status_organik."', '".$klptani."');";
         $stmt = $conn->prepare($sql);
     $stmt->execute();
 

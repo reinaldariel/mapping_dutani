@@ -179,7 +179,7 @@ if($_SESSION['kategori'] == 'PET'){
                                         }
                                         $counter++;
                                     }
-                                    if ($bisa == 0) {
+                                    if ($bisa <= 0) {
                                         echo $tbl_cont."<td style='padding: 0; margin: 0;'><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a style='color: white' href='daftar_lahan_per_petani.php?id=" . $idp . "'>Detail</a></button></div></td></tr>";
                                     } else {
                                         echo $tbl_cont."<td style='padding: 0; margin: 0;'><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-success'><a href='lahan_add.php?id=" . $idp . "' style='color:white;'>Tambah Lahan</a></button><button type='button' class='btn btn-info'><a style='color: white' href='daftar_lahan_per_petani.php?id=" . $idp . "'>Detail</a></button></div></td></tr>";

@@ -71,7 +71,8 @@ if ($idp == $_SESSION['user']){
                                         </td>
                                         <td>
                                             <label> : </label>
-                                            <input type="text" value="<?php echo $nama; ?>" name="nama_petani" id="nama_petani">
+                                            <input type="text" value="<?php echo $nama; ?>" disabled>
+                                            <input type="hidden" value="<?php echo $nama; ?>" name="nama_petani" id="nama_petani">
                                             <input type="hidden" value="<?php echo $idp; ?>" name="ID_User" id="ID_User">
                                             <input type="hidden" value="milik" name="status_lahan" id="status_lahan">
                                         </td>
