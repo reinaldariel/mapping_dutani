@@ -9,8 +9,7 @@ and tl.ID_Lahan = l.ID_Lahan
 and p.ID_User = tl.ID_User
 and l.ID_Kelompok_Tani = k.ID_Kelompok_Tani 
 and tl.status_aktif = 1 
-and tl.status_lahan = 'milik'
-ORDER BY d.ID_Lahan";
+and tl.status_lahan = 'milik'";
 
 if (isset($_GET['klptani']) and $_GET['klptani'] != ""){
     $str .= " and l.ID_Kelompok_Tani = '".$_GET['klptani']."'";

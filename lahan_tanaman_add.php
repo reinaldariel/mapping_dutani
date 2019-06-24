@@ -91,7 +91,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         </td>
         <td><label> : </label></td>
         <td>
-            <input type="number" value="" name="kebutuhan_benih" id="kebutuhan_benih">
+            <input type="number" value="0" name="kebutuhan_benih" id="kebutuhan_benih">
         </td>
     </tr>
     <tr>
@@ -100,7 +100,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         </td>
         <td><label> : </label></td>
         <td>
-            <input type="number" value="" name="kebutuhan_saprotan" id="kebutuhan_saprotan">
+            <input type="number" value="0" name="kebutuhan_saprotan" id="kebutuhan_saprotan">
         </td>
     </tr>
     <tr>
@@ -177,7 +177,7 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         </td>
         <td><label> : </label></td>
         <td>
-            <input type="number" value="" name="rata_hasil_panen" id="rata_hasil_panen">
+            <input type="number" value="0" name="rata_hasil_panen" id="rata_hasil_panen">
         </td>
     </tr>
     </tbody>
