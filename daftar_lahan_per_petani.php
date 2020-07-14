@@ -179,7 +179,7 @@ $id = $_GET['id'];
                                     $tbl_cont .= "<td>" . $val['jenis_lahan'] . "</td>";
                                     $tbl_cont .= "<td>" . $val['Desa'] . ", " . $val['Kecamatan'] . ", " . $val['Kabupaten'] . ", " . $val['Provinsi'] . "</td>";
                                     
-                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."&id_petani=".$id."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' onclick='modalHapusLahan(".$id_lhn.",".$id.")' class='btn btn-danger'>Hapus</button></div> </td></tr>";
+                                    echo $tbl_cont."<td><div style='padding: 0px; margin-top: 0px;'><button type='button' class='btn btn-info'><a href='detail_lahan.php?id_lahan=".$id_lhn."&id_petani=".$id."' style='color: white'>Detail</a></button><button type='button' class='btn btn-warning'><a href='lahan_edit.php?id_lahan=".$id_lhn."' style='color: white'>Ubah</a></button><button type='button' onclick='modalHapusLahan(".$id_lhn.",&quot;".$id."&quot;)' class='btn btn-danger'>Hapus</button></div> </td></tr>";
                                 }
                             }
                             else {
